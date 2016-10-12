@@ -8,7 +8,6 @@ package comandaDigital.model.produto;
 public class Produto {
 
 	private int idProduto;
-	private String nome;
 	private String descricao;
 	private Double valorBase;
 	private Double valorVenda;
@@ -19,14 +18,6 @@ public class Produto {
 
 	public void setIdProduto(int idProduto) {
 		this.idProduto = idProduto;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 
 	public String getDescricao() {
