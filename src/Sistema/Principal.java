@@ -1,5 +1,10 @@
 package Sistema;
 
+/**
+ * 
+ * @author whesl
+ *
+ */
 public class Principal {
 
 	public static void main(String[] args) {
