@@ -7,5 +7,5 @@ package comandaDigital.model.produto;
  */
 
 public class ProdutoAlimentar {
-
+	private String nome;
 }
