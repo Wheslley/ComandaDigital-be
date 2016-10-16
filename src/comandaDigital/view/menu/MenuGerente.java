@@ -5,15 +5,33 @@ import java.util.Scanner;
 public class MenuGerente {
 	
 	private static MenuGerente instance;
-
+	
+	/**
+	 * 
+	 * @return
+	 */
+	
     private static MenuGerente getIntance() {
         return instance;
     }
-
+    
+    /**
+     * 
+     * @param aInstance
+     */
+    
     private static void setInstance(MenuGerente aInstance) {
         instance = aInstance;
     }
-
+    
+    /**
+	 * Caso a variavel instance não estiver referência de nenhum ponto da
+	 * memório, associamos a ela um endereço e instanciamos a própria classe,
+	 * transformando-a em uma classe assincrôna.
+	 * 
+	 * @author whesl
+	 *
+	 */
     public static MenuGerente getInstance() {
 
         if (getIntance() == null) {

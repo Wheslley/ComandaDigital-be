@@ -29,10 +29,8 @@ public class MenuLogin {
 
 	/**
 	 * 
-	 * @author whesl
-	 *
+	 * @param aInstance
 	 */
-
 	private static void setInstance(MenuLogin aInstance) {
 		instance = aInstance;
 	}
