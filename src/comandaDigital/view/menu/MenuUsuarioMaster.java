@@ -34,7 +34,7 @@ public class MenuUsuarioMaster {
     		while (flagMenuUsuarioMaster) {
 
     			System.out.println("************************************");
-    			System.out.println("*	     Menu Gerente	           *");
+    			System.out.println("*	     Menu Gerente	     *");
     			System.out.println("************************************");
     			System.out.println("*  1) Clientes            *");
     			System.out.println("*  2) Funcionários        *");

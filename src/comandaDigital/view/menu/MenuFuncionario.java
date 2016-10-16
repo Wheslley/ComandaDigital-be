@@ -42,7 +42,7 @@ public class MenuFuncionario {
 		while (flagMenuFuncionario) {
 
 			System.out.println("************************************");
-			System.out.println("*	     Menu Funcionario	           *");
+			System.out.println("*	     Menu Funcionario	       *");
 			System.out.println("************************************");
 			System.out.println("*  1) Clientes            *");
 			System.out.println("*  2) Comanda Digital     *");

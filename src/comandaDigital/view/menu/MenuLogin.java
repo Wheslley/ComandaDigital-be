@@ -78,7 +78,7 @@ public class MenuLogin {
 		while (flagLogin) {
 
 			System.out.println("************************************");
-			System.out.println("*	         LOGIN	           *");
+			System.out.println("*	         LOGIN	          *");
 			System.out.println("************************************");
 
 			System.out.print("Usuário: ");
