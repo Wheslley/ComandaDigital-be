@@ -7,17 +7,44 @@ import comandaDigital.model.iMensagens.IMensagemGeral;
 import comandaDigital.model.iMensagens.IMensagemParametro;
 import comandaDigital.model.pessoas.Usuario;
 
+/**
+ * 
+ * @author whesl
+ *
+ */
+
 public class MenuLogin {
 
 	private static MenuLogin instance;
+
+	/**
+	 * 
+	 * @author whesl
+	 *
+	 */
 
 	private static MenuLogin getIntance() {
 		return instance;
 	}
 
+	/**
+	 * 
+	 * @author whesl
+	 *
+	 */
+
 	private static void setInstance(MenuLogin aInstance) {
 		instance = aInstance;
 	}
+
+	/**
+	 * Caso a variavel instance não estiver referência de nenhum ponto da
+	 * memório, associamos a ela um endereço e instanciamos a própria classe,
+	 * transformando-a em uma classe assincrôna.
+	 * 
+	 * @author whesl
+	 *
+	 */
 
 	public static MenuLogin getInstance() {
 
@@ -29,12 +56,25 @@ public class MenuLogin {
 
 	}
 
-	public boolean getMenuLogin() {
-
-		Usuario usuario = new Usuario();
+	/**
+	 * 
+	 * @author whesl
+	 *
+	 */
+	public void getMenuLogin() {
+		
 		Scanner scan = new Scanner(System.in);
+		Usuario usuario = new Usuario();
+		String tipoFuncionario = "";
+		int flagOpcaoSairPrograma = 0;
+		boolean flagSairPrograma = true;
 		boolean flagLogin = true;
 
+		/**
+		 * Enquanto não for digitado o valor correto do usuário com sua
+		 * respectiva senha, o programa irá acusar acesso negado e repitir a
+		 * operação.
+		 */
 		while (flagLogin) {
 
 			System.out.println("************************************");
@@ -49,37 +89,45 @@ public class MenuLogin {
 
 			System.out.println("*    		                   *");
 			System.out.println("************************************\n\n");
+			
+			tipoFuncionario = ValidaMenuLogin.getInstance().validaMenuLogin(usuario);
 
-			switch (ValidaMenuLogin.getInstance().validaMenuLogin(usuario)) {
+			if (ValidaMenuLogin.getInstance().validaTipoDeFuncionario(tipoFuncionario)){
+				
+				flagLogin = false;
+				System.out.println(IMensagemGeral.ACESSO_LIBERADO + "\n\n");
+				ValidaMenuLogin.getInstance().forwardMenuLogin(tipoFuncionario);
+				break;
+				
+			} else {
+				
+				System.out.println(IMensagemGeral.ACESSO_NEGADO + "\n\n");
+				
+				while (flagSairPrograma) {
+					
+					System.out.print("Digite [1] para tentar novamente ou digite [0] para sair: ");
+					flagOpcaoSairPrograma = scan.nextInt();
 
-				case IMensagemParametro.USUARIO_MASTER : {
-					flagLogin = false;
-					System.out.println("(" + IMensagemParametro.USUARIO_MASTER + ") - " + IMensagemGeral.ACESSO_LIBERADO + "\n\n");
-					break;
-				}
-	
-				case IMensagemParametro.GERENTE : {
-					flagLogin = false;
-					System.out.println("(" + IMensagemParametro.GERENTE + ") - " + IMensagemGeral.ACESSO_LIBERADO + "\n\n");
-					break;
-				}
-	
-				case IMensagemParametro.FUNCIONARIO : {
-					flagLogin = false;
-					System.out.println("(" + IMensagemParametro.FUNCIONARIO + ") - " + IMensagemGeral.ACESSO_LIBERADO + "\n\n");
-					break;
-				}
-	
-				default: {
-					System.out.println(IMensagemGeral.ACESSO_NEGADO + "\n\n");
-					break;
+					if (flagOpcaoSairPrograma == 1) {
+						
+						flagSairPrograma = false;
+						
+					} else if (flagOpcaoSairPrograma == 0) {
+						
+						flagSairPrograma = false;
+						flagLogin = false;
+						
+					} else {
+						
+						flagSairPrograma = true;
+						
+					}
+					
 				}
 
 			}
 
 		}
-
-		return true;
 
 	}
 

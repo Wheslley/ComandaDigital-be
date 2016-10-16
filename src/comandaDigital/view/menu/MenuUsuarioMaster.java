@@ -1,0 +1,75 @@
+package comandaDigital.view.menu;
+
+import java.util.Scanner;
+
+public class MenuUsuarioMaster {
+	
+	private static MenuUsuarioMaster instance;
+
+    private static MenuUsuarioMaster getIntance() {
+        return instance;
+    }
+
+    private static void setInstance(MenuUsuarioMaster aInstance) {
+        instance = aInstance;
+    }
+
+    public static MenuUsuarioMaster getInstance() {
+
+        if (getIntance() == null) {
+            setInstance(new MenuUsuarioMaster());
+        }
+
+        return getIntance();
+
+    }
+    
+    public void getMenuUsuarioMaster() {
+
+    		Scanner scan = new Scanner(System.in);
+    		int opcaoMenuUsuarioMaster = 0;
+    		boolean flagMenuUsuarioMaster = true;
+    		boolean flagMenu = true;
+
+    		while (flagMenuUsuarioMaster) {
+
+    			System.out.println("************************************");
+    			System.out.println("*	     Menu Gerente	           *");
+    			System.out.println("************************************");
+    			System.out.println("*  1) Clientes            *");
+    			System.out.println("*  2) Funcionários        *");
+    			System.out.println("*  3) Usuárioas           *");
+    			System.out.println("*  4) Comanda Digital     *");
+    			System.out.println("*  5) Relatórios          *");
+    			System.out.println("*  6) Estoque             *");
+    			System.out.println("*  0) Sair                *");
+    			System.out.println("************************************\n\n");
+    			
+    			while (flagMenu) {
+    				
+    				System.out.println("Digite a opção desejada ou digite [0] para sair: ");
+    				opcaoMenuUsuarioMaster = scan.nextInt();
+    				
+    				if (opcaoMenuUsuarioMaster > 0 && opcaoMenuUsuarioMaster < 6) {
+    					
+    					flagMenu = false;
+    					flagMenuUsuarioMaster = false;
+    					
+    				} else if (opcaoMenuUsuarioMaster == 0) {
+    					
+    					flagMenu = false;
+    					flagMenuUsuarioMaster = false;
+    					
+    				} else {
+    					
+    					flagMenu = true;
+    					
+    				}
+    				
+    			}
+    			
+    		}
+
+    	}
+    
+}

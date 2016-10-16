@@ -3,6 +3,9 @@ package comandaDigital.controller.menu;
 import comandaDigital.model.iMensagens.IMensagemMenu;
 import comandaDigital.model.iMensagens.IMensagemParametro;
 import comandaDigital.model.pessoas.Usuario;
+import comandaDigital.view.menu.MenuFuncionario;
+import comandaDigital.view.menu.MenuGerente;
+import comandaDigital.view.menu.MenuUsuarioMaster;
 
 /**
  * 
@@ -46,4 +49,38 @@ public class ValidaMenuLogin {
 		
 		return IMensagemParametro.USUARIO_NAO_IDENTIFICADO;
 	}
+	
+	public boolean validaTipoDeFuncionario (String tipoFuncionario){
+    	
+    	if(tipoFuncionario.equals(IMensagemParametro.USUARIO_MASTER) || tipoFuncionario.equals(IMensagemParametro.GERENTE) || tipoFuncionario.equals(IMensagemParametro.FUNCIONARIO)){
+    		return true;
+    	}
+    	
+    	return false;
+    	
+    }
+	
+	public void forwardMenuLogin (String tipoFuncionario){
+		
+		switch (tipoFuncionario) {
+			
+			case IMensagemParametro.USUARIO_MASTER:{
+				MenuUsuarioMaster.getInstance().getMenuUsuarioMaster();
+				break;
+			}
+			
+			case IMensagemParametro.GERENTE:{
+				MenuGerente.getInstance().getMenuGerente();
+				break;
+			}
+			
+			case IMensagemParametro.FUNCIONARIO:{
+				MenuFuncionario.getInstance().getMenuFuncionario();
+				break;
+			}
+			
+		}
+		
+	}
+	
 }
