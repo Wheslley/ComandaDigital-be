@@ -1,6 +1,7 @@
 package comandaDigital.controller.menu;
 
 import comandaDigital.model.iMensagens.IMensagemMenu;
+import comandaDigital.model.iMensagens.IMensagemParametro;
 import comandaDigital.model.pessoas.Usuario;
 
 /**
@@ -31,13 +32,18 @@ public class ValidaMenuLogin {
 
     }
     
-	public boolean validaMenuLogin(Usuario usuario) {
+	public String validaMenuLogin(Usuario usuario) {
 
-		if (usuario.getLogin().toUpperCase().equals(IMensagemMenu.USUARIO_VALIDO) && usuario.getSenha().equals(IMensagemMenu.SENHA_VALIDA)) {
-			return true;
-		} else {
-			return false;
-		}
-
+		if (usuario.getLogin().toUpperCase().equals(IMensagemMenu.USUARIO_MASTER_VALIDO) && usuario.getSenha().equals(IMensagemMenu.SENHA_MASTER_VALIDA)) {
+			return IMensagemParametro.USUARIO_MASTER;
+		} else if (usuario.getLogin().toUpperCase().equals(IMensagemMenu.USUARIO_GERENTE_VALIDO) && usuario.getSenha().equals(IMensagemMenu.SENHA_GERENTE_VALIDA)) {
+			return IMensagemParametro.GERENTE;
+		} else if ((usuario.getLogin().toUpperCase().equals(IMensagemMenu.USUARIO_FUNCIONARIO_03_VALIDO) && usuario.getSenha().equals(IMensagemMenu.SENHA_FUNCIONARIO_03_VALIDA)) ||
+				   (usuario.getLogin().toUpperCase().equals(IMensagemMenu.USUARIO_FUNCIONARIO_04_VALIDO) && usuario.getSenha().equals(IMensagemMenu.SENHA_FUNCIONARIO_04_VALIDA)) ||
+				   (usuario.getLogin().toUpperCase().equals(IMensagemMenu.USUARIO_FUNCIONARIO_05_VALIDO) && usuario.getSenha().equals(IMensagemMenu.SENHA_FUNCIONARIO_05_VALIDA))) {
+			return IMensagemParametro.FUNCIONARIO;
+		} 
+		
+		return IMensagemParametro.USUARIO_NAO_IDENTIFICADO;
 	}
 }

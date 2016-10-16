@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import comandaDigital.controller.menu.ValidaMenuLogin;
 import comandaDigital.model.iMensagens.IMensagemGeral;
+import comandaDigital.model.iMensagens.IMensagemParametro;
 import comandaDigital.model.pessoas.Usuario;
 
 public class MenuLogin {
@@ -35,7 +36,7 @@ public class MenuLogin {
 		boolean flagLogin = true;
 
 		while (flagLogin) {
-			
+
 			System.out.println("************************************");
 			System.out.println("*	         LOGIN	           *");
 			System.out.println("************************************");
@@ -49,19 +50,35 @@ public class MenuLogin {
 			System.out.println("*    		                   *");
 			System.out.println("************************************\n\n");
 
-			if (ValidaMenuLogin.getInstance().validaMenuLogin(usuario)) {
-				
-				flagLogin = false;
-				System.out.println(IMensagemGeral.ACESSO_LIBERADO + "\n\n");
-				
-			} else {
-				
-				System.out.println(IMensagemGeral.ACESSO_NEGADO + "\n\n");
-				
+			switch (ValidaMenuLogin.getInstance().validaMenuLogin(usuario)) {
+
+				case IMensagemParametro.USUARIO_MASTER : {
+					flagLogin = false;
+					System.out.println("(" + IMensagemParametro.USUARIO_MASTER + ") - " + IMensagemGeral.ACESSO_LIBERADO + "\n\n");
+					break;
+				}
+	
+				case IMensagemParametro.GERENTE : {
+					flagLogin = false;
+					System.out.println("(" + IMensagemParametro.GERENTE + ") - " + IMensagemGeral.ACESSO_LIBERADO + "\n\n");
+					break;
+				}
+	
+				case IMensagemParametro.FUNCIONARIO : {
+					flagLogin = false;
+					System.out.println("(" + IMensagemParametro.FUNCIONARIO + ") - " + IMensagemGeral.ACESSO_LIBERADO + "\n\n");
+					break;
+				}
+	
+				default: {
+					System.out.println(IMensagemGeral.ACESSO_NEGADO + "\n\n");
+					break;
+				}
+
 			}
-			
+
 		}
-		
+
 		return true;
 
 	}
