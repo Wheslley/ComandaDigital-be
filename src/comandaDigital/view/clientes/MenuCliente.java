@@ -93,7 +93,7 @@ public class MenuCliente {
 		System.out.println("\nCadastro do Cliente:\n");
 		
 		System.out.println("Nome: ");
-		cliente.setNome(scan.next());
+		cliente.setNome(scan.nextLine());
 		
 		System.out.println("Email: ");
 		cliente.setEmail(scan.next());
@@ -138,7 +138,7 @@ public class MenuCliente {
 		System.out.println("\nAtualizações do cliente:\n");
 		
 		System.out.println("Nome: ");
-		cliente.setNome(scan.next());
+		cliente.setNome(scan.nextLine());
 		
 		System.out.println("Email: ");
 		cliente.setEmail(scan.next());
