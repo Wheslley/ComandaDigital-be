@@ -96,25 +96,25 @@ public class MenuCliente {
 		cliente.setNome(scan.nextLine());
 		
 		System.out.println("Email: ");
-		cliente.setEmail(scan.next());
+		cliente.setEmail(scan.nextLine());
 		
 		System.out.println("Telefone: ");
-		cliente.setTelefone(scan.next());
+		cliente.setTelefone(scan.nextLine());
 		
 		System.out.println("Logradouro: ");
-		cliente.setLogradouro(scan.next());
+		cliente.setLogradouro(scan.nextLine());
 		
 		System.out.println("Bairro: ");
-		cliente.setBairro(scan.next());
+		cliente.setBairro(scan.nextLine());
 		
 		System.out.println("Cep: ");
 		cliente.setCep(scan.nextInt());
 		
 		System.out.println("Cidade: ");
-		cliente.setCidade(scan.next());
+		cliente.setCidade(scan.nextLine());
 		
 		System.out.println("UF: ");
-		cliente.setUf(scan.next());
+		cliente.setUf(scan.nextLine());
 		
 		AuditoriaCliente.getInstance().insereCliente(cliente);
 		
@@ -141,25 +141,25 @@ public class MenuCliente {
 		cliente.setNome(scan.nextLine());
 		
 		System.out.println("Email: ");
-		cliente.setEmail(scan.next());
+		cliente.setEmail(scan.nextLine());
 		
 		System.out.println("Telefone: ");
-		cliente.setTelefone(scan.next());
+		cliente.setTelefone(scan.nextLine());
 		
 		System.out.println("Logradouro: ");
-		cliente.setLogradouro(scan.next());
+		cliente.setLogradouro(scan.nextLine());
 		
 		System.out.println("Bairro: ");
-		cliente.setBairro(scan.next());
+		cliente.setBairro(scan.nextLine());
 		
 		System.out.println("Cep: ");
 		cliente.setCep(scan.nextInt());
 		
 		System.out.println("Cidade: ");
-		cliente.setCidade(scan.next());
+		cliente.setCidade(scan.nextLine());
 		
 		System.out.println("UF: ");
-		cliente.setUf(scan.next());
+		cliente.setUf(scan.nextLine());
 		
 		AuditoriaCliente.getInstance().alteraClinte(cliente);
 		
