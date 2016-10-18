@@ -2,6 +2,8 @@ package comandaDigital.view.menu;
 
 import java.util.Scanner;
 
+import comandaDigital.controller.menu.ValidaMenuGerente;
+
 public class MenuGerente {
 	
 	private static MenuGerente instance;
@@ -47,10 +49,11 @@ public class MenuGerente {
 		Scanner scan = new Scanner(System.in);
 		int opcaoMenuGerente = 0;
 		boolean flagMenuGerente = true;
-		boolean flagMenu = true;
 
 		while (flagMenuGerente) {
-
+			
+			boolean flagMenu = true;
+			
 			System.out.println("************************************");
 			System.out.println("*	     Menu Gerente	     *");
 			System.out.println("************************************");
@@ -69,8 +72,8 @@ public class MenuGerente {
 				
 				if (opcaoMenuGerente > 0 && opcaoMenuGerente < 6) {
 					
+					ValidaMenuGerente.getInstance().opcaoMenuGerente(opcaoMenuGerente);
 					flagMenu = false;
-					flagMenuGerente = false;
 					
 				} else if (opcaoMenuGerente == 0) {
 					

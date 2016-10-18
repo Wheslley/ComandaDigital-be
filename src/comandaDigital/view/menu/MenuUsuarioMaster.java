@@ -2,6 +2,8 @@ package comandaDigital.view.menu;
 
 import java.util.Scanner;
 
+import comandaDigital.controller.menu.ValidaMenuUsuarioMaster;
+
 public class MenuUsuarioMaster {
 	
 	private static MenuUsuarioMaster instance;
@@ -29,12 +31,13 @@ public class MenuUsuarioMaster {
     		Scanner scan = new Scanner(System.in);
     		int opcaoMenuUsuarioMaster = 0;
     		boolean flagMenuUsuarioMaster = true;
-    		boolean flagMenu = true;
 
     		while (flagMenuUsuarioMaster) {
-
+    			
+    			boolean flagMenu = true;
+    			
     			System.out.println("************************************");
-    			System.out.println("*	     Menu Gerente	     *");
+    			System.out.println("*	 Menu Usuário Master   *");
     			System.out.println("************************************");
     			System.out.println("*  1) Clientes            *");
     			System.out.println("*  2) Funcionários        *");
@@ -52,8 +55,8 @@ public class MenuUsuarioMaster {
     				
     				if (opcaoMenuUsuarioMaster > 0 && opcaoMenuUsuarioMaster < 6) {
     					
+    					ValidaMenuUsuarioMaster.getInstance().opcaoMenuUsarioMaster(opcaoMenuUsuarioMaster);
     					flagMenu = false;
-    					flagMenuUsuarioMaster = false;
     					
     				} else if (opcaoMenuUsuarioMaster == 0) {
     					

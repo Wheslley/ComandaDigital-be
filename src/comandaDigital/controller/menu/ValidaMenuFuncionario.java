@@ -1,5 +1,7 @@
 package comandaDigital.controller.menu;
 
+import comandaDigital.view.clientes.MenuCliente;
+
 /**
  * 
  * @author whesl
@@ -27,5 +29,26 @@ public class ValidaMenuFuncionario {
 		return getIntance();
 
 	}
+	
+	public void opcaoMenuFuncionario(int opcaoMenu){
+    	
+    	switch (opcaoMenu) {
+
+			case 1: {
+	
+				MenuCliente.getInstance().getMenuCliente();
+				break;
+	
+			}
+	
+			default: {
+	
+				break;
+	
+			}
+
+    	}
+    	
+    }
 
 }

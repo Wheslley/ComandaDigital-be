@@ -37,10 +37,11 @@ public class MenuFuncionario {
 		Scanner scan = new Scanner(System.in);
 		int opcaoMenuFuncionário = 0;
 		boolean flagMenuFuncionario = true;
-		boolean flagMenu = true;
 
 		while (flagMenuFuncionario) {
-
+			
+			boolean flagMenu = true;
+			
 			System.out.println("************************************");
 			System.out.println("*	     Menu Funcionario	       *");
 			System.out.println("************************************");
@@ -58,8 +59,8 @@ public class MenuFuncionario {
 				
 				if (opcaoMenuFuncionário > 0 && opcaoMenuFuncionário < 5) {
 					
+					ValidaMenuFuncionario.getInstance().opcaoMenuFuncionario(opcaoMenuFuncionário);
 					flagMenu = false;
-					flagMenuFuncionario = false;
 					
 				} else if (opcaoMenuFuncionário == 0) {
 					

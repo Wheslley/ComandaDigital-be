@@ -6,7 +6,7 @@ package comandaDigital.model.pessoas;
  *
  */
 public class Cliente extends Pessoa {
-
+	
 	private int numeroCliente;
 
 	public int getNumeroCliente() {
