@@ -1,4 +1,4 @@
-package interfaces;
+package interfaces.padroes;
 
 /**
  * 
@@ -6,7 +6,7 @@ package interfaces;
  *
  */
 
-public interface MenuCrudPadrão {
+public interface IMenuCrudPadrão {
 	
 	public void auditaObjeto (int opcaoMenu);
 	public void insereObjeto (Object object);

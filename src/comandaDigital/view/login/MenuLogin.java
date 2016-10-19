@@ -3,9 +3,9 @@ package comandaDigital.view.login;
 import java.util.Scanner;
 
 import comandaDigital.controller.menu.ValidaMenuLogin;
-import comandaDigital.model.iMensagens.IMensagemGeral;
-import comandaDigital.model.iMensagens.IMensagemParametro;
 import comandaDigital.model.pessoas.Usuario;
+import interfaces.mensagens.IMensagemGeral;
+import interfaces.mensagens.IMensagemParametro;
 
 /**
  * 

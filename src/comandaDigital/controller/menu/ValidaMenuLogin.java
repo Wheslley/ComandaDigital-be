@@ -1,11 +1,11 @@
 package comandaDigital.controller.menu;
 
-import comandaDigital.model.iMensagens.IMensagemMenu;
-import comandaDigital.model.iMensagens.IMensagemParametro;
 import comandaDigital.model.pessoas.Usuario;
 import comandaDigital.view.menuGeral.MenuGeralFuncionario;
 import comandaDigital.view.menuGeral.MenuGeralGerente;
 import comandaDigital.view.menuGeral.MenuGeralUsuarioMaster;
+import interfaces.mensagens.IMensagemMenu;
+import interfaces.mensagens.IMensagemParametro;
 
 /**
  * 

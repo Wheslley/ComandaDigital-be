@@ -1,4 +1,4 @@
-package comandaDigital.model.iMensagens;
+package interfaces.mensagens;
 
 /**
  * 

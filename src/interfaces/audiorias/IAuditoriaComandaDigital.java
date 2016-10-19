@@ -1,4 +1,4 @@
-package comandaDigital.model.interfaces;
+package interfaces.audiorias;
 
 /**
  * 

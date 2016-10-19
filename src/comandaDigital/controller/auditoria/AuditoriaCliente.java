@@ -1,12 +1,12 @@
 package comandaDigital.controller.auditoria;
 
-import comandaDigital.model.iMensagens.IMensagemGeral;
 import comandaDigital.model.pessoas.Cliente;
 import comandaDigital.view.cliente.MenuCliente;
-import interfaces.MenuCrudPadrão;
+import interfaces.mensagens.IMensagemGeral;
+import interfaces.padroes.IMenuCrudPadrão;
 import localStorage.Artefatos;
 
-public class AuditoriaCliente implements MenuCrudPadrão {
+public class AuditoriaCliente implements IMenuCrudPadrão {
 
 	private static AuditoriaCliente instance;
 
