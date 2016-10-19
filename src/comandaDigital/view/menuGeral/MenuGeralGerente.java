@@ -4,6 +4,12 @@ import java.util.Scanner;
 
 import comandaDigital.controller.menu.ValidaMenuGerente;
 
+/**
+ * 
+ * @author whesl
+ *
+ */
+
 public class MenuGeralGerente {
 	
 	private static MenuGeralGerente instance;

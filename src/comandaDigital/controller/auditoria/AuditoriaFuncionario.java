@@ -1,12 +1,17 @@
 package comandaDigital.controller.auditoria;
 
-import comandaDigital.model.pessoas.Cliente;
 import comandaDigital.model.pessoas.Funcionario;
 import comandaDigital.view.funcionario.MenuFuncionario;
 import interfaces.mensagens.IMensagemGeral;
 import interfaces.padroes.IMenuCrudPadrão;
 import localStorage.Artefatos;
 import util.GerarId;
+
+/**
+ * 
+ * @author whesl
+ *
+ */
 
 public class AuditoriaFuncionario implements IMenuCrudPadrão{
 	

@@ -7,6 +7,12 @@ import interfaces.padroes.IMenuCrudPadrão;
 import localStorage.Artefatos;
 import util.GerarId;
 
+/**
+ * 
+ * @author whesl
+ *
+ */
+
 public class AuditoriaCliente implements IMenuCrudPadrão {
 
 	private static AuditoriaCliente instance;

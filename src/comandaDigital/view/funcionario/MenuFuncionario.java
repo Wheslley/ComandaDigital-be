@@ -5,6 +5,12 @@ import java.util.Scanner;
 import comandaDigital.controller.auditoria.AuditoriaFuncionario;
 import comandaDigital.model.pessoas.Funcionario;
 
+/**
+ * 
+ * @author whesl
+ *
+ */
+
 public class MenuFuncionario {
 	
 	private static MenuFuncionario instance;
