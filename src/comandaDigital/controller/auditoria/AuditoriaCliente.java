@@ -5,6 +5,7 @@ import comandaDigital.view.cliente.MenuCliente;
 import interfaces.mensagens.IMensagemGeral;
 import interfaces.padroes.IMenuCrudPadrão;
 import localStorage.Artefatos;
+import util.GerarId;
 
 public class AuditoriaCliente implements IMenuCrudPadrão {
 
@@ -70,8 +71,8 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 
 		Cliente cliente = (Cliente) object;
 		
-		cliente.setId(geraId());
-		cliente.setNumeroCliente(geraIdCliente());
+		cliente.setId(GerarId.getInstance().geraId());
+		cliente.setNumeroCliente(GerarId.getInstance().geraIdCliente());
 
 		Artefatos.clientes.add(cliente);
 
@@ -81,7 +82,6 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 
 	@Override
 	public void alteraObjeto(Object object) {
-		// TODO Auto-generated method stub
 		
 		Cliente cliente = (Cliente) object;
 		
@@ -106,7 +106,7 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 
 	@Override
 	public void removeObjeto(int id) {
-		// TODO Auto-generated method stub
+		
 		for (int i = 0; i < Artefatos.clientes.size(); i++) {
 
 			if (Artefatos.clientes.get(i).getId() == id) {
@@ -121,10 +121,11 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 	
 	@Override
 	public void listarObjeto() {
-		// TODO Auto-generated method stub
+		
 		for(Cliente cliente : Artefatos.clientes){
 			System.out.println(cliente.toString());
 		}
+		
 	}
 
 	@Override
@@ -145,49 +146,6 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 
 		return cliente;
 		
-	}
-	
-	public int geraId() {
-
-		int id = 0;
-
-		if (Artefatos.clientes.size() == 0) {
-			return 100;
-		} else {
-			for (int i = 0; i < Artefatos.clientes.size(); i++) {
-
-				if (id < Artefatos.clientes.get(i).getId()) {
-
-					id = Artefatos.clientes.get(i).getId();
-
-				}
-
-			}
-
-			return ++id;
-		}
-	}
-
-	public int geraIdCliente() {
-
-		int numeroCliente = 0;
-
-		if (Artefatos.clientes.size() == 0) {
-			return 1000;
-		} else {
-			for (int i = 0; i < Artefatos.clientes.size(); i++) {
-
-				if (numeroCliente < Artefatos.clientes.get(i).getNumeroCliente()) {
-
-					numeroCliente = Artefatos.clientes.get(i).getNumeroCliente();
-
-				}
-
-			}
-
-			return ++numeroCliente;
-		}
-
 	}
 
 }

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import comandaDigital.controller.auditoria.AuditoriaCliente;
+import comandaDigital.controller.auditoria.AuditoriaFuncionario;
 import comandaDigital.model.pessoas.Cliente;
 import comandaDigital.model.pessoas.Funcionario;
 import comandaDigital.model.pessoas.Usuario;
@@ -83,4 +84,23 @@ public class Artefatos {
 	
 	public static List<Funcionario> funcionarios = new ArrayList<>();
 	
+	public void initFuncionarios (){
+		
+		Funcionario funcionario = new Funcionario();
+		
+		funcionario.setNome("Mario");
+		funcionario.setEmail("mario@gmail.com");
+		funcionario.setTelefone("988123400");
+		funcionario.setLogradouro("Cassiano Lopes");
+		funcionario.setBairro("Vila Brasilia");
+		funcionario.setCep(13566606);
+		funcionario.setCidade("São Carlos");
+		funcionario.setUf("SP");
+		funcionario.setFuncao("Gerente");
+		funcionario.setSalario(5136.00);
+		
+		AuditoriaFuncionario.getInstance().insereObjeto(funcionario);
+		
+		System.out.println(IMensagemGeral.FUNCIONARIO_INICIALIZADO);
+	}
 }

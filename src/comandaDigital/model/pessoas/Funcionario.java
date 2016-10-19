@@ -44,4 +44,10 @@ public class Funcionario extends Pessoa {
 		this.usuario = usuario;
 	}
 
+	public String toString () {
+		return "Nome: [" + super.getNome() + "] - " + 
+			   "IdPessoa: [" + super.getId()  + "] - " +
+			   "Funcao: [" + this.funcao + "] - " +
+			   "Remuneracao: [" + this.salario + "]";
+	}
 }

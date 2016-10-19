@@ -23,6 +23,9 @@ public class Principal {
 		// Inicia lista de clientes padrão
 		Artefatos.getInstance().initClientes();
 		
+		// Inici lista de funcionarios padrão
+		Artefatos.getInstance().initFuncionarios();
+		
 		// Chamada para o sistema Comanda Digital - Prompt Comando (terminal)
 		MenuLogin.getInstance().getMenuLogin();
 
