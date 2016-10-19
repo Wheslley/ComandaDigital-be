@@ -16,5 +16,13 @@ public class Cliente extends Pessoa {
 	public void setNumeroCliente(int numeroCliente) {
 		this.numeroCliente = numeroCliente;
 	}
+	
+	public String toString (){
+		
+		return "Nome: [" + super.getNome() + "] - " + 
+			   "IdPessoa: [" + super.getId()  + "] - " +
+			   "NumeroCliente: [" + this.getNumeroCliente() + "]";
+		
+	}
 
 }

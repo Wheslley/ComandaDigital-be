@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import comandaDigital.controller.auditoria.AuditoriaCliente;
 import comandaDigital.model.pessoas.Cliente;
-import localStorage.Artefatos;
 
 public class MenuCliente {
 	
@@ -38,18 +37,13 @@ public class MenuCliente {
 			
 			boolean flagMenu = true;
 			
-			System.out.println("\n\n\n");
-			for(Cliente cliente : Artefatos.clientes){
-				System.out.println("Id Cliente: " + cliente.getId());
-				System.out.println("Cliente: " + cliente.getNome());
-			}
-			
 			System.out.println("************************************");
 			System.out.println("*	     Menu Cliente	       *");
 			System.out.println("************************************");			
 			System.out.println("*  1) Cadastro de cliente     *");
 			System.out.println("*  2) Remoção de cliente      *");
 			System.out.println("*  3) Atualização de cliente  *");
+			System.out.println("*  4) Listar clientes   *");
 			System.out.println("*  0) Sair                    *");
 			System.out.println("************************************\n\n");
 			
@@ -58,7 +52,7 @@ public class MenuCliente {
 				System.out.println("Digite a opção desejada ou digite [0] para sair: ");
 				opcaoMenuCliente = scan.nextInt();
 				
-				if (opcaoMenuCliente > 0 && opcaoMenuCliente < 4) {
+				if (opcaoMenuCliente > 0 && opcaoMenuCliente < 5) {
 					
 					AuditoriaCliente.getInstance().auditaObjeto(opcaoMenuCliente);
 					flagMenu = false;

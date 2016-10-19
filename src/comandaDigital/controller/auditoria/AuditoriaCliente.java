@@ -46,10 +46,17 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 				break;
 	
 			}
+			
+			case 3: {
+				
+				MenuCliente.getInstance().getMenuAlteracaoCliente();
+				break;
+	
+			}
 	
 			default: {
 	
-				MenuCliente.getInstance().getMenuAlteracaoCliente();
+				listarObjeto();
 				break;
 	
 			}
@@ -112,6 +119,13 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 		System.out.println(IMensagemGeral.CLIENTE_DELETADO_SUCESSO);
 	}
 	
+	@Override
+	public void listarObjeto() {
+		// TODO Auto-generated method stub
+		for(Cliente cliente : Artefatos.clientes){
+			System.out.println(cliente.toString());
+		}
+	}
 
 	@Override
 	public Object getObject(int id) {

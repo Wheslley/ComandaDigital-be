@@ -1,8 +1,6 @@
 package comandaDigital.controller.auditoria;
 
-import interfaces.mensagens.IMensagemGeral;
 import interfaces.padroes.IMenuCrudPadrão;
-import localStorage.Artefatos;
 
 public class AuditoriaFuncionario implements IMenuCrudPadrão{
 	
@@ -25,7 +23,7 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 		return getIntance();
 
 	}
-	
+
 	@Override
 	public void auditaObjeto(int opcaoMenu) {
 		// TODO Auto-generated method stub
@@ -47,7 +45,13 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 	@Override
 	public void removeObjeto(int id) {
 		// TODO Auto-generated method stub
+		
+	}
 
+	@Override
+	public void listarObjeto() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -55,5 +59,6 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }

@@ -9,7 +9,11 @@ package localStorage;
 import java.util.ArrayList;
 import java.util.List;
 
+import comandaDigital.controller.auditoria.AuditoriaCliente;
 import comandaDigital.model.pessoas.Cliente;
+import comandaDigital.model.pessoas.Funcionario;
+import comandaDigital.model.pessoas.Usuario;
+import interfaces.mensagens.IMensagemGeral;
 
 public class Artefatos {
 	
@@ -34,5 +38,49 @@ public class Artefatos {
     }
     
 	public static List<Cliente> clientes = new ArrayList<>();
+	
+	public void initClientes (){
+		
+		Cliente cliente = new Cliente();
+		
+		cliente.setNome("Wheslley Nycolas");
+		cliente.setEmail("wheslleyny@gmail.com");
+		cliente.setTelefone("988359000");
+		cliente.setLogradouro("Francisco Cassiano Lopes");
+		cliente.setBairro("Vila Brasilia");
+		cliente.setCep(13566606);
+		cliente.setCidade("São Carlos");
+		cliente.setUf("SP");
+		
+		AuditoriaCliente.getInstance().insereObjeto(cliente);
+		
+		cliente = new Cliente();
+		cliente.setNome("Whislley Willian");
+		cliente.setEmail("whislleywilian@gmail.com");
+		cliente.setTelefone("988186018");
+		cliente.setLogradouro("Francisco Cassiano Lopes");
+		cliente.setBairro("Vila Brasilia");
+		cliente.setCep(13566606);
+		cliente.setCidade("São Carlos");
+		cliente.setUf("SP");
+		
+		AuditoriaCliente.getInstance().insereObjeto(cliente);
+		
+		cliente = new Cliente();
+		cliente.setNome("Jady Domingues");
+		cliente.setEmail("jady_bd@gmail.com");
+		cliente.setTelefone("988248856");
+		cliente.setLogradouro("Achile Aderico Bazone");
+		cliente.setBairro("Jardim Uirapuru");
+		cliente.setCep(1480400);
+		cliente.setCidade("Araraquara");
+		cliente.setUf("SP");
+		
+		AuditoriaCliente.getInstance().insereObjeto(cliente);
+		
+		System.out.println(IMensagemGeral.CLIENTE_INICIALIZADO);
+	}
+	
+	public static List<Funcionario> funcionarios = new ArrayList<>();
 	
 }
