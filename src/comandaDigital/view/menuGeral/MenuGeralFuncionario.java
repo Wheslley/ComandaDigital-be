@@ -1,4 +1,4 @@
-package comandaDigital.view.menu;
+package comandaDigital.view.menuGeral;
 
 import java.util.Scanner;
 
@@ -10,22 +10,22 @@ import comandaDigital.controller.menu.ValidaMenuFuncionario;
  *
  */
 
-public class MenuFuncionario {
+public class MenuGeralFuncionario {
 	
-	private static MenuFuncionario instance;
+	private static MenuGeralFuncionario instance;
 
-    private static MenuFuncionario getIntance() {
+    private static MenuGeralFuncionario getIntance() {
         return instance;
     }
 
-    private static void setInstance(MenuFuncionario aInstance) {
+    private static void setInstance(MenuGeralFuncionario aInstance) {
         instance = aInstance;
     }
 
-    public static MenuFuncionario getInstance() {
+    public static MenuGeralFuncionario getInstance() {
 
         if (getIntance() == null) {
-            setInstance(new MenuFuncionario());
+            setInstance(new MenuGeralFuncionario());
         }
 
         return getIntance();

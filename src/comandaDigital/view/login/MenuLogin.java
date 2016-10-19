@@ -1,4 +1,4 @@
-package comandaDigital.view.menu;
+package comandaDigital.view.login;
 
 import java.util.Scanner;
 

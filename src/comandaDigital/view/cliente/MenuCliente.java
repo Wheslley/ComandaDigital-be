@@ -1,10 +1,10 @@
-package comandaDigital.view.clientes;
+package comandaDigital.view.cliente;
 
 import java.util.Scanner;
 
-import Sistema.Artefatos;
 import comandaDigital.controller.auditoria.AuditoriaCliente;
 import comandaDigital.model.pessoas.Cliente;
+import localStorage.Artefatos;
 
 public class MenuCliente {
 	
@@ -45,7 +45,7 @@ public class MenuCliente {
 			}
 			
 			System.out.println("************************************");
-			System.out.println("*	     Menu Funcionario	       *");
+			System.out.println("*	     Menu Cliente	       *");
 			System.out.println("************************************");			
 			System.out.println("*  1) Cadastro de cliente     *");
 			System.out.println("*  2) Remoção de cliente      *");
@@ -60,7 +60,7 @@ public class MenuCliente {
 				
 				if (opcaoMenuCliente > 0 && opcaoMenuCliente < 4) {
 					
-					AuditoriaCliente.getInstance().auditaCliente(opcaoMenuCliente);
+					AuditoriaCliente.getInstance().auditaObjeto(opcaoMenuCliente);
 					flagMenu = false;
 					
 				} else if (opcaoMenuCliente == 0) {
@@ -93,30 +93,30 @@ public class MenuCliente {
 		System.out.println("\nCadastro do Cliente:\n");
 		
 		System.out.println("Nome: ");
-		cliente.setNome(scan.nextLine());
+		cliente.setNome(scan.next());
 		
 		System.out.println("Email: ");
-		cliente.setEmail(scan.nextLine());
+		cliente.setEmail(scan.next());
 		
 		System.out.println("Telefone: ");
-		cliente.setTelefone(scan.nextLine());
+		cliente.setTelefone(scan.next());
 		
 		System.out.println("Logradouro: ");
-		cliente.setLogradouro(scan.nextLine());
+		cliente.setLogradouro(scan.next());
 		
 		System.out.println("Bairro: ");
-		cliente.setBairro(scan.nextLine());
+		cliente.setBairro(scan.next());
 		
 		System.out.println("Cep: ");
 		cliente.setCep(scan.nextInt());
 		
 		System.out.println("Cidade: ");
-		cliente.setCidade(scan.nextLine());
+		cliente.setCidade(scan.next());
 		
 		System.out.println("UF: ");
-		cliente.setUf(scan.nextLine());
+		cliente.setUf(scan.next());
 		
-		AuditoriaCliente.getInstance().insereCliente(cliente);
+		AuditoriaCliente.getInstance().insereObjeto(cliente);
 		
 		System.out.println("************************************\n");
 		
@@ -131,37 +131,37 @@ public class MenuCliente {
 		System.out.println("************************************\n");
 		
 		System.out.println("Id do cliente: ");
-		Cliente cliente = AuditoriaCliente.getInstance().getCliente(scan.nextInt());
+		Cliente cliente = (Cliente) AuditoriaCliente.getInstance().getObject(scan.nextInt());
 		
 		System.out.println(cliente.getNome());
 		
 		System.out.println("\nAtualizações do cliente:\n");
 		
 		System.out.println("Nome: ");
-		cliente.setNome(scan.nextLine());
+		cliente.setNome(scan.next());
 		
 		System.out.println("Email: ");
-		cliente.setEmail(scan.nextLine());
+		cliente.setEmail(scan.next());
 		
 		System.out.println("Telefone: ");
-		cliente.setTelefone(scan.nextLine());
+		cliente.setTelefone(scan.next());
 		
 		System.out.println("Logradouro: ");
-		cliente.setLogradouro(scan.nextLine());
+		cliente.setLogradouro(scan.next());
 		
 		System.out.println("Bairro: ");
-		cliente.setBairro(scan.nextLine());
+		cliente.setBairro(scan.next());
 		
 		System.out.println("Cep: ");
 		cliente.setCep(scan.nextInt());
 		
 		System.out.println("Cidade: ");
-		cliente.setCidade(scan.nextLine());
+		cliente.setCidade(scan.next());
 		
 		System.out.println("UF: ");
-		cliente.setUf(scan.nextLine());
+		cliente.setUf(scan.next());
 		
-		AuditoriaCliente.getInstance().alteraClinte(cliente);
+		AuditoriaCliente.getInstance().alteraObjeto(cliente);
 		
 		System.out.println("************************************\n");
 		
@@ -181,7 +181,7 @@ public class MenuCliente {
 		System.out.println("Id: ");
 		idCliente = scan.nextInt();
 		
-		AuditoriaCliente.getInstance().deletaCliente(idCliente);
+		AuditoriaCliente.getInstance().removeObjeto(idCliente);
 		
 		System.out.println("************************************\n");
 		

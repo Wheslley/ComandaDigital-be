@@ -1,11 +1,12 @@
 package comandaDigital.controller.auditoria;
 
-import Sistema.Artefatos;
 import comandaDigital.model.iMensagens.IMensagemGeral;
 import comandaDigital.model.pessoas.Cliente;
-import comandaDigital.view.clientes.MenuCliente;
+import comandaDigital.view.cliente.MenuCliente;
+import interfaces.MenuCrudPadrão;
+import localStorage.Artefatos;
 
-public class AuditoriaCliente {
+public class AuditoriaCliente implements MenuCrudPadrão {
 
 	private static AuditoriaCliente instance;
 
@@ -26,10 +27,11 @@ public class AuditoriaCliente {
 		return getIntance();
 
 	}
-	
-	public void auditaCliente(int opcaoMenuCliente) {
 
-		switch (opcaoMenuCliente) {
+	@Override
+	public void auditaObjeto(int opcaoMenu) {
+
+		switch (opcaoMenu) {
 
 			case 1: {
 	
@@ -53,43 +55,33 @@ public class AuditoriaCliente {
 			}
 
 		}
-
+		
 	}
 
-	public Cliente getCliente(int id) {
+	@Override
+	public void insereObjeto(Object object) {
 
-		Cliente cliente = new Cliente();
-
-		for (int i = 0; i < Artefatos.clientes.size(); i++) {
-
-			if (id == Artefatos.clientes.get(i).getId()) {
-				
-				System.out.println(Artefatos.clientes.get(i).getNome());
-				cliente = Artefatos.clientes.get(i);
-
-			}
-
-		}
-
-		return cliente;
-	}
-
-	public void insereCliente(Cliente cliente) {
+		Cliente cliente = (Cliente) object;
 		
 		cliente.setId(geraId());
 		cliente.setNumeroCliente(geraIdCliente());
-		
+
 		Artefatos.clientes.add(cliente);
 
 		System.out.println(IMensagemGeral.CLIENTE_INSERIDO_SUCESSO);
+		
 	}
 
-	public void alteraClinte(Cliente cliente) {
-
+	@Override
+	public void alteraObjeto(Object object) {
+		// TODO Auto-generated method stub
+		
+		Cliente cliente = (Cliente) object;
+		
 		for (int i = 0; i < Artefatos.clientes.size(); i++) {
 
 			if (cliente.getId() == Artefatos.clientes.get(i).getId()) {
-				
+
 				Artefatos.clientes.get(i).setBairro(cliente.getBairro());
 				Artefatos.clientes.get(i).setCep(cliente.getCep());
 				Artefatos.clientes.get(i).setCidade(cliente.getCidade());
@@ -105,11 +97,12 @@ public class AuditoriaCliente {
 		System.out.println(IMensagemGeral.CLIENTE_ALTERADO_SUCESSO);
 	}
 
-	public void deletaCliente(int idCliente) {
-
+	@Override
+	public void removeObjeto(int id) {
+		// TODO Auto-generated method stub
 		for (int i = 0; i < Artefatos.clientes.size(); i++) {
 
-			if (Artefatos.clientes.get(i).getId() == idCliente) {
+			if (Artefatos.clientes.get(i).getId() == id) {
 
 				Artefatos.clientes.remove(i);
 
@@ -118,14 +111,35 @@ public class AuditoriaCliente {
 
 		System.out.println(IMensagemGeral.CLIENTE_DELETADO_SUCESSO);
 	}
+	
 
+	@Override
+	public Object getObject(int id) {
+
+		Cliente cliente = new Cliente();
+
+		for (int i = 0; i < Artefatos.clientes.size(); i++) {
+
+			if (id == Artefatos.clientes.get(i).getId()) {
+
+				System.out.println(Artefatos.clientes.get(i).getNome());
+				cliente = Artefatos.clientes.get(i);
+
+			}
+
+		}
+
+		return cliente;
+		
+	}
+	
 	public int geraId() {
 
 		int id = 0;
-		
-		if(Artefatos.clientes.size() == 0){
+
+		if (Artefatos.clientes.size() == 0) {
 			return 100;
-		}else{
+		} else {
 			for (int i = 0; i < Artefatos.clientes.size(); i++) {
 
 				if (id < Artefatos.clientes.get(i).getId()) {
@@ -135,7 +149,7 @@ public class AuditoriaCliente {
 				}
 
 			}
-			
+
 			return ++id;
 		}
 	}
@@ -143,10 +157,10 @@ public class AuditoriaCliente {
 	public int geraIdCliente() {
 
 		int numeroCliente = 0;
-		
-		if(Artefatos.clientes.size() == 0){
+
+		if (Artefatos.clientes.size() == 0) {
 			return 1000;
-		}else{
+		} else {
 			for (int i = 0; i < Artefatos.clientes.size(); i++) {
 
 				if (numeroCliente < Artefatos.clientes.get(i).getNumeroCliente()) {
@@ -156,9 +170,10 @@ public class AuditoriaCliente {
 				}
 
 			}
-			
+
 			return ++numeroCliente;
 		}
+
 	}
 
 }

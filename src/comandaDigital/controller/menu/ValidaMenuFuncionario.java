@@ -1,6 +1,6 @@
 package comandaDigital.controller.menu;
 
-import comandaDigital.view.clientes.MenuCliente;
+import comandaDigital.view.cliente.MenuCliente;
 
 /**
  * 

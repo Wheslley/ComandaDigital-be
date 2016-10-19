@@ -3,9 +3,9 @@ package comandaDigital.controller.menu;
 import comandaDigital.model.iMensagens.IMensagemMenu;
 import comandaDigital.model.iMensagens.IMensagemParametro;
 import comandaDigital.model.pessoas.Usuario;
-import comandaDigital.view.menu.MenuFuncionario;
-import comandaDigital.view.menu.MenuGerente;
-import comandaDigital.view.menu.MenuUsuarioMaster;
+import comandaDigital.view.menuGeral.MenuGeralFuncionario;
+import comandaDigital.view.menuGeral.MenuGeralGerente;
+import comandaDigital.view.menuGeral.MenuGeralUsuarioMaster;
 
 /**
  * 
@@ -65,17 +65,17 @@ public class ValidaMenuLogin {
 		switch (tipoFuncionario) {
 			
 			case IMensagemParametro.USUARIO_MASTER:{
-				MenuUsuarioMaster.getInstance().getMenuUsuarioMaster();
+				MenuGeralUsuarioMaster.getInstance().getMenuUsuarioMaster();
 				break;
 			}
 			
 			case IMensagemParametro.GERENTE:{
-				MenuGerente.getInstance().getMenuGerente();
+				MenuGeralGerente.getInstance().getMenuGerente();
 				break;
 			}
 			
 			case IMensagemParametro.FUNCIONARIO:{
-				MenuFuncionario.getInstance().getMenuFuncionario();
+				MenuGeralFuncionario.getInstance().getMenuFuncionario();
 				break;
 			}
 			

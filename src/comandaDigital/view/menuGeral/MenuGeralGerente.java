@@ -1,19 +1,19 @@
-package comandaDigital.view.menu;
+package comandaDigital.view.menuGeral;
 
 import java.util.Scanner;
 
 import comandaDigital.controller.menu.ValidaMenuGerente;
 
-public class MenuGerente {
+public class MenuGeralGerente {
 	
-	private static MenuGerente instance;
+	private static MenuGeralGerente instance;
 	
 	/**
 	 * 
 	 * @return
 	 */
 	
-    private static MenuGerente getIntance() {
+    private static MenuGeralGerente getIntance() {
         return instance;
     }
     
@@ -22,7 +22,7 @@ public class MenuGerente {
      * @param aInstance
      */
     
-    private static void setInstance(MenuGerente aInstance) {
+    private static void setInstance(MenuGeralGerente aInstance) {
         instance = aInstance;
     }
     
@@ -34,10 +34,10 @@ public class MenuGerente {
 	 * @author whesl
 	 *
 	 */
-    public static MenuGerente getInstance() {
+    public static MenuGeralGerente getInstance() {
 
         if (getIntance() == null) {
-            setInstance(new MenuGerente());
+            setInstance(new MenuGeralGerente());
         }
 
         return getIntance();

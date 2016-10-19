@@ -1,6 +1,6 @@
 package Sistema;
 
-import comandaDigital.view.menu.MenuLogin;
+import comandaDigital.view.login.MenuLogin;
 
 /**
  * Classe com o objetivo de chamar a view responsável pela lógica do Sitema

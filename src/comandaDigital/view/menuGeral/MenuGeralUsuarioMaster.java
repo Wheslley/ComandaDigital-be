@@ -1,25 +1,25 @@
-package comandaDigital.view.menu;
+package comandaDigital.view.menuGeral;
 
 import java.util.Scanner;
 
 import comandaDigital.controller.menu.ValidaMenuUsuarioMaster;
 
-public class MenuUsuarioMaster {
+public class MenuGeralUsuarioMaster {
 	
-	private static MenuUsuarioMaster instance;
+	private static MenuGeralUsuarioMaster instance;
 
-    private static MenuUsuarioMaster getIntance() {
+    private static MenuGeralUsuarioMaster getIntance() {
         return instance;
     }
 
-    private static void setInstance(MenuUsuarioMaster aInstance) {
+    private static void setInstance(MenuGeralUsuarioMaster aInstance) {
         instance = aInstance;
     }
 
-    public static MenuUsuarioMaster getInstance() {
+    public static MenuGeralUsuarioMaster getInstance() {
 
         if (getIntance() == null) {
-            setInstance(new MenuUsuarioMaster());
+            setInstance(new MenuGeralUsuarioMaster());
         }
 
         return getIntance();
