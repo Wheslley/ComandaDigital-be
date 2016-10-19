@@ -1,4 +1,4 @@
-package Sistema;
+package sistema;
 
 import comandaDigital.view.login.MenuLogin;
 import localStorage.Artefatos;
