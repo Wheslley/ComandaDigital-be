@@ -76,7 +76,6 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 
 		Funcionario funcionario = (Funcionario) object;
 		
-		funcionario.setId(GerarId.getInstance().geraId());
 		funcionario.setNumeroFuncionario(GerarId.getInstance().geraIdFuncionario());
 
 		Artefatos.funcionarios.add(funcionario);
@@ -91,16 +90,16 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 		
 		for (int i = 0; i < Artefatos.funcionarios.size(); i++) {
 
-			if (funcionario.getId() == Artefatos.funcionarios.get(i).getId()) {
+			if (funcionario.getUsuario().getId() == Artefatos.funcionarios.get(i).getUsuario().getId()) {
 
-				Artefatos.funcionarios.get(i).setBairro(funcionario.getBairro());
-				Artefatos.funcionarios.get(i).setCep(funcionario.getCep());
-				Artefatos.funcionarios.get(i).setCidade(funcionario.getCidade());
-				Artefatos.funcionarios.get(i).setEmail(funcionario.getEmail());
-				Artefatos.funcionarios.get(i).setLogradouro(funcionario.getLogradouro());
-				Artefatos.funcionarios.get(i).setNome(funcionario.getNome());
-				Artefatos.funcionarios.get(i).setTelefone(funcionario.getTelefone());
-				Artefatos.funcionarios.get(i).setUf(funcionario.getUf());
+				Artefatos.funcionarios.get(i).getUsuario().setBairro(funcionario.getUsuario().getBairro());
+				Artefatos.funcionarios.get(i).getUsuario().setCep(funcionario.getUsuario().getCep());
+				Artefatos.funcionarios.get(i).getUsuario().setCidade(funcionario.getUsuario().getCidade());
+				Artefatos.funcionarios.get(i).getUsuario().setEmail(funcionario.getUsuario().getEmail());
+				Artefatos.funcionarios.get(i).getUsuario().setLogradouro(funcionario.getUsuario().getLogradouro());
+				Artefatos.funcionarios.get(i).getUsuario().setNome(funcionario.getUsuario().getNome());
+				Artefatos.funcionarios.get(i).getUsuario().setTelefone(funcionario.getUsuario().getTelefone());
+				Artefatos.funcionarios.get(i).getUsuario().setUf(funcionario.getUsuario().getUf());
 				Artefatos.funcionarios.get(i).setFuncao(funcionario.getFuncao());
 				Artefatos.funcionarios.get(i).setSalario(funcionario.getSalario());
 				
@@ -116,7 +115,7 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 		
 		for (int i = 0; i < Artefatos.funcionarios.size(); i++) {
 
-			if (Artefatos.funcionarios.get(i).getId() == id) {
+			if (Artefatos.funcionarios.get(i).getUsuario().getId() == id) {
 
 				Artefatos.funcionarios.remove(i);
 
@@ -142,9 +141,8 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 
 		for (int i = 0; i < Artefatos.funcionarios.size(); i++) {
 
-			if (id == Artefatos.funcionarios.get(i).getId()) {
+			if (id == Artefatos.funcionarios.get(i).getUsuario().getId()) {
 
-				System.out.println(Artefatos.funcionarios.get(i).getNome());
 				funcionario = Artefatos.funcionarios.get(i);
 
 			}
@@ -152,6 +150,7 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 		}
 
 		return funcionario;
+		
 	}
 
 }

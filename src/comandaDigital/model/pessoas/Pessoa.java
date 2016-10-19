@@ -16,6 +16,22 @@ public class Pessoa {
 	private String uf;
 	private int cep;
 	private String email;
+	
+	public Pessoa(int id, String nome, String telefone, String logradouro, String bairro, String cidade, String uf, int cep, String email) {
+		this.id = id;
+		this.nome = nome;
+		this.telefone = telefone;
+		this.logradouro = logradouro;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.uf = uf;
+		this.cep = cep;
+		this.email = email;
+	}
+	
+	public Pessoa (){
+		
+	}
 
 	public int getId() {
 		return id;

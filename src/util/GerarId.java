@@ -34,8 +34,8 @@ public class GerarId {
 
 		int id = 0;
 
-		if (Artefatos.clientes.size() == 0 && Artefatos.funcionarios.size() == 0) {
-			return 100;
+		if (Artefatos.clientes.size() == 0 && Artefatos.funcionarios.size() == 0 && Artefatos.usuarios.size() == 0) {
+			return 1;
 		} else {
 
 			return leituraId(id);
@@ -44,7 +44,7 @@ public class GerarId {
 	
 	public int leituraId(int id){
 		id = leituraIdClientes(id);
-		id = leituraIdFuncionarios(id);
+		id = leituraIdUsuarios(id);
 		return ++id;
 	}
 	
@@ -63,13 +63,13 @@ public class GerarId {
 		return id;
 	}
 	
-	public int leituraIdFuncionarios(int id){
+	public int leituraIdUsuarios(int id){
 		
-		for (int i = 0; i < Artefatos.funcionarios.size(); i++) {
+		for (int i = 0; i < Artefatos.usuarios.size(); i++) {
 
-			if (id < Artefatos.funcionarios.get(i).getId()) {
+			if (id < Artefatos.usuarios.get(i).getId()) {
 
-				id = Artefatos.funcionarios.get(i).getId();
+				id = Artefatos.usuarios.get(i).getId();
 
 			}
 

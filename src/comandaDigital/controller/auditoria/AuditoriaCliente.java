@@ -143,7 +143,6 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 
 			if (id == Artefatos.clientes.get(i).getId()) {
 
-				System.out.println(Artefatos.clientes.get(i).getNome());
 				cliente = Artefatos.clientes.get(i);
 
 			}

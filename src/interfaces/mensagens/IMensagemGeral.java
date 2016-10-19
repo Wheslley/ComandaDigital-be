@@ -8,14 +8,19 @@ package interfaces.mensagens;
 
 public interface IMensagemGeral {
 
-	public String ACESSO_LIBERADO = "ACESSO LIBERADO";
-	public String ACESSO_NEGADO = "ACESSO NEGADO";
-	public String CLIENTE_ALTERADO_SUCESSO = "O cliente foi alterado com sucesso!!";
-	public String CLIENTE_DELETADO_SUCESSO = "O cliente foi deletado com sucesso!!";
-	public String CLIENTE_INICIALIZADO = "Clientes inicializados no local storage";
-	public String CLIENTE_INSERIDO_SUCESSO = "O cliente foi inserido com sucesso!!";
-	public String FUNCIONARIO_ALTERADO_SUCESSO = "O funcionario foi alterado com sucesso!!";
-	public String FUNCIONARIO_DELETADO_SUCESSO = "O funcionario foi deletado com sucesso!!";
-	public String FUNCIONARIO_INICIALIZADO = "Funcionarios inicializados no local storage";
-	public String FUNCIONARIO_INSERIDO_SUCESSO = "O funcionario foi inserido com sucesso!!";
+	public String ACESSO_LIBERADO = "ACESSO LIBERADO!!";
+	public String ACESSO_NEGADO = "ACESSO NEGADO!!";
+	public String CLIENTE_ALTERADO_SUCESSO = "O CLIENTE FOI ALTERADO COM SUCESSO!!";
+	public String CLIENTE_DELETADO_SUCESSO = "O CLIENTE FOI DELETADO COM SUCESSO!!";
+	public String CLIENTE_INICIALIZADO = "CLIENTES INICIALIZADOS NO LOCAL STORAGE!!";
+	public String CLIENTE_INSERIDO_SUCESSO = "O CLIENTE FOI INSERIDO COM SUCESSO!!";
+	public String FUNCIONARIO_ALTERADO_SUCESSO = "O FUNCIONÁRIO FOI ALTERADO COM SUCESSO!!";
+	public String FUNCIONARIO_DELETADO_SUCESSO = "O FUNCIONÁRIO FOI DELETADO COM SUCESSO!!";
+	public String FUNCIONARIO_INICIALIZADO = "FUNCIONÁRIOS INICIALIZADOS NO LOCAL STORAGE";
+	public String FUNCIONARIO_INSERIDO_SUCESSO = "O FUNCIONÁRIO FOI INSERIDO COM SUCESSO!!";
+	public String USUARIO_ALTERADO_SUCESSO = "O USUÁRIO FOI ALTERADO COM SUCESSO!!";
+	public String USUARIO_DELETADO_SUCESSO = "O USUÁRIO FOI DELETADO COM SUCESSO!!";
+	public String USUARIO_INICIALIZADO = "USUÁRIOS INICIALIZADOS NO LOCAL STORAGE";
+	public String USUARIO_INSERIDO_SUCESSO = "O USUÁRIO FOI INSERIDO COM SUCESSO!!";
+	
 }
