@@ -13,6 +13,18 @@ public class ProdutoLiterario extends Produto{
 	private int edicao;
 	private int numeroPaginas;
 	
+	public ProdutoLiterario(int idProduto, String nome, String descricao, double valorBase, double valorVenda, String codigoProduto, String autor, int edicao, int numeroPaginas){
+		super(idProduto, nome, descricao, valorBase, valorVenda);
+		this.codigoProduto = codigoProduto;
+		this.autor = autor;
+		this.edicao = edicao;
+		this.numeroPaginas = numeroPaginas;
+	}
+	
+	public ProdutoLiterario(){
+		
+	}
+	
 	public String getCodigoProduto() {
 		return codigoProduto;
 	}
