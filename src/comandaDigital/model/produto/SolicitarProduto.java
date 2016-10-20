@@ -10,15 +10,10 @@ import java.util.List;
 
 public class SolicitarProduto {
 	
-	private int idSolicitarProduto;
 	List<Produto> listProduto;
 	
-	public int getIdSolicitarProduto() {
-		return idSolicitarProduto;
-	}
-
-	public void setIdSolicitarProduto(int idSolicitarProduto) {
-		this.idSolicitarProduto = idSolicitarProduto;
+	public void SolicitarProdutos(int idProduto){
+		
 	}
 
 	public List<Produto> getListProduto() {

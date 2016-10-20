@@ -12,6 +12,17 @@ public class ProdutoEletronico extends Produto{
 	private double potencia;
 	private double voltagem;
 	
+	public ProdutoEletronico(int idProduto, String nome, String descricao, double valorBase, double valorVenda, String codigoProduto, double potencia, double voltagem){
+		super(idProduto, nome, descricao, valorBase, valorVenda);
+		this.codigoProduto = codigoProduto;
+		this.potencia = potencia;
+		this.voltagem = voltagem;
+	}
+	
+	public ProdutoEletronico(){
+		
+	}
+	
 	public String getCodigoProduto() {
 		return codigoProduto;
 	}

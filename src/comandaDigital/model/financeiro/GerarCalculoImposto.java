@@ -13,6 +13,10 @@ public class GerarCalculoImposto {
 	private int idFaturamento;
 	private Date dataFaturamento;
 	
+	public void CalcularImpostos(int idFaturamento, Date data){
+		
+	}
+	
 	public int getIdFaturamento() {
 		return idFaturamento;
 	}

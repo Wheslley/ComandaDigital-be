@@ -12,6 +12,18 @@ public class Produto {
 	private String descricao;
 	private Double valorBase;
 	private Double valorVenda;
+	
+	public Produto(int idProduto, String nome, String descricao, Double valorBase, Double valorVenda){
+		this.idProduto = idProduto;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.valorBase = valorBase;
+		this.valorVenda = valorVenda;
+	}
+	
+	public Produto(){
+		
+	}
 
 	public int getIdProduto() {
 		return idProduto;
