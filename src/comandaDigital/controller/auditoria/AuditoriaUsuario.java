@@ -1,8 +1,5 @@
 package comandaDigital.controller.auditoria;
 
-import com.sun.javafx.scene.layout.region.Margins.Converter;
-
-import comandaDigital.model.pessoas.Funcionario;
 import comandaDigital.model.pessoas.Usuario;
 import comandaDigital.view.usuarios.MenuUsuario;
 import interfaces.mensagens.IMensagemGeral;

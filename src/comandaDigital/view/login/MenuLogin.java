@@ -5,7 +5,6 @@ import java.util.Scanner;
 import comandaDigital.controller.menu.ValidaMenuLogin;
 import comandaDigital.model.pessoas.Usuario;
 import interfaces.mensagens.IMensagemGeral;
-import interfaces.mensagens.IMensagemParametro;
 
 /**
  * 
@@ -126,6 +125,8 @@ public class MenuLogin {
 			}
 
 		}
+		
+		scan.close();
 
 	}
 

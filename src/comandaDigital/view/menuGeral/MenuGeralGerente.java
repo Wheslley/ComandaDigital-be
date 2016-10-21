@@ -95,6 +95,8 @@ public class MenuGeralGerente {
 			}
 			
 		}
+		
+		scan.close();
 
 	}
     

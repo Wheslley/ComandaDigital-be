@@ -2,6 +2,8 @@ package comandaDigital.model.pessoas;
 
 /**
  * 
+ * Classe com atributos base para as classes Usuário e Cliente
+ * 
  * @author whesl
  *
  */
@@ -17,6 +19,20 @@ public class Pessoa {
 	private int cep;
 	private String email;
 	
+	/**
+	 * 
+	 * Construtor contendo todos os atributos da classe Pessoa
+	 * 
+	 * @param id
+	 * @param nome
+	 * @param telefone
+	 * @param logradouro
+	 * @param bairro
+	 * @param cidade
+	 * @param uf
+	 * @param cep
+	 * @param email
+	 */
 	public Pessoa(int id, String nome, String telefone, String logradouro, String bairro, String cidade, String uf, int cep, String email) {
 		this.id = id;
 		this.nome = nome;
@@ -29,10 +45,16 @@ public class Pessoa {
 		this.email = email;
 	}
 	
+	/**
+	 * Construtor padrão da classe Pessoa
+	 */
 	public Pessoa (){
 		
 	}
 
+	/**
+	 * Início dos métodos getters e setters dos atributos da classe
+	 */
 	public int getId() {
 		return id;
 	}
