@@ -48,7 +48,6 @@ public class MenuGeralFuncionario {
 			System.out.println("*  1) Clientes            *");
 			System.out.println("*  2) Comanda Digital     *");
 			System.out.println("*  3) Relatórios          *");
-			System.out.println("*  4) Estoque             *");
 			System.out.println("*  0) Sair                *");
 			System.out.println("************************************\n\n");
 			

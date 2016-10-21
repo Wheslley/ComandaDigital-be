@@ -50,7 +50,8 @@ public class MenuGeralUsuarioMaster {
     			System.out.println("*  3) Usuárioas           *");
     			System.out.println("*  4) Comanda Digital     *");
     			System.out.println("*  5) Relatórios          *");
-    			System.out.println("*  6) Estoque             *");
+    			System.out.println("*  6) Produto             *");
+    			System.out.println("*  7) Estoque             *");
     			System.out.println("*  0) Sair                *");
     			System.out.println("************************************\n\n");
     			

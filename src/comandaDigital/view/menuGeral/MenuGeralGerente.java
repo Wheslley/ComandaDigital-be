@@ -67,7 +67,8 @@ public class MenuGeralGerente {
 			System.out.println("*  2) Funcionários        *");
 			System.out.println("*  3) Comanda Digital     *");
 			System.out.println("*  4) Relatórios          *");
-			System.out.println("*  5) Estoque             *");
+			System.out.println("*  5) Produto             *");
+			System.out.println("*  6) Estoque             *");
 			System.out.println("*  0) Sair                *");
 			System.out.println("************************************\n\n");
 			
