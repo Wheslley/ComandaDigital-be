@@ -77,6 +77,8 @@ public class MenuCliente {
 			}
 			
 		}
+		
+		scan.close();
 
 	}
     
@@ -120,6 +122,7 @@ public class MenuCliente {
 		
 		System.out.println("************************************\n");
 		
+		scan.close();
 	}
     
     public void getMenuAlteracaoCliente() {
@@ -165,6 +168,7 @@ public class MenuCliente {
 		
 		System.out.println("************************************\n");
 		
+		scan.close();
 	}
     
     public void getMenuDeletaCliente() {
@@ -185,6 +189,7 @@ public class MenuCliente {
 		
 		System.out.println("************************************\n");
 		
+		scan.close();
 	}
 
 }

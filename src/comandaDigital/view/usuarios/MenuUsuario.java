@@ -2,9 +2,7 @@ package comandaDigital.view.usuarios;
 
 import java.util.Scanner;
 
-import comandaDigital.controller.auditoria.AuditoriaFuncionario;
 import comandaDigital.controller.auditoria.AuditoriaUsuario;
-import comandaDigital.model.pessoas.Funcionario;
 import comandaDigital.model.pessoas.Usuario;
 
 public class MenuUsuario {
@@ -73,6 +71,8 @@ public class MenuUsuario {
 			}
 			
 		}
+		
+		scan.close();
 
 	}
     
@@ -118,6 +118,8 @@ public class MenuUsuario {
 		AuditoriaUsuario.getInstance().insereObjeto(usuario);
 		
 		System.out.println("************************************\n");
+		
+		scan.close();
 		
 	}
     
@@ -165,6 +167,8 @@ public class MenuUsuario {
 		
 		System.out.println("************************************\n");
 		
+		scan.close();
+		
 	}
     
     public void getMenuDeletaUsuario() {
@@ -184,6 +188,8 @@ public class MenuUsuario {
 		AuditoriaUsuario.getInstance().removeObjeto(idUsuario);
 		
 		System.out.println("************************************\n");
+		
+		scan.close();
 		
 	}
     

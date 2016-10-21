@@ -14,11 +14,11 @@ public class FaturarComanda {
 	
 	private List<ProdutoFaturado> listaProdutoFaturado;
 	
-	public List getListaProdutoFaturado() {
+	public List<ProdutoFaturado> getListaProdutoFaturado() {
 		return listaProdutoFaturado;
 	}
 
-	public void setListaProdutoFaturado(List listaProdutoFaturado) {
+	public void setListaProdutoFaturado(List<ProdutoFaturado> listaProdutoFaturado) {
 		this.listaProdutoFaturado = listaProdutoFaturado;
 	}
 	
