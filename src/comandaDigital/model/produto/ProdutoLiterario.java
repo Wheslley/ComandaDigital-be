@@ -2,6 +2,8 @@ package comandaDigital.model.produto;
 
 /**
  * 
+ * Classe ProdutoLiterario herdará a classe Produto
+ * 
  * @author w_his
  *
  */

@@ -4,6 +4,8 @@ import comandaDigital.model.produto.Produto;
 
 /**
  * 
+ * Classe responsável por preparar um determinado produto para ser inserido na Comanda Digital
+ * 
  * @author whesl
  *
  */
@@ -14,6 +16,9 @@ public class ItemComandaDigital {
 	private int quantidadeProduto;
 	private Double valorTodosProutos;
 
+	/**
+	 * Início dos métodos getters e setters dos atributos da classe
+	 */
 	public int getIdItemComandaDigital() {
 		return idItemComandaDigital;
 	}

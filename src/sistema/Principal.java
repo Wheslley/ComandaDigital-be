@@ -25,7 +25,7 @@ public class Principal {
 		System.out.println("Bem vindo ao SITEMA COMANDA DIGITAL - WHEENY SOLUTION TECNOLOGY");
 		
 		/**
-		 * Listas padrões de clientes, funcionarios e usuários. 
+		 * Listas padrões de clientes, funcionarios e usuários.
 		 */
 		
 		// Inicia lista de usuários padrões.

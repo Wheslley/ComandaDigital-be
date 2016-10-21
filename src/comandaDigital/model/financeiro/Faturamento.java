@@ -4,6 +4,8 @@ import java.util.Date;
 
 /**
  * 
+ * 
+ * 
  * @author w_his
  *
  */
@@ -15,10 +17,16 @@ public class Faturamento {
 	private Date data;
 	private String usuario;
 	
+	/**
+	 * Método responsável por informar ao cliente o seu faturamento por todos os produtos da comanda digital
+	 */
 	public void FaturarCliente(){
 		
 	}
 	
+	/**
+	 * Início dos métodos getters e setters dos atributos da classe
+	 */
 	public int getIdFaturamento() {
 		return idFaturamento;
 	}

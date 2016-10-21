@@ -2,6 +2,8 @@ package comandaDigital.model.financeiro;
 
 /**
  * 
+ * Classe responsável por calcular os impostos de acordo com um determinado faturamento
+ * 
  * @author w_his
  * 
  */
@@ -13,10 +15,20 @@ public class GerarCalculoImposto {
 	private int idFaturamento;
 	private Date dataFaturamento;
 	
+	/**
+	 * 
+	 * Método responsável por calcular os impostos do faturamento
+	 * 
+	 * @param idFaturamento
+	 * @param data
+	 */
 	public void CalcularImpostos(int idFaturamento, Date data){
 		
 	}
 	
+	/**
+	 * Início dos métodos getters e setters dos atributos da classe
+	 */
 	public int getIdFaturamento() {
 		return idFaturamento;
 	}

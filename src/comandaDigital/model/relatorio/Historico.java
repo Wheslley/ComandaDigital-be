@@ -2,6 +2,8 @@ package comandaDigital.model.relatorio;
 
 /**
  * 
+ * Classe responsável pelo histórico da comanda.
+ * 
  * @author w_his
  * 
  */
@@ -14,6 +16,9 @@ public class Historico {
 	private int idComanda;
 	private Date data;
 	
+	/**
+	 * Início dos getters e setters dos atributos
+	 */
 	public int getIdHistorico() {
 		return idHistorico;
 	}

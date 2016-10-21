@@ -2,6 +2,8 @@ package comandaDigital.model.produto;
 
 /**
  * 
+ * Classe ProdutoEletronico herdará a classe Produto
+ * 
  * @author w_his
  *
  */
@@ -12,6 +14,19 @@ public class ProdutoEletronico extends Produto{
 	private double potencia;
 	private double voltagem;
 	
+	/**
+	 * 
+	 * Construtor com todos os atributos da classe ProdutoEletronico
+	 * 
+	 * @param idProduto
+	 * @param nome
+	 * @param descricao
+	 * @param valorBase
+	 * @param valorVenda
+	 * @param codigoProduto
+	 * @param potencia
+	 * @param voltagem
+	 */
 	public ProdutoEletronico(int idProduto, String nome, String descricao, double valorBase, double valorVenda, String codigoProduto, double potencia, double voltagem){
 		super(idProduto, nome, descricao, valorBase, valorVenda);
 		this.codigoProduto = codigoProduto;
@@ -19,10 +34,16 @@ public class ProdutoEletronico extends Produto{
 		this.voltagem = voltagem;
 	}
 	
+	/**
+	 * Construtor padrão da classe ProdutoEletronico
+	 */
 	public ProdutoEletronico(){
 		
 	}
 	
+	/**
+	 * Início dos metodos getters e setters dos atributos
+	 */
 	public String getCodigoProduto() {
 		return codigoProduto;
 	}

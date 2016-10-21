@@ -77,6 +77,8 @@ public class MenuCliente {
 			}
 			
 		}
+		
+		scan.close();
 
 	}
     
@@ -119,6 +121,8 @@ public class MenuCliente {
 		AuditoriaCliente.getInstance().insereObjeto(cliente);
 		
 		System.out.println("************************************\n");
+		
+		scan.close();
 		
 	}
     
@@ -165,6 +169,8 @@ public class MenuCliente {
 		
 		System.out.println("************************************\n");
 		
+		scan.close();
+		
 	}
     
     public void getMenuDeletaCliente() {
@@ -184,6 +190,8 @@ public class MenuCliente {
 		AuditoriaCliente.getInstance().removeObjeto(idCliente);
 		
 		System.out.println("************************************\n");
+		
+		scan.close();
 		
 	}
 

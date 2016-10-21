@@ -2,6 +2,8 @@ package comandaDigital.model.produto;
 
 /**
  * 
+ * Classe base para ProdutoAlimentar, ProdutoEletronico e ProdutoLiterario
+ * 
  * @author whesl
  *
  */
@@ -13,6 +15,16 @@ public class Produto {
 	private Double valorBase;
 	private Double valorVenda;
 	
+	/**
+	 * 
+	 * Construtor com todos os argumentos da classe Produto
+	 * 
+	 * @param idProduto
+	 * @param nome
+	 * @param descricao
+	 * @param valorBase
+	 * @param valorVenda
+	 */
 	public Produto(int idProduto, String nome, String descricao, Double valorBase, Double valorVenda){
 		this.idProduto = idProduto;
 		this.nome = nome;
@@ -21,10 +33,16 @@ public class Produto {
 		this.valorVenda = valorVenda;
 	}
 	
+	/**
+	 * Construtor vazio da classe Produto
+	 */
 	public Produto(){
 		
 	}
 
+	/**
+	 * Início dos métodos getters e setters dos atributos
+	 */
 	public int getIdProduto() {
 		return idProduto;
 	}
