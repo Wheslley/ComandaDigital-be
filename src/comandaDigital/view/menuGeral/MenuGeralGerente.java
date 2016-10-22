@@ -57,7 +57,7 @@ public class MenuGeralGerente {
 		boolean flagMenuGerente = true;
 
 		while (flagMenuGerente) {
-			
+
 			boolean flagMenu = true;
 			
 			System.out.println("************************************");
@@ -73,11 +73,11 @@ public class MenuGeralGerente {
 			System.out.println("************************************\n\n");
 			
 			while (flagMenu) {
-				
+
 				System.out.println("Digite a opção desejada ou digite [0] para sair: ");
 				opcaoMenuGerente = scan.nextInt();
 				
-				if (opcaoMenuGerente > 0 && opcaoMenuGerente < 6) {
+				if (opcaoMenuGerente > 0 && opcaoMenuGerente < 7) {
 					
 					ValidaMenuGerente.getInstance().opcaoMenuGerente(opcaoMenuGerente);
 					flagMenu = false;
@@ -97,8 +97,6 @@ public class MenuGeralGerente {
 			
 		}
 		
-		scan.close();
-
 	}
     
 }

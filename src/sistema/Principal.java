@@ -2,7 +2,6 @@ package sistema;
 
 import comandaDigital.view.login.MenuLogin;
 import localStorage.Artefatos;
-import net.sf.jasperreports.engine.JRException;
 
 /**
  * Classe com o objetivo de chamar a view responsável pela lógica do Sitema
@@ -18,7 +17,7 @@ public class Principal {
 	 * @param args
 	 * @throws JRException 
 	 */
-	public static void main(String[] args) throws JRException {
+	public static void main(String[] args) {
 		
 		/**
 		 * Mensagem de boas vindas.
@@ -30,14 +29,8 @@ public class Principal {
 		 * Listas padrões de clientes, funcionarios e usuários. 
 		 */
 		
-		// Inicia lista de usuários padrões.
-		Artefatos.getInstance().initUsuarios();
-		
-		// Inicia lista de clientes padrões.
-		Artefatos.getInstance().initClientes();
-		
-		// Inicia lista de funcionarios padrões.
-		Artefatos.getInstance().initFuncionarios();
+		// Inicia listas padrões.
+		Artefatos.getInstance().init();
 		
 		/**
 		 * Chamada do menu de Login.

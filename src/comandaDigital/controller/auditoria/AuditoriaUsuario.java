@@ -77,7 +77,7 @@ public class AuditoriaUsuario implements IMenuCrudPadrão{
 		
 		Usuario usuario = (Usuario) object;
 		
-		usuario.setId(GerarId.getInstance().geraId());
+		usuario.setId(GerarId.getInstance().geraIdPessoa());
 		usuario.setLogin(Integer.toString(usuario.getId()));
 
 		Artefatos.usuarios.add(usuario);

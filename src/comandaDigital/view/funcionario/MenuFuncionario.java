@@ -16,7 +16,6 @@ import comandaDigital.model.pessoas.Usuario;
 public class MenuFuncionario {
 	
 	private static MenuFuncionario instance;
-	private Scanner scan = new Scanner(System.in);
 
     private static MenuFuncionario getIntance() {
         return instance;
@@ -38,11 +37,12 @@ public class MenuFuncionario {
     
     public void getMenuFuncionario() {
 
+		Scanner scan = new Scanner(System.in);
 		int opcaoMenuFuncionario = 0;
 		boolean flagMenuFuncionario = true;
 		
 		while (flagMenuFuncionario) {
-			
+
 			boolean flagMenu = true;
 			
 			System.out.println("************************************");
@@ -77,14 +77,15 @@ public class MenuFuncionario {
 				}
 				
 			}
-			
+		
 		}
-
+		
 	}
     
     public void getMenuInsereFuncionario() {
 
 		Funcionario funcionario = new Funcionario();
+		Scanner scan = new Scanner(System.in);
 		
 		System.out.println("************************************");
 		System.out.println("*	 Menu Insere Funcionario    *");
@@ -112,6 +113,7 @@ public class MenuFuncionario {
     public void getMenuAlteracaoFuncionario() {
 
 		Funcionario funcionario = new Funcionario();
+		Scanner scan = new Scanner(System.in);
 		
 		System.out.println("************************************");
 		System.out.println("*	 Menu Atualização de Funcionario    *");
@@ -137,7 +139,9 @@ public class MenuFuncionario {
 	}
     
     public void getMenuDeletaFuncionario() {
-
+    	
+    	Scanner scan = new Scanner(System.in);
+    	
 		System.out.println("************************************");
 		System.out.println("*	 Menu Deleta Funcionario    *");
 		System.out.println("************************************\n");

@@ -1,7 +1,6 @@
 package comandaDigital.controller.auditoria;
 
-import comandaDigital.model.pessoas.Funcionario;
-import comandaDigital.view.funcionario.MenuFuncionario;
+import comandaDigital.model.produto.Produto;
 import comandaDigital.view.produto.MenuProduto;
 import interfaces.mensagens.IMensagemGeral;
 import interfaces.padroes.IMenuCrudPadrão;
@@ -76,38 +75,79 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 	@Override
 	public void insereObjeto(Object object) {
 
-		Funcionario funcionario = (Funcionario) object;
+		Produto produto = (Produto) object;
 
-		funcionario.setNumeroFuncionario(GerarId.getInstance().geraIdFuncionario());
+		produto.setIdProduto(GerarId.getInstance().gerarIdProduto());
 
-		Artefatos.funcionarios.add(funcionario);
+		Artefatos.produtos.add(produto);
 
-		System.out.println(IMensagemGeral.FUNCIONARIO_INSERIDO_SUCESSO);
+		System.out.println(IMensagemGeral.PRODUTO_INSERIDO_SUCESSO);
 
 	}
 
 	@Override
 	public void alteraObjeto(Object object) {
-		// TODO Auto-generated method stub
+
+		Produto produto = (Produto) object;
+		
+		for (int i = 0; i < Artefatos.produtos.size(); i++) {
+
+			if (produto.getIdProduto() == Artefatos.produtos.get(i).getIdProduto()) {
+
+				Artefatos.produtos.get(i).setNome(produto.getNome());
+				Artefatos.produtos.get(i).setDescricao(produto.getDescricao());
+				Artefatos.produtos.get(i).setValorBase(produto.getValorBase());
+				Artefatos.produtos.get(i).setValorVenda(produto.getValorVenda());
+				
+			}
+		}
+
+		System.out.println(IMensagemGeral.PRODUTO_ALTERADO_SUCESSO);
 
 	}
 
 	@Override
 	public void removeObjeto(int id) {
-		// TODO Auto-generated method stub
 
+		for (int i = 0; i < Artefatos.produtos.size(); i++) {
+
+			if (Artefatos.produtos.get(i).getIdProduto() == id) {
+
+				Artefatos.produtos.remove(i);
+
+			}
+		}
+
+		System.out.println(IMensagemGeral.PRODUTO_DELETADO_SUCESSO);
+		
 	}
 
 	@Override
 	public void listarObjeto() {
-		// TODO Auto-generated method stub
-
+		
+		for(Produto produto : Artefatos.produtos){
+			System.out.println(produto.toString());
+		}
+		
 	}
 
 	@Override
 	public Object getObject(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Produto produto = new Produto();
+
+		for (int i = 0; i < Artefatos.produtos.size(); i++) {
+
+			if (id == Artefatos.produtos.get(i).getIdProduto()) {
+
+				produto = Artefatos.produtos.get(i);
+
+			}
+
+		}
+
+		return produto;
+		
 	}
 
 }

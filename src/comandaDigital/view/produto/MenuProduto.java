@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import comandaDigital.controller.auditoria.AuditoriaProduto;
 import comandaDigital.controller.auditoria.AuditoriaUsuario;
-import comandaDigital.model.pessoas.Usuario;
 import comandaDigital.model.produto.Produto;
 
 /**
@@ -15,7 +14,6 @@ import comandaDigital.model.produto.Produto;
 public class MenuProduto {
 
 	private static MenuProduto instance;
-	private Scanner scan = new Scanner(System.in);
 
 	private static MenuProduto getIntance() {
 		return instance;
@@ -79,13 +77,13 @@ public class MenuProduto {
 			}
 			
 		}
-		
-		scan.close();
 
 	}
     
     public void getMenuInsereProduto() {
 		
+    	Scanner scan = new Scanner(System.in);
+    	
 		System.out.println("************************************");
 		System.out.println("*	 Menu Insere Produtos    *");
 		System.out.println("************************************\n");
@@ -93,9 +91,6 @@ public class MenuProduto {
 		Produto produto = new Produto();
 		
 		System.out.println("\nCadastro do Produto:\n");
-		
-		System.out.println("Id : ");
-		produto.setIdProduto(scan.nextInt());
 		
 		System.out.println("Nome: ");
 		produto.setNome(scan.next());
@@ -109,16 +104,16 @@ public class MenuProduto {
 		System.out.println("Valor Venda: ");
 		produto.setValorVenda(scan.nextDouble());
 		
-		AuditoriaUsuario.getInstance().insereObjeto(produto);
+		AuditoriaProduto.getInstance().insereObjeto(produto);
 		
 		System.out.println("************************************\n");
-		
-		scan.close();
 		
 	}
     
     public void getMenuAlteracaoProduto() {
 		
+    	Scanner scan = new Scanner(System.in);
+    	
 		System.out.println("************************************");
 		System.out.println("*	 Menu Atualização de Produto    *");
 		System.out.println("************************************\n");
@@ -140,16 +135,15 @@ public class MenuProduto {
 		System.out.println("Valor Venda: ");
 		produto.setValorVenda(scan.nextDouble());
 		
-		AuditoriaUsuario.getInstance().alteraObjeto(produto);
+		AuditoriaProduto.getInstance().alteraObjeto(produto);
 		
 		System.out.println("************************************\n");
-		
-		scan.close();
 		
 	}
     
     public void getMenuDeletaProduto() {
     	
+    	Scanner scan = new Scanner(System.in);
 		int idProduto = 0;
 		
 		System.out.println("************************************");
@@ -161,11 +155,9 @@ public class MenuProduto {
 		System.out.println("Id: ");
 		idProduto = scan.nextInt();
 		
-		AuditoriaUsuario.getInstance().removeObjeto(idProduto);
+		AuditoriaProduto.getInstance().removeObjeto(idProduto);
 		
 		System.out.println("************************************\n");
-		
-		scan.close();
 		
 	}
     

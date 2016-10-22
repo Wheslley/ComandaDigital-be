@@ -30,7 +30,7 @@ public class GerarId {
 
 	}
 	
-	public int geraId() {
+	public int geraIdPessoa() {
 
 		int id = 0;
 
@@ -120,6 +120,28 @@ public class GerarId {
 			return ++numeroFuncionario;
 		}
 
+	}
+	
+	public int gerarIdProduto(){
+		
+		int numeroProduto = 0;
+		
+		if (Artefatos.produtos.size() == 0) {
+			return 1;
+		} else {
+			for (int i = 0; i < Artefatos.produtos.size(); i++) {
+
+				if (numeroProduto < Artefatos.produtos.get(i).getIdProduto()) {
+
+					numeroProduto = Artefatos.produtos.get(i).getIdProduto();
+
+				}
+
+			}
+
+			return ++numeroProduto;
+		}
+		
 	}
 	
 }

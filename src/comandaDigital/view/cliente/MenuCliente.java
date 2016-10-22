@@ -34,12 +34,13 @@ public class MenuCliente {
     }
     
     public void getMenuCliente() {
-
-		Scanner scan = new Scanner(System.in);
+    	
+    	Scanner scan = new Scanner(System.in);
 		int opcaoMenuCliente = 0;
 		boolean flagMenuCliente = true;
 		
 		while (flagMenuCliente) {
+
 			
 			boolean flagMenu = true;
 			
@@ -77,8 +78,6 @@ public class MenuCliente {
 			}
 			
 		}
-		
-		scan.close();
 
 	}
     
@@ -121,9 +120,8 @@ public class MenuCliente {
 		AuditoriaCliente.getInstance().insereObjeto(cliente);
 		
 		System.out.println("************************************\n");
-		
-		scan.close();
-	}
+
+    }
     
     public void getMenuAlteracaoCliente() {
 
@@ -168,7 +166,6 @@ public class MenuCliente {
 		
 		System.out.println("************************************\n");
 		
-		scan.close();
 	}
     
     public void getMenuDeletaCliente() {
@@ -189,7 +186,6 @@ public class MenuCliente {
 		
 		System.out.println("************************************\n");
 		
-		scan.close();
 	}
 
 }

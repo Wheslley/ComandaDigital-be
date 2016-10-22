@@ -69,10 +69,8 @@ public class MenuUsuario {
 				}
 				
 			}
-			
-		}
 		
-		scan.close();
+		}
 
 	}
     
@@ -118,8 +116,6 @@ public class MenuUsuario {
 		AuditoriaUsuario.getInstance().insereObjeto(usuario);
 		
 		System.out.println("************************************\n");
-		
-		scan.close();
 		
 	}
     
@@ -167,8 +163,6 @@ public class MenuUsuario {
 		
 		System.out.println("************************************\n");
 		
-		scan.close();
-		
 	}
     
     public void getMenuDeletaUsuario() {
@@ -188,8 +182,6 @@ public class MenuUsuario {
 		AuditoriaUsuario.getInstance().removeObjeto(idUsuario);
 		
 		System.out.println("************************************\n");
-		
-		scan.close();
 		
 	}
     

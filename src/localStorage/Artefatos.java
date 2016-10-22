@@ -10,12 +10,15 @@ package localStorage;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import comandaDigital.controller.auditoria.AuditoriaCliente;
 import comandaDigital.controller.auditoria.AuditoriaFuncionario;
+import comandaDigital.controller.auditoria.AuditoriaProduto;
 import comandaDigital.controller.auditoria.AuditoriaUsuario;
 import comandaDigital.model.pessoas.Cliente;
 import comandaDigital.model.pessoas.Funcionario;
 import comandaDigital.model.pessoas.Usuario;
+import comandaDigital.model.produto.Produto;
 import interfaces.mensagens.IMensagemGeral;
 
 public class Artefatos {
@@ -39,52 +42,41 @@ public class Artefatos {
 		return getIntance();
 
 	}
-
-	public static List<Cliente> clientes = new ArrayList<>();
-
+	
+	public void init(){
+		
+		initProdutos();
+		initUsuarios();
+		initClientes();
+		initFuncionarios();
+		
+		System.out.println(IMensagemGeral.LISTAS_INICIALIZADAS);
+	
+	}
+	
+	public static List<Produto> produtos = new ArrayList<>();
+	
 	@SuppressWarnings("finally")
-	public boolean initClientes() {
+	public boolean initProdutos() {
 		
 		try{
 			
-			Cliente cliente = new Cliente();
+			Produto produto = new Produto();
 
-			cliente.setNome("Mario Diniz");
-			cliente.setEmail("marioDnz@gmail.com");
-			cliente.setTelefone("988359000");
-			cliente.setLogradouro("Francisco Cassiano Lopes");
-			cliente.setBairro("Vila Brasilia");
-			cliente.setCep(13566606);
-			cliente.setCidade("São Carlos");
-			cliente.setUf("SP");
+			produto.setNome("Coca-Cola");
+			produto.setDescricao("Refrigerante sabor Cola");
+			produto.setValorBase(2.60);
+			produto.setValorVenda(4.50);
 
-			AuditoriaCliente.getInstance().insereObjeto(cliente);
+			AuditoriaProduto.getInstance().insereObjeto(produto);
 
-			cliente = new Cliente();
-			cliente.setNome("Marina Leite");
-			cliente.setEmail("mah_leite@gmail.com");
-			cliente.setTelefone("988186018");
-			cliente.setLogradouro("Francisco Cassiano Lopes");
-			cliente.setBairro("Vila Brasilia");
-			cliente.setCep(13566606);
-			cliente.setCidade("São Carlos");
-			cliente.setUf("SP");
+			produto = new Produto();
+			produto.setNome("Pão com Catupiry");
+			produto.setDescricao("Pão Frances recheado com Catupiry");
+			produto.setValorBase(1.90);
+			produto.setValorVenda(3.90);
 
-			AuditoriaCliente.getInstance().insereObjeto(cliente);
-
-			cliente = new Cliente();
-			cliente.setNome("Antonio Domingues");
-			cliente.setEmail("tonho_bd@gmail.com");
-			cliente.setTelefone("988248856");
-			cliente.setLogradouro("Achile Aderico Bazone");
-			cliente.setBairro("Jardim Uirapuru");
-			cliente.setCep(1480400);
-			cliente.setCidade("Araraquara");
-			cliente.setUf("SP");
-
-			AuditoriaCliente.getInstance().insereObjeto(cliente);
-
-			System.out.println(IMensagemGeral.CLIENTE_INICIALIZADO);
+			AuditoriaProduto.getInstance().insereObjeto(produto);
 			
 		}catch (Exception e){
 			
@@ -156,8 +148,6 @@ public class Artefatos {
 			usuario.setSenha("123");
 
 			AuditoriaUsuario.getInstance().insereObjeto(usuario);
-
-			System.out.println(IMensagemGeral.USUARIO_INICIALIZADO);
 			
 		} catch (Exception e) {
 			
@@ -168,6 +158,62 @@ public class Artefatos {
 			return true;
 		}
 
+	}
+	
+	public static List<Cliente> clientes = new ArrayList<>();
+
+	@SuppressWarnings("finally")
+	public boolean initClientes() {
+		
+		try{
+			
+			Cliente cliente = new Cliente();
+
+			cliente.setNome("Mario Diniz");
+			cliente.setEmail("marioDnz@gmail.com");
+			cliente.setTelefone("988359000");
+			cliente.setLogradouro("Francisco Cassiano Lopes");
+			cliente.setBairro("Vila Brasilia");
+			cliente.setCep(13566606);
+			cliente.setCidade("São Carlos");
+			cliente.setUf("SP");
+
+			AuditoriaCliente.getInstance().insereObjeto(cliente);
+
+			cliente = new Cliente();
+			cliente.setNome("Marina Leite");
+			cliente.setEmail("mah_leite@gmail.com");
+			cliente.setTelefone("988186018");
+			cliente.setLogradouro("Francisco Cassiano Lopes");
+			cliente.setBairro("Vila Brasilia");
+			cliente.setCep(13566606);
+			cliente.setCidade("São Carlos");
+			cliente.setUf("SP");
+
+			AuditoriaCliente.getInstance().insereObjeto(cliente);
+
+			cliente = new Cliente();
+			cliente.setNome("Antonio Domingues");
+			cliente.setEmail("tonho_bd@gmail.com");
+			cliente.setTelefone("988248856");
+			cliente.setLogradouro("Achile Aderico Bazone");
+			cliente.setBairro("Jardim Uirapuru");
+			cliente.setCep(1480400);
+			cliente.setCidade("Araraquara");
+			cliente.setUf("SP");
+
+			AuditoriaCliente.getInstance().insereObjeto(cliente);
+			
+		}catch (Exception e){
+			
+			return false;
+			
+		} finally{
+			
+			return true;
+			
+		}
+		
 	}
 	
 	public static List<Funcionario> funcionarios = new ArrayList<>();
@@ -216,8 +262,6 @@ public class Artefatos {
 			}
 
 			AuditoriaFuncionario.getInstance().insereObjeto(funcionario);
-			
-			System.out.println(IMensagemGeral.FUNCIONARIO_INICIALIZADO);
 			
 		}catch (Exception e){
 			

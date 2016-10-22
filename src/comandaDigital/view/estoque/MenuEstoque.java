@@ -1,7 +1,5 @@
 package comandaDigital.view.estoque;
 
-import java.util.Scanner;
-
 /**
  * 
  * @author whesl
@@ -10,7 +8,6 @@ import java.util.Scanner;
 public class MenuEstoque {
 	
 	private static MenuEstoque instance;
-	private Scanner scan = new Scanner(System.in);
 
     private static MenuEstoque getIntance() {
         return instance;

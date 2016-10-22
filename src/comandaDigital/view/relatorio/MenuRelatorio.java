@@ -1,11 +1,8 @@
 package comandaDigital.view.relatorio;
 
-import java.util.Scanner;
-
 public class MenuRelatorio {
 	
 	private static MenuRelatorio instance;
-	private Scanner scan = new Scanner(System.in);
 
 	private static MenuRelatorio getIntance() {
 		return instance;

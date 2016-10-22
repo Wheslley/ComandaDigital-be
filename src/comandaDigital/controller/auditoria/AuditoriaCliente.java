@@ -77,7 +77,7 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 
 		Cliente cliente = (Cliente) object;
 		
-		cliente.setId(GerarId.getInstance().geraId());
+		cliente.setId(GerarId.getInstance().geraIdPessoa());
 		cliente.setNumeroCliente(GerarId.getInstance().geraIdCliente());
 
 		Artefatos.clientes.add(cliente);

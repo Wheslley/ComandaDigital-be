@@ -64,5 +64,13 @@ public class Produto {
 	public void setValorVenda(Double valorVenda) {
 		this.valorVenda = valorVenda;
 	}
+	
+	public String toString(){
+		
+		return "Id Produto: " + this.idProduto +
+			   " Nome do Produto: " + this.nome + 
+			   " Preço Venda: " + this.valorVenda + " $";
+		
+	}
 
 }

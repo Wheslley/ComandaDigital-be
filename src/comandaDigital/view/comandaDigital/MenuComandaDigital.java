@@ -1,11 +1,8 @@
 package comandaDigital.view.comandaDigital;
 
-import java.util.Scanner;
-
 public class MenuComandaDigital {
 	
 	private static MenuComandaDigital instance;
-	private Scanner scan = new Scanner(System.in);
 
     private static MenuComandaDigital getIntance() {
         return instance;

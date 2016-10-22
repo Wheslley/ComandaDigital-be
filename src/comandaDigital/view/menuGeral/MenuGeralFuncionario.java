@@ -39,7 +39,7 @@ public class MenuGeralFuncionario {
 		boolean flagMenuFuncionario = true;
 
 		while (flagMenuFuncionario) {
-			
+
 			boolean flagMenu = true;
 			
 			System.out.println("************************************");
@@ -52,11 +52,11 @@ public class MenuGeralFuncionario {
 			System.out.println("************************************\n\n");
 			
 			while (flagMenu) {
-				
+
 				System.out.println("Digite a opção desejada ou digite [0] para sair: ");
 				opcaoMenuFuncionário = scan.nextInt();
 				
-				if (opcaoMenuFuncionário > 0 && opcaoMenuFuncionário < 5) {
+				if (opcaoMenuFuncionário > 0 && opcaoMenuFuncionário < 4) {
 					
 					ValidaMenuFuncionario.getInstance().opcaoMenuFuncionario(opcaoMenuFuncionário);
 					flagMenu = false;
@@ -73,11 +73,9 @@ public class MenuGeralFuncionario {
 				}
 				
 			}
-			
+
 		}
 		
-		scan.close();
-
 	}
     
 }
