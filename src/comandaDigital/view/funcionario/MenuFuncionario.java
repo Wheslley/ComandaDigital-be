@@ -9,6 +9,8 @@ import comandaDigital.model.pessoas.Usuario;
 
 /**
  * 
+ * Classe MenuFuncionario será responsável em exibir todas as opções disponíveis para a opção funcionário
+ * 
  * @author whesl
  *
  */
@@ -17,14 +19,34 @@ public class MenuFuncionario {
 	
 	private static MenuFuncionario instance;
 
+	/**
+	 * 
+	 * Método Getter referente ao atributo instance
+	 * 
+	 * @return
+	 */
     private static MenuFuncionario getIntance() {
         return instance;
     }
 
+    /**
+     * 
+     * Método Setter referente ao atributo instance
+     * 
+     * @param aInstance
+     */
     private static void setInstance(MenuFuncionario aInstance) {
         instance = aInstance;
     }
 
+    /**
+     * 
+     * Caso a variavel instance não estiver referência de nenhum ponto da
+	 * memória, associamos a ela um endereço e instanciamos a própria classe,
+	 * transformando-a em uma classe assincrôna.
+     * 
+     * @return
+     */
     public static MenuFuncionario getInstance() {
 
         if (getIntance() == null) {
@@ -35,6 +57,9 @@ public class MenuFuncionario {
 
     }
     
+    /**
+     * Menu completo contendo todas as opções do MenuFuncionario
+     */
     public void getMenuFuncionario() {
 
 		Scanner scan = new Scanner(System.in);
@@ -80,8 +105,13 @@ public class MenuFuncionario {
 		
 		}
 		
+		scan.close();
+		
 	}
     
+    /**
+     * Menu referente ao cadastro de um novo funcionário
+     */
     public void getMenuInsereFuncionario() {
 
 		Funcionario funcionario = new Funcionario();
@@ -108,8 +138,13 @@ public class MenuFuncionario {
 		
 		System.out.println("************************************\n");
 		
+		scan.close();
+		
 	}
     
+    /**
+     * Menu referente a alteração de um determinado funcionário tendo como referência o id do usuário
+     */
     public void getMenuAlteracaoFuncionario() {
 
 		Funcionario funcionario = new Funcionario();
@@ -136,8 +171,13 @@ public class MenuFuncionario {
 		
 		System.out.println("************************************\n");
 		
+		scan.close();
+		
 	}
     
+    /**
+     * Menu referente a exclusão de um determinado funcionário tendo como referência o id do usuário
+     */
     public void getMenuDeletaFuncionario() {
     	
     	Scanner scan = new Scanner(System.in);
@@ -154,6 +194,8 @@ public class MenuFuncionario {
 		AuditoriaFuncionario.getInstance().removeObjeto(usuario.getId());
 		
 		System.out.println("************************************\n");
+		
+		scan.close();
 		
 	}
     

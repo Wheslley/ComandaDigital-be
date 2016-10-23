@@ -6,6 +6,8 @@ import comandaDigital.controller.menu.ValidaMenuUsuarioMaster;
 
 /**
  * 
+ * Classe MenuGeralUsuarioMaster será responsável em exibir todas as opções disponíveis para o login de usuário master
+ * 
  * @author whesl
  *
  */
@@ -14,14 +16,34 @@ public class MenuGeralUsuarioMaster {
 
 	private static MenuGeralUsuarioMaster instance;
 
+	/**
+	 * 
+	 * Método Getter referente ao atributo instance
+	 * 
+	 * @return
+	 */
 	private static MenuGeralUsuarioMaster getIntance() {
 		return instance;
 	}
 
+	/**
+	 * 
+	 * Método Setter referente ao atributo instance
+	 * 
+	 * @param aInstance
+	 */
 	private static void setInstance(MenuGeralUsuarioMaster aInstance) {
 		instance = aInstance;
 	}
 
+	/**
+	 * 
+	 * Caso a variavel instance não estiver referência de nenhum ponto da
+	 * memória, associamos a ela um endereço e instanciamos a própria classe,
+	 * transformando-a em uma classe assincrôna.
+	 * 
+	 * @return
+	 */
 	public static MenuGeralUsuarioMaster getInstance() {
 
 		if (getIntance() == null) {
@@ -32,6 +54,9 @@ public class MenuGeralUsuarioMaster {
 
 	}
 
+	/**
+	 * Menu completo contendo todas as opções do MenuGeralUsuarioMaster
+	 */
 	public void getMenuUsuarioMaster() {
 
 		Scanner scan = new Scanner(System.in);
@@ -79,6 +104,8 @@ public class MenuGeralUsuarioMaster {
 			}
 
 		}
+		
+		scan.close();
 
 	}
 

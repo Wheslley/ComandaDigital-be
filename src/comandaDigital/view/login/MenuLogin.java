@@ -8,6 +8,8 @@ import interfaces.mensagens.IMensagemGeral;
 
 /**
  * 
+ * Classe MenuLogin será responsável em exibir todos os campos disponíveis para realizar o login no sistema
+ * 
  * @author whesl
  *
  */
@@ -36,7 +38,7 @@ public class MenuLogin {
 
 	/**
 	 * Caso a variavel instance não estiver referência de nenhum ponto da
-	 * memório, associamos a ela um endereço e instanciamos a própria classe,
+	 * memória, associamos a ela um endereço e instanciamos a própria classe,
 	 * transformando-a em uma classe assincrôna.
 	 * 
 	 * @author whesl
@@ -125,6 +127,8 @@ public class MenuLogin {
 			}
 
 		}
+		
+		scan.close();
 		
 	}
 
