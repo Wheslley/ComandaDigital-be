@@ -5,18 +5,45 @@ import java.util.Scanner;
 import comandaDigital.controller.auditoria.AuditoriaUsuario;
 import comandaDigital.model.pessoas.Usuario;
 
+/**
+ * 
+ * Classe MenuUsuario será responsável em exibir todas as opções disponíveis para a opção usuário
+ * 
+ * @author w_his
+ *
+ */
 public class MenuUsuario {
 	
 	private static MenuUsuario instance;
 
+	/**
+	 * 
+	 * Método Getter referente ao atributo instance
+	 * 
+	 * @return
+	 */
     private static MenuUsuario getIntance() {
         return instance;
     }
 
+    /**
+     * 
+     * Método Setter referente ao atributo instance
+     * 
+     * @param aInstance
+     */
     private static void setInstance(MenuUsuario aInstance) {
         instance = aInstance;
     }
 
+    /**
+     * 
+     * Caso a variavel instance não estiver referência de nenhum ponto da
+	 * memória, associamos a ela um endereço e instanciamos a própria classe,
+	 * transformando-a em uma classe assincrôna.
+     * 
+     * @return
+     */
     public static MenuUsuario getInstance() {
 
         if (getIntance() == null) {
@@ -27,6 +54,9 @@ public class MenuUsuario {
 
     }
     
+    /**
+     * Menu completo contendo todas as opções do MenuUsuario
+     */
     public void getMenuUsuario() {
 
 		Scanner scan = new Scanner(System.in);
@@ -71,9 +101,14 @@ public class MenuUsuario {
 			}
 		
 		}
+		
+		scan.close();
 
 	}
     
+    /**
+     * Menu referente ao cadastro de um novo usuario
+     */
     public void getMenuInsereUsuario() {
 
 		Scanner scan = new Scanner(System.in);
@@ -117,8 +152,13 @@ public class MenuUsuario {
 		
 		System.out.println("************************************\n");
 		
+		scan.close();
+		
 	}
     
+    /**
+     * Menu referente a alteração de um determinado usuário tendo como referência o id do usuário
+     */
     public void getMenuAlteracaoUsuario() {
 
 		Scanner scan = new Scanner(System.in);
@@ -163,8 +203,13 @@ public class MenuUsuario {
 		
 		System.out.println("************************************\n");
 		
+		scan.close();
+		
 	}
     
+    /**
+     * Menu referente a exclusão de um determinado usuário tendo como referência o id do usuário
+     */
     public void getMenuDeletaUsuario() {
 
 		Scanner scan = new Scanner(System.in);
@@ -182,6 +227,8 @@ public class MenuUsuario {
 		AuditoriaUsuario.getInstance().removeObjeto(idUsuario);
 		
 		System.out.println("************************************\n");
+		
+		scan.close();
 		
 	}
     

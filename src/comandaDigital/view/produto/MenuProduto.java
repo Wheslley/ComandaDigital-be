@@ -3,10 +3,11 @@ package comandaDigital.view.produto;
 import java.util.Scanner;
 
 import comandaDigital.controller.auditoria.AuditoriaProduto;
-import comandaDigital.controller.auditoria.AuditoriaUsuario;
 import comandaDigital.model.produto.Produto;
 
 /**
+ * 
+ * Classe MenuProduto será responsável em exibir todas as opções disponíveis para a opção produto
  * 
  * @author whesl
  *
@@ -15,14 +16,34 @@ public class MenuProduto {
 
 	private static MenuProduto instance;
 
+	/**
+	 * 
+	 * Método Getter referente ao atributo instance
+	 * 
+	 * @return
+	 */
 	private static MenuProduto getIntance() {
 		return instance;
 	}
 
+	/**
+	 * 
+	 * Método Setter referente ao atributo instance
+	 * 
+	 * @param aInstance
+	 */
 	private static void setInstance(MenuProduto aInstance) {
 		instance = aInstance;
 	}
 
+	/**
+	 * 
+	 * Caso a variavel instance não estiver referência de nenhum ponto da
+	 * memória, associamos a ela um endereço e instanciamos a própria classe,
+	 * transformando-a em uma classe assincrôna.
+	 * 
+	 * @return
+	 */
 	public static MenuProduto getInstance() {
 
 		if (getIntance() == null) {
@@ -33,6 +54,9 @@ public class MenuProduto {
 
 	}
 	
+	/**
+	 * Menu completo contendo todas as opções do MenuProduto
+	 */
 	public void getMenuProduto() {
 
 		Scanner scan = new Scanner(System.in);
@@ -77,9 +101,14 @@ public class MenuProduto {
 			}
 			
 		}
+		
+		scan.close();
 
 	}
     
+	/**
+	 * Menu referente ao cadastro de um novo produto
+	 */
     public void getMenuInsereProduto() {
 		
     	Scanner scan = new Scanner(System.in);
@@ -108,8 +137,13 @@ public class MenuProduto {
 		
 		System.out.println("************************************\n");
 		
+		scan.close();
+		
 	}
     
+    /**
+     * Menu referente a alteração de um determinado produto tendo como referência o id do produto
+     */
     public void getMenuAlteracaoProduto() {
 		
     	Scanner scan = new Scanner(System.in);
@@ -139,8 +173,13 @@ public class MenuProduto {
 		
 		System.out.println("************************************\n");
 		
+		scan.close();
+		
 	}
     
+    /**
+     * Menu referente a exclusão de um determinado produto tendo como referência o id do produto
+     */
     public void getMenuDeletaProduto() {
     	
     	Scanner scan = new Scanner(System.in);
@@ -158,6 +197,8 @@ public class MenuProduto {
 		AuditoriaProduto.getInstance().removeObjeto(idProduto);
 		
 		System.out.println("************************************\n");
+		
+		scan.close();
 		
 	}
     
