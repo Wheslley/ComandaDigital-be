@@ -101,8 +101,6 @@ public class MenuGeralFuncionario {
 
 		}
 		
-		scan.close();
-		
 	}
     
 }

@@ -105,8 +105,6 @@ public class MenuFuncionario {
 		
 		}
 		
-		scan.close();
-		
 	}
     
     /**
@@ -137,8 +135,6 @@ public class MenuFuncionario {
 		AuditoriaFuncionario.getInstance().insereObjeto(funcionario);
 		
 		System.out.println("************************************\n");
-		
-		scan.close();
 		
 	}
     
@@ -171,8 +167,6 @@ public class MenuFuncionario {
 		
 		System.out.println("************************************\n");
 		
-		scan.close();
-		
 	}
     
     /**
@@ -194,8 +188,6 @@ public class MenuFuncionario {
 		AuditoriaFuncionario.getInstance().removeObjeto(usuario.getId());
 		
 		System.out.println("************************************\n");
-		
-		scan.close();
 		
 	}
     

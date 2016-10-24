@@ -1,6 +1,12 @@
 package comandaDigital.controller.auditoria;
 
+import java.util.Map;
+
+import comandaDigital.model.produto.Estoque;
+import comandaDigital.view.estoque.MenuEstoque;
+import interfaces.mensagens.IMensagemGeral;
 import interfaces.padroes.IMenuCrudPadrão;
+import localStorage.Artefatos;
 
 /**
  * 
@@ -8,7 +14,7 @@ import interfaces.padroes.IMenuCrudPadrão;
  *
  */
 
-public class AuditoriaEstoque implements IMenuCrudPadrão{
+public class AuditoriaEstoque implements IMenuCrudPadrão {
 
 	private static AuditoriaEstoque instance;
 
@@ -32,38 +38,101 @@ public class AuditoriaEstoque implements IMenuCrudPadrão{
 
 	@Override
 	public void auditaObjeto(int opcaoMenu) {
-		// TODO Auto-generated method stub
-		
+
+		switch (opcaoMenu) {
+
+			case 1: {
+	
+				MenuEstoque.getInstance().getMenuInsereEstoque();
+				break;
+	
+			}
+	
+			case 2: {
+	
+				MenuEstoque.getInstance().getMenuDeletaEstoque();
+				break;
+	
+			}
+	
+			case 3: {
+	
+				MenuEstoque.getInstance().getMenuAlteracaoEstoque();
+				break;
+	
+			}
+	
+			default: {
+	
+				listarObjeto();
+				break;
+	
+			}
+
+		}
+
 	}
 
 	@Override
 	public void insereObjeto(Object object) {
-		// TODO Auto-generated method stub
-		
+
+		Estoque estoque = (Estoque) object;
+
+		Artefatos.estoque.put(estoque.getIdProduto(), estoque.getQuantidadeProduto());
+
+		System.out.println(IMensagemGeral.ESTOQUE_INSERIDO_SUCESSO);
+
 	}
 
 	@Override
 	public void alteraObjeto(Object object) {
-		// TODO Auto-generated method stub
+
+		Estoque estoque = (Estoque) object;
+
+		for (Map.Entry<Integer, Integer> entry : Artefatos.estoque.entrySet()) {
+
+			if (estoque.getIdProduto() == entry.getKey()) {
+				
+				Artefatos.estoque.remove(estoque.getIdProduto());
+				Artefatos.estoque.put(estoque.getIdProduto(), estoque.getQuantidadeProduto());
+				
+			}
+
+		}
+
+		System.out.println(IMensagemGeral.ESTOQUE_ALTERADO_SUCESSO);
 		
 	}
 
 	@Override
 	public void removeObjeto(int id) {
-		// TODO Auto-generated method stub
+
+		Integer idProduto = id;
+		Artefatos.estoque.remove(idProduto);
+
+		System.out.println(IMensagemGeral.ESTOQUE_DELETADO_SUCESSO);
 		
 	}
 
 	@Override
 	public void listarObjeto() {
-		// TODO Auto-generated method stub
-		
+
+		for (Map.Entry<Integer, Integer> entry : Artefatos.estoque.entrySet()) {
+			
+			System.out.println("IdProduto: " + entry.getKey() + " - Quantidade: " + entry.getValue());
+			
+		}
+
 	}
 
 	@Override
 	public Object getObject(int id) {
-		// TODO Auto-generated method stub
-		return null;
+
+		Estoque estoque = new Estoque();
+		System.out.println("Metodo não implementado!!!");
+
+		return estoque;
+
 	}
-	
+
 }

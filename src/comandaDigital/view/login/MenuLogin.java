@@ -128,8 +128,6 @@ public class MenuLogin {
 
 		}
 		
-		scan.close();
-		
 	}
 
 }

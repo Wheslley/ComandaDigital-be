@@ -102,8 +102,6 @@ public class MenuProduto {
 			
 		}
 		
-		scan.close();
-
 	}
     
 	/**
@@ -136,8 +134,6 @@ public class MenuProduto {
 		AuditoriaProduto.getInstance().insereObjeto(produto);
 		
 		System.out.println("************************************\n");
-		
-		scan.close();
 		
 	}
     
@@ -173,8 +169,6 @@ public class MenuProduto {
 		
 		System.out.println("************************************\n");
 		
-		scan.close();
-		
 	}
     
     /**
@@ -197,8 +191,6 @@ public class MenuProduto {
 		AuditoriaProduto.getInstance().removeObjeto(idProduto);
 		
 		System.out.println("************************************\n");
-		
-		scan.close();
 		
 	}
     

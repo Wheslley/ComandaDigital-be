@@ -1,6 +1,7 @@
 package comandaDigital.controller.menu;
 
 import comandaDigital.view.cliente.MenuCliente;
+import comandaDigital.view.estoque.MenuEstoque;
 import comandaDigital.view.funcionario.MenuFuncionario;
 import comandaDigital.view.produto.MenuProduto;
 import comandaDigital.view.usuarios.MenuUsuario;
@@ -61,6 +62,13 @@ public class ValidaMenuUsuarioMaster {
 			case 6: {	
 				
 				MenuProduto.getInstance().getMenuProduto();
+				break;
+	
+			}
+			
+			case 7: {	
+				
+				MenuEstoque.getInstance().getMenuEstoque();
 				break;
 	
 			}

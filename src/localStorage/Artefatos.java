@@ -3,13 +3,13 @@ package localStorage;
 /**
  * 
  * @author whesl
- * 
- * 
  *
  */
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import comandaDigital.controller.auditoria.AuditoriaCliente;
 import comandaDigital.controller.auditoria.AuditoriaFuncionario;
@@ -42,25 +42,24 @@ public class Artefatos {
 		return getIntance();
 
 	}
-	
-	public void init(){
-		
-		initProdutos();
-		initUsuarios();
-		initClientes();
-		initFuncionarios();
-		
-		System.out.println(IMensagemGeral.LISTAS_INICIALIZADAS);
-	
+
+	public void init() {
+
+		if (initProdutos() && initEstoque() && initUsuarios() && initClientes() && initFuncionarios()) {
+			System.out.println(IMensagemGeral.LISTAS_INICIALIZADAS);
+		} else {
+			System.out.println(IMensagemGeral.LISTAS_NAO_INICIALIZADAS);
+		}
+
 	}
-	
+
 	public static List<Produto> produtos = new ArrayList<>();
-	
+
 	@SuppressWarnings("finally")
 	public boolean initProdutos() {
-		
-		try{
-			
+
+		try {
+
 			Produto produto = new Produto();
 
 			produto.setNome("Coca-Cola");
@@ -77,19 +76,43 @@ public class Artefatos {
 			produto.setValorVenda(3.90);
 
 			AuditoriaProduto.getInstance().insereObjeto(produto);
-			
-		}catch (Exception e){
-			
+
+		} catch (Exception e) {
+
 			return false;
-			
-		} finally{
-			
+
+		} finally {
+
 			return true;
-			
+
 		}
-		
+
 	}
-	
+
+	public static Map<Integer, Integer> estoque = new HashMap<>();
+
+	@SuppressWarnings("finally")
+	public boolean initEstoque() {
+
+		try {
+
+			for (Produto produto : produtos) {
+				estoque.put(produto.getIdProduto(), 10);
+				System.out.println(IMensagemGeral.ESTOQUE_INSERIDO_SUCESSO);
+			}
+
+		} catch (Exception e) {
+
+			return false;
+
+		} finally {
+
+			return true;
+
+		}
+
+	}
+
 	public static List<Usuario> usuarios = new ArrayList<>();
 
 	@SuppressWarnings("finally")
@@ -135,7 +158,7 @@ public class Artefatos {
 			usuario.setSenha("123");
 
 			AuditoriaUsuario.getInstance().insereObjeto(usuario);
-			
+
 			usuario = new Usuario();
 			usuario.setNome("Elisete Moro");
 			usuario.setEmail("Ellis_moro@gmail.com");
@@ -148,25 +171,25 @@ public class Artefatos {
 			usuario.setSenha("123");
 
 			AuditoriaUsuario.getInstance().insereObjeto(usuario);
-			
+
 		} catch (Exception e) {
-			
+
 			return false;
-			
-		} finally{
-			
+
+		} finally {
+
 			return true;
 		}
 
 	}
-	
+
 	public static List<Cliente> clientes = new ArrayList<>();
 
 	@SuppressWarnings("finally")
 	public boolean initClientes() {
-		
-		try{
-			
+
+		try {
+
 			Cliente cliente = new Cliente();
 
 			cliente.setNome("Mario Diniz");
@@ -203,76 +226,76 @@ public class Artefatos {
 			cliente.setUf("SP");
 
 			AuditoriaCliente.getInstance().insereObjeto(cliente);
-			
-		}catch (Exception e){
-			
+
+		} catch (Exception e) {
+
 			return false;
-			
-		} finally{
-			
+
+		} finally {
+
 			return true;
-			
+
 		}
-		
+
 	}
-	
+
 	public static List<Funcionario> funcionarios = new ArrayList<>();
 
 	@SuppressWarnings("finally")
 	public boolean initFuncionarios() {
-		
-		try{
-			
+
+		try {
+
 			Funcionario funcionario = new Funcionario();
-			
+
 			funcionario.setFuncao("Gerente");
 			funcionario.setSalario(5136.00);
-			
-			for(Usuario usuario : usuarios){
-				if(usuario.getId() == 2){
+
+			for (Usuario usuario : usuarios) {
+				if (usuario.getId() == 2) {
 					Usuario usuarioAux = usuario;
 					funcionario.setUsuario(usuarioAux);
 				}
 			}
 
 			AuditoriaFuncionario.getInstance().insereObjeto(funcionario);
-			
+
 			funcionario = new Funcionario();
 			funcionario.setFuncao("Caixa");
 			funcionario.setSalario(3136.00);
-			
-			for(Usuario usuario : usuarios){
-				if(usuario.getId() == 3){
+
+			for (Usuario usuario : usuarios) {
+				if (usuario.getId() == 3) {
 					Usuario usuarioAux = usuario;
 					funcionario.setUsuario(usuarioAux);
 				}
 			}
 
 			AuditoriaFuncionario.getInstance().insereObjeto(funcionario);
-			
+
 			funcionario = new Funcionario();
 			funcionario.setFuncao("Atendente");
 			funcionario.setSalario(2136.00);
-			
-			for(Usuario usuario : usuarios){
-				if(usuario.getId() == 4){
+
+			for (Usuario usuario : usuarios) {
+				if (usuario.getId() == 4) {
 					Usuario usuarioAux = usuario;
 					funcionario.setUsuario(usuarioAux);
 				}
 			}
 
 			AuditoriaFuncionario.getInstance().insereObjeto(funcionario);
-			
-		}catch (Exception e){
-			
+
+		} catch (Exception e) {
+
 			return false;
-			
+
 		} finally {
-			
+
 			return true;
-			
+
 		}
-		
+
 	}
 
 }

@@ -105,8 +105,6 @@ public class MenuGeralUsuarioMaster {
 
 		}
 		
-		scan.close();
-
 	}
 
 }
