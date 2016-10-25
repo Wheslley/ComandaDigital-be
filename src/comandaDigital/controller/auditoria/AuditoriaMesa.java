@@ -119,11 +119,15 @@ public class AuditoriaMesa implements IMenuCrudPadrão {
 
 	@Override
 	public void listarObjeto() {
-	
-		for (Mesa mesa : Artefatos.mesas) {
-			System.out.println(mesa.toString());
+        
+		for(int x = 0; x < IMensagemGeral.LIMITE_MESAS_ESTABELECIMENTO; x++){
+			for(int y = 0; y < IMensagemGeral.LIMITE_MESAS_ESTABELECIMENTO; y++){
+				if(Artefatos.mesas.get(y).getNumeroMesa() == (x + 1)){
+					System.out.println(Artefatos.mesas.get(y).toString());
+				}
+			}
 		}
-
+		
 	}
 
 	@Override
