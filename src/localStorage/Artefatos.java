@@ -25,14 +25,34 @@ public class Artefatos {
 
 	private static Artefatos instance;
 
+	/**
+	 * 
+	 * Método Getter referente ao atributo instance
+	 * 
+	 * @return
+	 */
 	private static Artefatos getIntance() {
 		return instance;
 	}
 
+	/**
+	 * 
+	 * Método Setter referente ao atributo instance
+	 * 
+	 * @param aInstance
+	 */
 	private static void setInstance(Artefatos aInstance) {
 		instance = aInstance;
 	}
 
+	/**
+	 * 
+	 * Caso a variavel instance não estiver referência de nenhum ponto da
+	 * memória, associamos a ela um endereço e instanciamos a própria classe,
+	 * transformando-a em uma classe assincrôna.
+	 * 
+	 * @return
+	 */
 	public static Artefatos getInstance() {
 
 		if (getIntance() == null) {
@@ -43,6 +63,10 @@ public class Artefatos {
 
 	}
 
+	/**
+	 * Método que realizará a inicialização de todas as listas responsáveis em armazenar
+	 * os objetos criados no decorrer do programa
+	 */
 	public void init() {
 
 		if (initProdutos() && initEstoque() && initUsuarios() && initClientes() && initFuncionarios()) {
@@ -55,6 +79,12 @@ public class Artefatos {
 
 	public static List<Produto> produtos = new ArrayList<>();
 
+	/**
+	 * 
+	 * Método initProdutos realizará a inclusão de 02 produtos no sistema
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("finally")
 	public boolean initProdutos() {
 
@@ -91,6 +121,13 @@ public class Artefatos {
 
 	public static Map<Integer, Integer> estoque = new HashMap<>();
 
+	/**
+	 * 
+	 * Método que realizará o inserção dos objeto que foram armazenados na lista produtos
+	 * no estoque
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("finally")
 	public boolean initEstoque() {
 
@@ -115,6 +152,12 @@ public class Artefatos {
 
 	public static List<Usuario> usuarios = new ArrayList<>();
 
+	/**
+	 * 
+	 * Método initUsuarios realizará a inclusão de 04 usuários no sistema
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("finally")
 	public boolean initUsuarios() {
 
@@ -185,6 +228,12 @@ public class Artefatos {
 
 	public static List<Cliente> clientes = new ArrayList<>();
 
+	/**
+	 * 
+	 * Método initClientes realizará a inclusão de 03 clientes no sistema
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("finally")
 	public boolean initClientes() {
 
@@ -241,6 +290,12 @@ public class Artefatos {
 
 	public static List<Funcionario> funcionarios = new ArrayList<>();
 
+	/**
+	 * 
+	 * Método initFuncionarios realizará a inclusão de 03 funcionarios no sistema
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("finally")
 	public boolean initFuncionarios() {
 

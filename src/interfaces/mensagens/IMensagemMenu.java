@@ -2,6 +2,8 @@ package interfaces.mensagens;
 
 /**
  * 
+ * Interface IMensagemMenu será responsável em validar o login do sistema.
+ * 
  * @author whesl
  *
  */

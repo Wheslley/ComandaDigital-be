@@ -2,6 +2,8 @@ package interfaces.mensagens;
 
 /**
  * 
+ * Interface IMensagemGeral será responsável em fornecer mensagens de ações ao sistema.
+ * 
  * @author whesl
  *
  */

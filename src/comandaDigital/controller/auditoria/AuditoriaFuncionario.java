@@ -17,14 +17,34 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 	
 	private static AuditoriaFuncionario instance;
 
+	/**
+	 * 
+	 * Método Getter referente ao atributo instance.
+	 * 
+	 * @return
+	 */
 	private static AuditoriaFuncionario getIntance() {
 		return instance;
 	}
 
+	/**
+	 * 
+	 * Método Setter referente ao atributo instance.
+	 * 
+	 * @param aInstance
+	 */
 	private static void setInstance(AuditoriaFuncionario aInstance) {
 		instance = aInstance;
 	}
 
+	/**
+	 * 
+	 * Caso a variavel instance não estiver referência de nenhum ponto da
+	 * memória, associamos a ela um endereço e instanciamos a própria classe,
+	 * transformando-a em uma classe assincrôna.
+	 * 
+	 * @return
+	 */
 	public static AuditoriaFuncionario getInstance() {
 
 		if (getIntance() == null) {
@@ -35,6 +55,15 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 
 	}
 
+	/**
+	 * 
+	 * Método auditaObjeto fica como responsável em instanciar o menu solicitado pelo
+	 * usuário, podendo este menu ser o MenuInsereFuncionario, MenuDeletaFuncionario ou 
+	 * MenuAlteracaoFuncionario.
+	 * 
+	 * @param opcaoMenu
+	 * 
+	 */
 	@Override
 	public void auditaObjeto(int opcaoMenu) {
 		
@@ -71,6 +100,13 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 		}
 	}
 
+	/**
+	 * 
+	 * Método insereObjeto realizará a inclusão de um novo Funcionario na lista funcionarios.
+	 * 
+	 * @param object
+	 * 
+	 */
 	@Override
 	public void insereObjeto(Object object) {
 
@@ -84,6 +120,14 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 		
 	}
 
+	/**
+	 * 
+	 * Método alteraObjeto será responsável em alterar um funcionário cujo ID já exista na 
+	 * base de Funcionarios.
+	 * 
+	 * @param object
+	 * 
+	 */
 	@Override
 	public void alteraObjeto(Object object) {
 		
@@ -111,6 +155,14 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 		
 	}
 
+	/**
+	 * 
+	 * Método removeObjeto será responsável em remover um determinado funcionário cujo ID já
+	 * exista na base de Funcionario.
+	 * 
+	 * @param id
+	 * 
+	 */
 	@Override
 	public void removeObjeto(int id) {
 		
@@ -126,6 +178,12 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 		System.out.println(IMensagemGeral.FUNCIONARIO_DELETADO_SUCESSO);
 	}
 
+	/**
+	 * 
+	 * Método listarObjeto será responsável em listar todos os Funcionarios que estejam 
+	 * na lista funcionarios.
+	 * 
+	 */
 	@Override
 	public void listarObjeto() {
 		
@@ -135,6 +193,14 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 		
 	}
 
+	/**
+	 * 
+	 * Método getObject será responsável em retornar um funcionario cujo ID exista na 
+	 * base Funcionarios. 
+	 * 
+	 * @param id
+	 * 
+	 */
 	@Override
 	public Object getObject(int id) {
 

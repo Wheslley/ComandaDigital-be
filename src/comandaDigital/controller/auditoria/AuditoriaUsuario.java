@@ -17,14 +17,34 @@ public class AuditoriaUsuario implements IMenuCrudPadrão{
 	
 	private static AuditoriaUsuario instance;
 
+	/**
+	 * 
+	 * Método Getter referente ao atributo instance.
+	 * 
+	 * @return
+	 */
 	private static AuditoriaUsuario getIntance() {
 		return instance;
 	}
 
+	/**
+	 * 
+	 * Método Setter referente ao atributo instance.
+	 * 
+	 * @param aInstance
+	 */
 	private static void setInstance(AuditoriaUsuario aInstance) {
 		instance = aInstance;
 	}
 
+	/**
+	 * 
+	 * Caso a variavel instance não estiver referência de nenhum ponto da
+	 * memória, associamos a ela um endereço e instanciamos a própria classe,
+	 * transformando-a em uma classe assincrôna.
+	 * 
+	 * @return
+	 */
 	public static AuditoriaUsuario getInstance() {
 
 		if (getIntance() == null) {
@@ -35,6 +55,15 @@ public class AuditoriaUsuario implements IMenuCrudPadrão{
 
 	}
 	
+	/**
+	 * 
+	 * Método auditaObjeto fica como responsável em instanciar o menu solicitado pelo
+	 * usuário, podendo este menu ser o MenuInsereUsuario, MenuDeletaUsuario ou 
+	 * MenuAlteracaoUsuario.
+	 * 
+	 * @param opcaoMenu
+	 * 
+	 */
 	@Override
 	public void auditaObjeto(int opcaoMenu) {
 		
@@ -72,6 +101,13 @@ public class AuditoriaUsuario implements IMenuCrudPadrão{
 			
 	}
 
+	/**
+	 * 
+	 * Método insereObjeto realizará a inclusão de um novo Usuário na lista usuarios.
+	 * 
+	 * @param object
+	 * 
+	 */
 	@Override
 	public void insereObjeto(Object object) {
 		
@@ -86,6 +122,14 @@ public class AuditoriaUsuario implements IMenuCrudPadrão{
 		
 	}
 
+	/**
+	 * 
+	 * Método alteraObjeto será responsável em alterar um usuario cujo ID já exista na 
+	 * base de usuarios.
+	 * 
+	 * @param object
+	 * 
+	 */
 	@Override
 	public void alteraObjeto(Object object) {
 		
@@ -112,6 +156,14 @@ public class AuditoriaUsuario implements IMenuCrudPadrão{
 		
 	}
 
+	/**
+	 * 
+	 * Método removeObjeto será responsável em remover um determinado usuario cujo ID já
+	 * exista na base de Usuario.
+	 * 
+	 * @param id
+	 * 
+	 */
 	@Override
 	public void removeObjeto(int id) {
 		
@@ -128,6 +180,10 @@ public class AuditoriaUsuario implements IMenuCrudPadrão{
 		
 	}
 
+	/**
+	 * Método listarObjeto será responsável em listar todos os Usuários que estejam 
+	 * na lista usuarios.
+	 */
 	@Override
 	public void listarObjeto() {
 		
@@ -137,6 +193,14 @@ public class AuditoriaUsuario implements IMenuCrudPadrão{
 		
 	}
 
+	/**
+	 * 
+	 * Método getObject será responsável em retornar um usuario cujo ID exista na 
+	 * base usuarios. 
+	 * 
+	 * @param id
+	 * 
+	 */
 	@Override
 	public Object getObject(int id) {
 		

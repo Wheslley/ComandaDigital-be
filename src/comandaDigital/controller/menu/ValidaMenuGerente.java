@@ -7,6 +7,9 @@ import comandaDigital.view.produto.MenuProduto;
 
 /**
  * 
+ * Classe ValidaMenuGerente será responsável em instanciar o menu solicitado no
+ * console pelo Gerente.
+ * 
  * @author whesl
  *
  */
@@ -15,14 +18,34 @@ public class ValidaMenuGerente {
 	
 	private static ValidaMenuGerente instance;
 
+	/**
+	 * 
+	 * Método Getter referente ao atributo instance.
+	 * 
+	 * @return
+	 */
     private static ValidaMenuGerente getIntance() {
         return instance;
     }
 
+    /**
+     * 
+     * Método Setter referente ao atributo instance.
+     * 
+     * @param aInstance
+     */
     private static void setInstance(ValidaMenuGerente aInstance) {
         instance = aInstance;
     }
 
+    /**
+     * 
+     * Caso a variavel instance não estiver referência de nenhum ponto da
+	 * memória, associamos a ela um endereço e instanciamos a própria classe,
+	 * transformando-a em uma classe assincrôna.
+     * 
+     * @return
+     */
     public static ValidaMenuGerente getInstance() {
 
         if (getIntance() == null) {
@@ -33,6 +56,13 @@ public class ValidaMenuGerente {
 
     }
     
+    /**
+     * 
+     * Método opcaoMenuGerente será responsável em verificar a opção que foi inserida
+     * no console da aplicação e instanciar o menu solicitado pelo gerente.
+     * 
+     * @param opcaoMenu
+     */
     public void opcaoMenuGerente(int opcaoMenu){
     	
     	switch (opcaoMenu) {
