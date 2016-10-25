@@ -1,7 +1,7 @@
 package sistema;
 
 import comandaDigital.view.login.MenuLogin;
-import localStorage.Artefatos;
+import localStorage.InitArtefatos;
 
 /**
  * Classe com o objetivo de chamar a view responsável pela lógica do Sitema
@@ -30,7 +30,7 @@ public class Principal {
 		 */
 		
 		// Inicia listas padrões.
-		Artefatos.getInstance().init();
+		InitArtefatos.getInstance().init();
 		
 		/**
 		 * Chamada do menu de Login.

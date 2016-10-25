@@ -1,4 +1,4 @@
-package comandaDigital.model.produto;
+package comandaDigital.model.estabelecimento;
 
 /**
  * 

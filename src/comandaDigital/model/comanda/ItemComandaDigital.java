@@ -11,7 +11,7 @@ import comandaDigital.model.produto.Produto;
  *
  */
 public class ItemComandaDigital {
-
+	
 	private int idItemComandaDigital;
 	private Produto produto;
 	private int quantidadeProduto;
@@ -39,7 +39,8 @@ public class ItemComandaDigital {
 	public ItemComandaDigital(){
 		
 	}
-
+	
+	
 	/**
 	 * 
 	 * Método Getter referente ao atributo idItemComandaDigital
@@ -49,12 +50,12 @@ public class ItemComandaDigital {
 	public int getIdItemComandaDigital() {
 		return idItemComandaDigital;
 	}
-
+	
 	/**
 	 * 
 	 * Método Setter referente ao atributo idItemComandaDigital
 	 * 
-	 * @param idItemComandaDigital
+	 * @param produto
 	 */
 	public void setIdItemComandaDigital(int idItemComandaDigital) {
 		this.idItemComandaDigital = idItemComandaDigital;
@@ -107,7 +108,7 @@ public class ItemComandaDigital {
 	 * @return
 	 */
 	public double getValorTodosProutos() {
-		return valorTodosProutos;
+		return (this.produto.getValorVenda() * this.quantidadeProduto);
 	}
 
 	/**

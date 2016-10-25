@@ -1,6 +1,7 @@
 package comandaDigital.controller.menu;
 
 import comandaDigital.view.cliente.MenuCliente;
+import comandaDigital.view.comandaDigital.MenuMesa;
 import comandaDigital.view.funcionario.MenuFuncionario;
 
 /**
@@ -44,7 +45,7 @@ public class ValidaMenuFuncionario {
 			
 			case 2: {
 				
-				MenuFuncionario.getInstance().getMenuFuncionario();
+				MenuMesa.getInstance().getMenuMesa();
 				break;
 	
 			}

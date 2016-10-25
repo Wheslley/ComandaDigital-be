@@ -5,8 +5,8 @@ import java.util.Scanner;
 import comandaDigital.controller.auditoria.AuditoriaCliente;
 import comandaDigital.controller.auditoria.AuditoriaEstoque;
 import comandaDigital.controller.auditoria.AuditoriaProduto;
+import comandaDigital.model.estabelecimento.Estoque;
 import comandaDigital.model.pessoas.Cliente;
-import comandaDigital.model.produto.Estoque;
 import comandaDigital.model.produto.Produto;
 
 /**

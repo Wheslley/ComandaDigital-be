@@ -15,6 +15,8 @@ import comandaDigital.controller.auditoria.AuditoriaCliente;
 import comandaDigital.controller.auditoria.AuditoriaFuncionario;
 import comandaDigital.controller.auditoria.AuditoriaProduto;
 import comandaDigital.controller.auditoria.AuditoriaUsuario;
+import comandaDigital.model.estabelecimento.Estabelecimento;
+import comandaDigital.model.estabelecimento.Mesa;
 import comandaDigital.model.pessoas.Cliente;
 import comandaDigital.model.pessoas.Funcionario;
 import comandaDigital.model.pessoas.Usuario;
@@ -43,18 +45,20 @@ public class Artefatos {
 
 	}
 
-	public void init() {
-
-		if (initProdutos() && initEstoque() && initUsuarios() && initClientes() && initFuncionarios()) {
-			System.out.println(IMensagemGeral.LISTAS_INICIALIZADAS);
-		} else {
-			System.out.println(IMensagemGeral.LISTAS_NAO_INICIALIZADAS);
-		}
-
-	}
-
 	public static List<Produto> produtos = new ArrayList<>();
 
+	public static Map<Integer, Integer> estoque = new HashMap<>();
+	
+	public static List<Usuario> usuarios = new ArrayList<>();
+
+	public static List<Cliente> clientes = new ArrayList<>();
+
+	public static List<Funcionario> funcionarios = new ArrayList<>();
+
+	public static Estabelecimento estabelecimento = new Estabelecimento();
+	
+	public static List<Mesa> mesas = new ArrayList<>();
+	
 	@SuppressWarnings("finally")
 	public boolean initProdutos() {
 
@@ -88,9 +92,7 @@ public class Artefatos {
 		}
 
 	}
-
-	public static Map<Integer, Integer> estoque = new HashMap<>();
-
+	
 	@SuppressWarnings("finally")
 	public boolean initEstoque() {
 
@@ -112,8 +114,6 @@ public class Artefatos {
 		}
 
 	}
-
-	public static List<Usuario> usuarios = new ArrayList<>();
 
 	@SuppressWarnings("finally")
 	public boolean initUsuarios() {
@@ -182,9 +182,7 @@ public class Artefatos {
 		}
 
 	}
-
-	public static List<Cliente> clientes = new ArrayList<>();
-
+	
 	@SuppressWarnings("finally")
 	public boolean initClientes() {
 
@@ -239,8 +237,6 @@ public class Artefatos {
 
 	}
 
-	public static List<Funcionario> funcionarios = new ArrayList<>();
-
 	@SuppressWarnings("finally")
 	public boolean initFuncionarios() {
 
@@ -285,6 +281,35 @@ public class Artefatos {
 			}
 
 			AuditoriaFuncionario.getInstance().insereObjeto(funcionario);
+
+		} catch (Exception e) {
+
+			return false;
+
+		} finally {
+
+			return true;
+
+		}
+
+	}
+	
+	@SuppressWarnings("finally")
+	public boolean initMesas() {
+
+		try {
+			
+			Mesa mesa;
+			
+			for(int x = 0; x < IMensagemGeral.LIMITE_MESAS_ESTABELECIMENTO; x++){
+				
+				mesa = new Mesa();
+				mesa.setNumeroMesa(x + 1);
+				mesa.setStatusMesa(IMensagemGeral.FECHADA);
+				
+				Artefatos.mesas.add(mesa);
+				System.out.println(IMensagemGeral.MESA_INSERIDA_SUCESSO);
+			}
 
 		} catch (Exception e) {
 

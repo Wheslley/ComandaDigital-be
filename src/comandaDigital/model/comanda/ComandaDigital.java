@@ -1,5 +1,6 @@
 package comandaDigital.model.comanda;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,7 +32,7 @@ public class ComandaDigital {
 	 * Método construtor padrão da classe ComandaDigital
 	 */
 	public ComandaDigital(){
-		
+		this.listItemComandaDigital = new ArrayList<>();
 	}
 	
 	/**
@@ -72,6 +73,17 @@ public class ComandaDigital {
 	 */
 	public void setListItemComandaDigital(List<ItemComandaDigital> listItemComandaDigital) {
 		this.listItemComandaDigital = listItemComandaDigital;
+	}
+	
+	/**
+	 * 
+	 * Método que adiciona um itemComandaDigital na listItemComandaDigital.
+	 * 
+	 * @param itemComandaDigital
+	 */
+	public void setAddListItemComandaDigital(ItemComandaDigital itemComandaDigital){
+		System.out.println("pasou");
+		this.listItemComandaDigital.add(itemComandaDigital);
 	}
 
 }

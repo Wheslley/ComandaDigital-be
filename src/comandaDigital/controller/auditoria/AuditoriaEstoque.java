@@ -2,7 +2,7 @@ package comandaDigital.controller.auditoria;
 
 import java.util.Map;
 
-import comandaDigital.model.produto.Estoque;
+import comandaDigital.model.estabelecimento.Estoque;
 import comandaDigital.view.estoque.MenuEstoque;
 import interfaces.mensagens.IMensagemGeral;
 import interfaces.padroes.IMenuCrudPadrão;
