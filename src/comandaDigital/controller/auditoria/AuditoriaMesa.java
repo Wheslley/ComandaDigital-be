@@ -20,14 +20,34 @@ public class AuditoriaMesa implements IMenuCrudPadrão {
 
 	private static AuditoriaMesa instance;
 
+	/**
+	 * 
+	 * Método Getter referente ao atributo instance.
+	 * 
+	 * @return
+	 */
 	private static AuditoriaMesa getIntance() {
 		return instance;
 	}
 
+    /**
+     * 
+     * Método Setter referente ao atributo instance.
+     * 
+     * @param aInstance
+     */
 	private static void setInstance(AuditoriaMesa aInstance) {
 		instance = aInstance;
 	}
 
+    /**
+     * 
+     * Caso a variavel instance não estiver referência de nenhum ponto da
+	 * memória, associamos a ela um endereço e instanciamos a própria classe,
+	 * transformando-a em uma classe assincrôna.
+     * 
+     * @return
+     */
 	public static AuditoriaMesa getInstance() {
 
 		if (getIntance() == null) {
@@ -38,6 +58,15 @@ public class AuditoriaMesa implements IMenuCrudPadrão {
 
 	}
 
+	/**
+	 * 
+	 * Método auditaObjeto fica como responsável em instanciar o menu solicitado pelo
+	 * usuário, podendo este menu ser o MenuInsereItemComanda, MenuFecharMesa ou 
+	 * MenuAlteracaoMesa.
+	 * 
+	 * @param opcaoMenu
+	 * 
+	 */
 	@Override
 	public void auditaObjeto(int opcaoMenu) {
 
@@ -75,6 +104,14 @@ public class AuditoriaMesa implements IMenuCrudPadrão {
 
 	}
 
+	/**
+	 * 
+	 * Método insereObjeto realizará a inclusão de um novo item na comanda digital para a
+	 * mesa que está sendo referida como parametro..
+	 * 
+	 * @param object
+	 * 
+	 */
 	@Override
 	public void insereObjeto(Object object) {
 
@@ -98,6 +135,13 @@ public class AuditoriaMesa implements IMenuCrudPadrão {
 
 	}
 
+	/**
+	 * 
+	 * Método contaItemComandaDigital realizará a contagem de todos os itens de uma determinada mesa.
+	 * 
+	 * @param mesa
+	 * 
+	 */
 	public int contaItemComandaDigital(Mesa mesa) {
 
 		Integer contadorItemComandaDigital = 0;
@@ -114,6 +158,14 @@ public class AuditoriaMesa implements IMenuCrudPadrão {
 		return (contadorItemComandaDigital + 1);
 	}
 
+	/**
+	 * 
+	 * Método alteraObjeto será responsável em alterar uma mesa cujo numero já exista na 
+	 * base de mesas.
+	 * 
+	 * @param object
+	 * 
+	 */
 	@Override
 	public void alteraObjeto(Object object) {
 
@@ -130,6 +182,14 @@ public class AuditoriaMesa implements IMenuCrudPadrão {
 
 	}
 
+	/**
+	 * 
+	 * Método removeObjeto será responsável em remover uma mesa cujo numero já exista na 
+	 * base de mesas.
+	 * 
+	 * @param id
+	 * 
+	 */
 	@Override
 	public void removeObjeto(int id) {
 
@@ -143,6 +203,10 @@ public class AuditoriaMesa implements IMenuCrudPadrão {
 
 	}
 
+	/**
+	 * Método listarObjeto será responsável em listar todos as Mesas que estejam 
+	 * na lista mesas.
+	 */
 	@Override
 	public void listarObjeto() {
 
@@ -156,16 +220,27 @@ public class AuditoriaMesa implements IMenuCrudPadrão {
 
 	}
 
+	/**
+	 * Método listarMesaEspecifica será responsável em listar somente uma Mesa.
+	 */
 	public void listarMesaEspecifica(Mesa mesa) {
 		System.out.println();
 	}
 
+	
 	@Override
 	public Object getObject(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * 
+	 * Método validaItemComandaDigital será responsável em verificar se a comanda digital
+	 * que está cadastrada na mesa já possui um tipo de produto.
+	 * 
+	 * @param mesa
+	 */
 	public boolean validaItemComandaDigital(Mesa mesa, ItemComandaDigital itemComandaDigital) {
 
 		for (Mesa mesaAb : Artefatos.mesas) {
@@ -181,6 +256,13 @@ public class AuditoriaMesa implements IMenuCrudPadrão {
 		return false;
 	}
 
+	/**
+	 * 
+	 * Método validaMesaComandaDigital será responsável em verificar se o numero de uma mesa 
+	 * é valido.
+	 * 
+	 * @param mesa
+	 */
 	public boolean validaMesaComandaDigital(Mesa mesa) {
 
 		for (Mesa mesaAb : Artefatos.mesas) {
@@ -192,6 +274,13 @@ public class AuditoriaMesa implements IMenuCrudPadrão {
 		return false;
 	}
 
+	/**
+	 * 
+	 * Método calculaTotalMesa será responsável em realizar o calculo do valor 
+	 * total que deverá ser pago pelo cliente.
+	 * 
+	 * @param mesa
+	 */
 	public Double calculaTotalMesa(Mesa mesa) {
 
 		Double totalComanda = 0.0;
@@ -211,6 +300,13 @@ public class AuditoriaMesa implements IMenuCrudPadrão {
 		return totalComanda;
 	}
 
+	/**
+	 * 
+	 * Método fechaMesa será responsável em realizar o fechamento de uma mesa e calcular o valor 
+	 * total de todos os seus produtos, como tambem o valor pago pelo cliente.
+	 * 
+	 * @param mesa
+	 */
 	public void fechaMesa(Mesa mesa) {
 
 		Double valorRecebido = 0.0;

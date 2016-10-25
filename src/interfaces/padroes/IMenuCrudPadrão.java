@@ -2,6 +2,9 @@ package interfaces.padroes;
 
 /**
  * 
+ * Interface IMenuCrudPadrão será responsável em fornecer os métodos para as classes
+ * que necessitar inserir, alterar e remover algum objeto.
+ * 
  * @author whesl
  *
  */

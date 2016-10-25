@@ -2,6 +2,8 @@ package localStorage;
 
 /**
  * 
+ * Classe Artefatos será responsável em incluir objetos em todas as Lists do sistema.
+ * 
  * @author whesl
  *
  */
@@ -27,14 +29,34 @@ public class Artefatos {
 
 	private static Artefatos instance;
 
+	/**
+	 * 
+	 * Método Getter referente ao atributo instance
+	 * 
+	 * @return
+	 */
 	private static Artefatos getIntance() {
 		return instance;
 	}
 
+	/**
+	 * 
+	 * Método Setter referente ao atributo instance
+	 * 
+	 * @param aInstance
+	 */
 	private static void setInstance(Artefatos aInstance) {
 		instance = aInstance;
 	}
 
+	/**
+	 * 
+	 * Caso a variavel instance não estiver referência de nenhum ponto da
+	 * memória, associamos a ela um endereço e instanciamos a própria classe,
+	 * transformando-a em uma classe assincrôna.
+	 * 
+	 * @return
+	 */
 	public static Artefatos getInstance() {
 
 		if (getIntance() == null) {
@@ -59,6 +81,12 @@ public class Artefatos {
 	
 	public static List<Mesa> mesas = new ArrayList<>();
 	
+	/**
+	 * 
+	 * Método initProdutos realizará a inclusão de 02 produtos no sistema
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("finally")
 	public boolean initProdutos() {
 
@@ -117,6 +145,13 @@ public class Artefatos {
 
 	}
 	
+	/**
+	 * 
+	 * Método que realizará o inserção dos objeto que foram armazenados na lista produtos
+	 * no estoque
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("finally")
 	public boolean initEstoque() {
 
@@ -139,6 +174,12 @@ public class Artefatos {
 
 	}
 
+	/**
+	 * 
+	 * Método initUsuarios realizará a inclusão de 04 usuários no sistema
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("finally")
 	public boolean initUsuarios() {
 
@@ -207,6 +248,12 @@ public class Artefatos {
 
 	}
 	
+	/**
+	 * 
+	 * Método initClientes realizará a inclusão de 03 clientes no sistema
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("finally")
 	public boolean initClientes() {
 
@@ -261,6 +308,12 @@ public class Artefatos {
 
 	}
 
+	/**
+	 * 
+	 * Método initFuncionarios realizará a inclusão de 03 funcionarios no sistema
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("finally")
 	public boolean initFuncionarios() {
 
@@ -318,6 +371,12 @@ public class Artefatos {
 
 	}
 	
+	/**
+	 * 
+	 * Método initMesas realizará a inclusão das mesas no sistema
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("finally")
 	public boolean initMesas() {
 

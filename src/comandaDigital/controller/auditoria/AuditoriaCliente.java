@@ -9,6 +9,8 @@ import util.GerarId;
 
 /**
  * 
+ * 
+ * 
  * @author whesl
  *
  */
@@ -17,14 +19,34 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 
 	private static AuditoriaCliente instance;
 
+	/**
+	 * 
+	 * Método Getter referente ao atributo instance.
+	 * 
+	 * @return
+	 */
 	private static AuditoriaCliente getIntance() {
 		return instance;
 	}
 
+	/**
+	 * 
+	 * Método Setter referente ao atributo instance.
+	 * 
+	 * @param aInstance
+	 */
 	private static void setInstance(AuditoriaCliente aInstance) {
 		instance = aInstance;
 	}
 
+	/**
+	 * 
+	 * Caso a variavel instance não estiver referência de nenhum ponto da
+	 * memória, associamos a ela um endereço e instanciamos a própria classe,
+	 * transformando-a em uma classe assincrôna.
+	 * 
+	 * @return
+	 */
 	public static AuditoriaCliente getInstance() {
 
 		if (getIntance() == null) {
@@ -35,6 +57,15 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 
 	}
 
+	/**
+	 * 
+	 * Método auditaObjeto fica como responsável em instanciar o menu solicitado pelo
+	 * usuário, podendo este menu ser o MenuInsereCliente, MenuDeletaCliente ou 
+	 * MenuAlteracaoCliente.
+	 * 
+	 * @param opcaoMenu
+	 * 
+	 */
 	@Override
 	public void auditaObjeto(int opcaoMenu) {
 
@@ -72,6 +103,13 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 		
 	}
 
+	/**
+	 * 
+	 * Método insereObjeto realizará a inclusão de um novo Cliente na lista clientes.
+	 * 
+	 * @param object
+	 * 
+	 */
 	@Override
 	public void insereObjeto(Object object) {
 
@@ -86,6 +124,14 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 		
 	}
 
+	/**
+	 * 
+	 * Método alteraObjeto será responsável em alterar um cliente cujo ID já exista na 
+	 * base de Clientes.
+	 * 
+	 * @param object
+	 * 
+	 */
 	@Override
 	public void alteraObjeto(Object object) {
 		
@@ -110,6 +156,14 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 		System.out.println(IMensagemGeral.CLIENTE_ALTERADO_SUCESSO);
 	}
 
+	/**
+	 * 
+	 * Método removeObjeto será responsável em remover um determinado cliente cujo ID já
+	 * exista na base de Clientes.
+	 * 
+	 * @param id
+	 * 
+	 */
 	@Override
 	public void removeObjeto(int id) {
 		
@@ -125,6 +179,10 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 		System.out.println(IMensagemGeral.CLIENTE_DELETADO_SUCESSO);
 	}
 	
+	/**
+	 * Método listarObjeto será responsável em listar todos os Clientes que estejam 
+	 * na lista clientes.
+	 */
 	@Override
 	public void listarObjeto() {
 		
@@ -134,6 +192,14 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 		
 	}
 
+	/**
+	 * 
+	 * Método getObject será responsável em retornar um cliente cujo ID exista na 
+	 * base Clientes. 
+	 * 
+	 * @param id
+	 * 
+	 */
 	@Override
 	public Object getObject(int id) {
 
