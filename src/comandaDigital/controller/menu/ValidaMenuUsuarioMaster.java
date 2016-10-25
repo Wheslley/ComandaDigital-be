@@ -5,6 +5,7 @@ import comandaDigital.view.estabelecimento.MenuMesa;
 import comandaDigital.view.estoque.MenuEstoque;
 import comandaDigital.view.funcionario.MenuFuncionario;
 import comandaDigital.view.produto.MenuProduto;
+import comandaDigital.view.relatorio.MenuRelatorio;
 import comandaDigital.view.usuarios.MenuUsuario;
 
 /**
@@ -93,6 +94,13 @@ public class ValidaMenuUsuarioMaster {
 			case 4: {	
 				
 				MenuMesa.getInstance().getMenuMesa();
+				break;
+	
+			}
+			
+			case 5: {	
+				
+				MenuRelatorio.getInstance().getMenuRelatorio();
 				break;
 	
 			}

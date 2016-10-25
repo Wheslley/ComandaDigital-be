@@ -1,5 +1,8 @@
 package comandaDigital.controller.auditoria;
 
+import java.io.IOException;
+
+import comandaDigital.view.relatorio.MenuRelatorio;
 import interfaces.padroes.IMenuCrudPadrão;
 
 /**
@@ -50,11 +53,68 @@ public class AuditoriaRelatorio implements IMenuCrudPadrão{
 
 	}
 
+	/**
+	 * 
+	 * Método auditaObjeto fica como responsável em instanciar o menu solicitado pelo
+	 * usuário, podendo este menu ser o MenuRelatorioProduto, MenuRelatorioEstoque, 
+	 * MenuRelatorioVendas ou MenuRelatorioTodos.
+	 * 
+	 * @param opcaoMenu
+	 * 
+	 */
 	@Override
 	public void auditaObjeto(int opcaoMenu) {
-		// TODO Auto-generated method stub
+
+		switch (opcaoMenu) {
+
+			case 1: {
+	
+				try {
+					MenuRelatorio.getInstance().getMenuRelatorioProduto();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+	
+			}
+	
+			case 2: {
+	
+				try {
+					MenuRelatorio.getInstance().getMenuRelatorioEstoque();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+	
+			}
+			
+			case 3: {
+				
+				try {
+					MenuRelatorio.getInstance().getMenuRelatorioMesasFechadas();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+	
+			}
+	
+			default: {
+	
+				listarObjeto();
+				break;
+	
+			}
+
+		}
 		
 	}
+	
+	
 
 	@Override
 	public void insereObjeto(Object object) {
