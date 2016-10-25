@@ -330,7 +330,16 @@ public class AuditoriaMesa implements IMenuCrudPadrão {
 
 							System.out.println("Troco: " + (valorRecebido - valorTotal));
 							validaValorRecevido = false;
-
+							
+							Mesa mesaFechada = new Mesa();
+							
+							mesaFechada.setComandaDigital(Artefatos.mesas.get(x).getComandaDigital());
+							mesaFechada.setFuncionario(Artefatos.mesas.get(x).getFuncionario());
+							mesaFechada.setNumeroMesa(Artefatos.mesas.get(x).getNumeroMesa());
+							mesaFechada.setQuantidadeCadeiras(Artefatos.mesas.get(x).getNumeroMesa());
+							mesaFechada.setStatusMesa(Artefatos.mesas.get(x).getStatusMesa());
+							
+							Artefatos.mesasFechadas.add(mesaFechada);
 							Artefatos.mesas.get(x).setComandaDigital(new ComandaDigital());
 
 						} else {

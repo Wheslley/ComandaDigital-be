@@ -81,6 +81,8 @@ public class Artefatos {
 	
 	public static List<Mesa> mesas = new ArrayList<>();
 	
+	public static List<Mesa> mesasFechadas = new ArrayList<>();
+	
 	/**
 	 * 
 	 * Método initProdutos realizará a inclusão de 02 produtos no sistema
