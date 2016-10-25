@@ -10,7 +10,7 @@ import comandaDigital.model.produto.Produto;
 
 /**
  * 
- * Classe MenuComandaDigital será responsável em exibir todas as opções disponíveis para a opção comanda digital
+ * Classe MenuMesa será responsável em exibir todas as opções disponíveis para a opção mesa
  * 
  * @author w_his
  *
@@ -58,7 +58,7 @@ public class MenuMesa {
     }
     
     /**
-     * Menu completo contendo todas as opções do MenuCliente
+     * Menu completo contendo todas as opções do MenuMesa
      */
     public void getMenuMesa() {
     	
@@ -159,7 +159,7 @@ public class MenuMesa {
     }
     
     /**
-     * Menu referente a alteração de um determinado cliente tendo como referência o id do cliente
+     * Menu referente a alteração de uma determinada mesa pelo seu numero
      */
     public void getMenuAlteracaoMesa() {
 

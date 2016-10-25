@@ -17,14 +17,33 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 
 	private static AuditoriaProduto instance;
 
+	/**
+	 * 
+	 * Método Getter referente ao atributo instance.
+	 * 
+	 * @return
+	 */
 	private static AuditoriaProduto getIntance() {
 		return instance;
 	}
 
+	/**
+	 * 
+	 * Método Setter referente ao atributo instance.
+	 * 
+	 * @param aInstance
+	 */
 	private static void setInstance(AuditoriaProduto aInstance) {
 		instance = aInstance;
 	}
 
+	/**
+	 * Caso a variavel instance não estiver referência de nenhum ponto da
+	 * memória, associamos a ela um endereço e instanciamos a própria classe,
+	 * transformando-a em uma classe assincrôna.
+	 * 
+	 * @return
+	 */
 	public static AuditoriaProduto getInstance() {
 
 		if (getIntance() == null) {
@@ -35,6 +54,15 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 
 	}
 
+	/**
+	 * 
+	 * Método auditaObjeto fica como responsável em instanciar o menu solicitado pelo
+	 * usuário, podendo este menu ser o MenuInsereProduto, MenuDeletaProduto ou 
+	 * MenuAlteracaoProduto.
+	 * 
+	 * @param opcaoMenu
+	 * 
+	 */
 	@Override
 	public void auditaObjeto(int opcaoMenu) {
 
@@ -72,6 +100,13 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 
 	}
 
+	/**
+	 * 
+	 * Método insereObjeto realizará a inclusão de um novo Produto na lista produtos.
+	 * 
+	 * @param object
+	 * 
+	 */
 	@Override
 	public void insereObjeto(Object object) {
 
@@ -85,6 +120,14 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 
 	}
 
+	/**
+	 * 
+	 * Método alteraObjeto será responsável em alterar um produto cujo ID já exista na 
+	 * base de produtos.
+	 * 
+	 * @param object
+	 * 
+	 */
 	@Override
 	public void alteraObjeto(Object object) {
 
@@ -106,6 +149,14 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 
 	}
 
+	/**
+	 * 
+	 * Método removeObjeto será responsável em remover um determinado produto cujo ID já
+	 * exista na base de Produto.
+	 * 
+	 * @param id
+	 * 
+	 */
 	@Override
 	public void removeObjeto(int id) {
 
@@ -122,6 +173,10 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 		
 	}
 
+	/**
+	 * Método listarObjeto será responsável em listar todos os Produto que estejam 
+	 * na lista produtos.
+	 */
 	@Override
 	public void listarObjeto() {
 		
@@ -131,6 +186,12 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 		
 	}
 	
+	/**
+	 * 
+	 * Método listarProdutoItemComandaDigital será responsável 
+	 * em retornar todos os produtos que esteja inserido na lista produtos  
+	 * 
+	 */
 	public void listarProdutoItemComandaDigital(){
 		
 		for(Produto produto : Artefatos.produtos){
@@ -139,6 +200,14 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 		
 	}
 
+	/**
+	 * 
+	 * Método getObject será responsável em retornar um produto cujo ID exista na 
+	 * base produtos. 
+	 * 
+	 * @param id
+	 * 
+	 */
 	@Override
 	public Object getObject(int id) {
 		

@@ -10,6 +10,8 @@ import localStorage.Artefatos;
 
 /**
  * 
+ * 
+ * 
  * @author whesl
  *
  */
@@ -18,14 +20,34 @@ public class AuditoriaEstoque implements IMenuCrudPadrão {
 
 	private static AuditoriaEstoque instance;
 
+	/**
+	 * 
+	 * Método Getter referente ao atributo instance.
+	 * 
+	 * @return
+	 */
 	private static AuditoriaEstoque getIntance() {
 		return instance;
 	}
 
+	/**
+	 * 
+	 * Método Setter referente ao atributo instance.
+	 * 
+	 * @param aInstance
+	 */
 	private static void setInstance(AuditoriaEstoque aInstance) {
 		instance = aInstance;
 	}
 
+	/**
+	 * 
+	 * Caso a variavel instance não estiver referência de nenhum ponto da
+	 * memória, associamos a ela um endereço e instanciamos a própria classe,
+	 * transformando-a em uma classe assincrôna.
+	 * 
+	 * @return
+	 */
 	public static AuditoriaEstoque getInstance() {
 
 		if (getIntance() == null) {
@@ -36,6 +58,14 @@ public class AuditoriaEstoque implements IMenuCrudPadrão {
 
 	}
 
+	/**
+	 * Método auditaObjeto fica como responsável em instanciar o menu solicitado pelo
+	 * usuário, podendo este menu ser o MenuInsereEstoque, MenuDeletaEstoque ou 
+	 * MenuAlteracaoEstoque.
+	 * 
+	 * @param opcaoMenu
+	 * 
+	 */
 	@Override
 	public void auditaObjeto(int opcaoMenu) {
 
@@ -73,6 +103,12 @@ public class AuditoriaEstoque implements IMenuCrudPadrão {
 
 	}
 
+	/**
+	 * Método insereObjeto realizará a inclusão de um novo Produto na base estoque.
+	 * 
+	 * @param object
+	 * 
+	 */
 	@Override
 	public void insereObjeto(Object object) {
 
@@ -84,6 +120,15 @@ public class AuditoriaEstoque implements IMenuCrudPadrão {
 
 	}
 
+	/**
+	 * 
+	 * Método alteraObjeto será responsável em verificar se existe um Produto na base 
+	 * estoque pelo ID que está sendo passado por parametro, existindo este produto,
+	 * o mesmo será atualizado.
+	 * 
+	 * @param object
+	 * 
+	 */
 	@Override
 	public void alteraObjeto(Object object) {
 
@@ -104,6 +149,15 @@ public class AuditoriaEstoque implements IMenuCrudPadrão {
 		
 	}
 
+	/**
+	 * 
+	 * Método alteraObjeto será responsável em verificar se existe um Produto na base 
+	 * estoque pelo ID que está sendo passado por parametro, existindo este produto,
+	 * o mesmo será removido.
+	 * 
+	 * @param id
+	 * 
+	 */
 	@Override
 	public void removeObjeto(int id) {
 
@@ -114,6 +168,12 @@ public class AuditoriaEstoque implements IMenuCrudPadrão {
 		
 	}
 
+	/**
+	 * 
+	 * Método listarObjeto será responsável em listar todos os Produtos que estejam 
+	 * na base estoque.
+	 * 
+	 */
 	@Override
 	public void listarObjeto() {
 
@@ -125,6 +185,13 @@ public class AuditoriaEstoque implements IMenuCrudPadrão {
 
 	}
 
+	/**
+	 * 
+	 * Método não implementado.
+	 * 
+	 * @param id
+	 * 
+	 */
 	@Override
 	public Object getObject(int id) {
 

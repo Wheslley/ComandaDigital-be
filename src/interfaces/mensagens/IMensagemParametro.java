@@ -2,6 +2,8 @@ package interfaces.mensagens;
 
 /**
  * 
+ * Interface IMensagemParametro será responsável em fornecer parametros padrões ao sistema.
+ * 
  * @author whesl
  *
  */

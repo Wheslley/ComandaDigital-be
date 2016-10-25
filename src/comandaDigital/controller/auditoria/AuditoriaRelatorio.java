@@ -12,14 +12,34 @@ public class AuditoriaRelatorio implements IMenuCrudPadrão{
 	
 	private static AuditoriaRelatorio instance;
 
+	/**
+	 * 
+	 * Método Getter referente ao atributo instance.
+	 * 
+	 * @return
+	 */
 	private static AuditoriaRelatorio getIntance() {
 		return instance;
 	}
 
+    /**
+     * 
+     * Método Setter referente ao atributo instance.
+     * 
+     * @param aInstance
+     */
 	private static void setInstance(AuditoriaRelatorio aInstance) {
 		instance = aInstance;
 	}
 
+    /**
+     * 
+     * Caso a variavel instance não estiver referência de nenhum ponto da
+	 * memória, associamos a ela um endereço e instanciamos a própria classe,
+	 * transformando-a em uma classe assincrôna.
+     * 
+     * @return
+     */
 	public static AuditoriaRelatorio getInstance() {
 
 		if (getIntance() == null) {
