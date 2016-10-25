@@ -1,4 +1,4 @@
-package comandaDigital.view.comandaDigital;
+package comandaDigital.view.estabelecimento;
 
 import java.util.Scanner;
 
@@ -75,7 +75,7 @@ public class MenuMesa {
 			System.out.println("*	     Menu Mesa           	   *");
 			System.out.println("************************************");			
 			System.out.println("*  1) Cadastro de Item na Comanda  *");
-			System.out.println("*  2) Remoção de Mesa     		   *");
+			System.out.println("*  2) Fechar Mesas       		   *");
 			System.out.println("*  3) Atualização de Mesa 		   *");
 			System.out.println("*  4) Listar Mesas                 *");
 			System.out.println("*  0) Sair                         *");
@@ -129,11 +129,22 @@ public class MenuMesa {
 		
 		if(AuditoriaMesa.getInstance().validaMesaComandaDigital(mesa)){
 			
-			System.out.println("Digite o id do produto: ");
+			System.out.println("\n[1] Pesquisar Produto.");
+			System.out.println("[2] Inserir Produto.\n");
+			
+			int opcaoPesquisarProduto = scan.nextInt();
+			
+			if(opcaoPesquisarProduto == 1){
+				AuditoriaProduto.getInstance().listarProdutoItemComandaDigital();
+			}
+			
+			System.out.println("\nDigite o id do produto: ");
 			itemComandaDigital.setProduto( (Produto) AuditoriaProduto.getInstance().getObject(scan.nextInt()));
 			
 			System.out.println("Digite a quantidade do produto: ");
 			itemComandaDigital.setQuantidadeProduto(scan.nextInt());
+			
+			itemComandaDigital.setIdItemComandaDigital(AuditoriaMesa.getInstance().contaItemComandaDigital(mesa));
 			
 			mesa.getComandaDigital().setAddListItemComandaDigital(itemComandaDigital);
 			
@@ -166,17 +177,14 @@ public class MenuMesa {
 		System.out.println("Numero da mesa: ");
 		mesa.setNumeroMesa(scan.nextInt());
 		
-		System.out.println("Id do item da comanda Digital: ");
-		itemComandaDigital.setIdItemComandaDigital(scan.nextInt());
-		
-		if(AuditoriaMesa.getInstance().validaItemComandaDigital(mesa, itemComandaDigital)){
+		if(AuditoriaMesa.getInstance().validaMesaComandaDigital(mesa)){
 			
 			System.out.println("Digite o id do produto: ");
 			itemComandaDigital.setProduto( (Produto) AuditoriaProduto.getInstance().getObject(scan.nextInt()));
 			
 			System.out.println("Digite a quantidade do produto: ");
 			itemComandaDigital.setQuantidadeProduto(scan.nextInt());
-			
+						
 			mesa.getComandaDigital().setAddListItemComandaDigital(itemComandaDigital);
 			
 			//AuditoriaComandaDigital.getInstance().alteraObjeto(mesa);
@@ -190,26 +198,33 @@ public class MenuMesa {
 	}
     
     /**
-     * Menu referente a exclusão de um determinado item da comanda digital.
+     * Menu referente ao fechamento da Mesa
      */
-    public void getMenuDeletaMesa() {
+    public void getMenuFecharMesa() {
 
 		Scanner scan = new Scanner(System.in);
-		int idItemComandaDigital = 0;
 		
 		System.out.println("************************************");
-		System.out.println("*	 Menu Deleta ItemComandaDigital    *");
+		System.out.println("*	     Menu Fechar Mesa          *");
 		System.out.println("************************************\n");
 		
-		System.out.println("\nDeleta a Mesa:\n");
+		Mesa mesa = new Mesa();
 		
-		System.out.println("Id do Item: ");
-		idItemComandaDigital = scan.nextInt();
+		System.out.println("\nFechar Mesa:\n");
 		
-		//AuditoriaComandaDigital.getInstance().removeObjeto(idItemComandaDigital);
+		System.out.println("Numero da mesa: ");
+		mesa.setNumeroMesa(scan.nextInt());
+		
+		if(AuditoriaMesa.getInstance().validaMesaComandaDigital(mesa)){
+						
+			AuditoriaMesa.getInstance().fechaMesa(mesa);
+			
+		}else{
+			System.out.println("Mesa não existe ou não consta em aberto!!");
+		}
 		
 		System.out.println("************************************\n");
 		
-	}
+    }
     
 }

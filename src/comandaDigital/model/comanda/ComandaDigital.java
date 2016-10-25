@@ -82,7 +82,6 @@ public class ComandaDigital {
 	 * @param itemComandaDigital
 	 */
 	public void setAddListItemComandaDigital(ItemComandaDigital itemComandaDigital){
-		System.out.println("pasou");
 		this.listItemComandaDigital.add(itemComandaDigital);
 	}
 

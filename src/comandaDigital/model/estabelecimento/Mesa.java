@@ -1,5 +1,6 @@
 package comandaDigital.model.estabelecimento;
 
+import comandaDigital.controller.auditoria.AuditoriaProduto;
 import comandaDigital.model.comanda.ComandaDigital;
 import comandaDigital.model.comanda.ItemComandaDigital;
 import comandaDigital.model.pessoas.Funcionario;
@@ -69,15 +70,39 @@ public class Mesa {
 	
 	public String toString(){
 		
-		Double valorProduto = 0.0;
-		String srReturn = "Mesa: " + this.numeroMesa + " - ";
+		Double valorTotalDosProdutos = 0.0;
+		String srReturn = "";
+		String strItem = "";
 		
 		for(ItemComandaDigital item : comandaDigital.getListItemComandaDigital()){
-			valorProduto += item.getValorTodosProutos();
+			valorTotalDosProdutos += item.getValorTodosProutos();
 		}
 		
-		srReturn = srReturn.concat(valorProduto.toString());
+		if(valorTotalDosProdutos > 0){
+			
+			srReturn = "\nMesa: [" + this.numeroMesa + "] [ABERTA]\n\n";
+			
+			for(ItemComandaDigital item : comandaDigital.getListItemComandaDigital()){
+				
+				strItem += "Item [" + item.getIdItemComandaDigital() + "]" +
+						   " - Produto: [" + item.getProduto().getNome() + "]" +
+						   " - Quantidade: [" + item.getQuantidadeProduto() + "]" +
+						   " - SubTotal: [" +item.getValorTodosProutos() + "].\n";
+				
+			}
+			
+			srReturn = srReturn.concat(strItem);
+			
+			srReturn = srReturn.concat("\nTOTAL DA MESA: R$" + valorTotalDosProdutos.toString());
+			
+		}else{
+			
+			srReturn = "\nMesa: [" + this.numeroMesa + "] [FECHADA]\n";
+			
+		}
 		
 		return srReturn;
+		
 	}
+
 }

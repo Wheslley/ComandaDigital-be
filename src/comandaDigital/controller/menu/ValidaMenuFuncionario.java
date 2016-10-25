@@ -1,7 +1,7 @@
 package comandaDigital.controller.menu;
 
 import comandaDigital.view.cliente.MenuCliente;
-import comandaDigital.view.comandaDigital.MenuMesa;
+import comandaDigital.view.estabelecimento.MenuMesa;
 import comandaDigital.view.funcionario.MenuFuncionario;
 
 /**

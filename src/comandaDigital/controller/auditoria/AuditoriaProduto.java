@@ -130,6 +130,14 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 		}
 		
 	}
+	
+	public void listarProdutoItemComandaDigital(){
+		
+		for(Produto produto : Artefatos.produtos){
+			System.out.println("PRODUTO: ID: [" + produto.getIdProduto() + "] - NOME: [" + produto.getNome() + "]");
+		}
+		
+	}
 
 	@Override
 	public Object getObject(int id) {

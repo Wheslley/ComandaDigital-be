@@ -80,7 +80,31 @@ public class Artefatos {
 			produto.setValorVenda(3.90);
 
 			AuditoriaProduto.getInstance().insereObjeto(produto);
+			
+			produto = new Produto();
+			produto.setNome("Leite");
+			produto.setDescricao("Leite");
+			produto.setValorBase(1.00);
+			produto.setValorVenda(2.90);
 
+			AuditoriaProduto.getInstance().insereObjeto(produto);
+			
+			produto = new Produto();
+			produto.setNome("Água sem gás");
+			produto.setDescricao("Água sem gás");
+			produto.setValorBase(0.90);
+			produto.setValorVenda(2.90);
+
+			AuditoriaProduto.getInstance().insereObjeto(produto);
+			
+			produto = new Produto();
+			produto.setNome("Água com gás");
+			produto.setDescricao("Água com gás");
+			produto.setValorBase(1.40);
+			produto.setValorVenda(3.90);
+
+			AuditoriaProduto.getInstance().insereObjeto(produto);
+			
 		} catch (Exception e) {
 
 			return false;
