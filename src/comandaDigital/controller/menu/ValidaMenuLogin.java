@@ -109,7 +109,7 @@ public class ValidaMenuLogin {
 	 */
 	public void forwardMenuLogin (String tipoFuncionario){
 		
-		switch (tipoFuncionario) {
+		switch (tipoFuncionario.toString()) {
 			
 			case IMensagemParametro.USUARIO_MASTER:{
 				MenuGeralUsuarioMaster.getInstance().getMenuUsuarioMaster();

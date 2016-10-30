@@ -75,7 +75,7 @@ public class Artefatos {
 
 	public static List<Cliente> clientes = new ArrayList<>();
 
-	public static List<Funcionario> funcionarios = new ArrayList<>();
+	public static List<Funcionario> funcionarios = new ArrayList<Funcionario>();
 
 	public static Estabelecimento estabelecimento = new Estabelecimento();
 	
