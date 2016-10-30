@@ -120,7 +120,7 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 
 		Artefatos.clientes.add(cliente);
 
-		System.out.println(IMensagemGeral.CLIENTE_INSERIDO_SUCESSO);
+		//System.out.println(IMensagemGeral.CLIENTE_INSERIDO_SUCESSO);
 		
 	}
 

@@ -116,7 +116,7 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 
 		Artefatos.funcionarios.add(funcionario);
 
-		System.out.println(IMensagemGeral.FUNCIONARIO_INSERIDO_SUCESSO);
+		//System.out.println(IMensagemGeral.FUNCIONARIO_INSERIDO_SUCESSO);
 		
 	}
 

@@ -116,7 +116,7 @@ public class AuditoriaEstoque implements IMenuCrudPadrão {
 
 		Artefatos.estoque.put(estoque.getIdProduto(), estoque.getQuantidadeProduto());
 
-		System.out.println(IMensagemGeral.ESTOQUE_INSERIDO_SUCESSO);
+		//System.out.println(IMensagemGeral.ESTOQUE_INSERIDO_SUCESSO);
 
 	}
 

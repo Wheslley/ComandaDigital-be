@@ -118,7 +118,7 @@ public class AuditoriaUsuario implements IMenuCrudPadrão{
 
 		Artefatos.usuarios.add(usuario);
 
-		System.out.println(IMensagemGeral.USUARIO_INSERIDO_SUCESSO);
+		//System.out.println(IMensagemGeral.USUARIO_INSERIDO_SUCESSO);
 		
 	}
 

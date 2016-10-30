@@ -161,7 +161,7 @@ public class Artefatos {
 
 			for (Produto produto : produtos) {
 				estoque.put(produto.getIdProduto(), 10);
-				System.out.println(IMensagemGeral.ESTOQUE_INSERIDO_SUCESSO);
+				//System.out.println(IMensagemGeral.ESTOQUE_INSERIDO_SUCESSO);
 			}
 
 		} catch (Exception e) {
@@ -393,7 +393,7 @@ public class Artefatos {
 				mesa.setStatusMesa(IMensagemGeral.FECHADA);
 				
 				Artefatos.mesas.add(mesa);
-				System.out.println(IMensagemGeral.MESA_INSERIDA_SUCESSO);
+				//System.out.println(IMensagemGeral.MESA_INSERIDA_SUCESSO);
 			}
 
 		} catch (Exception e) {

@@ -116,7 +116,7 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 
 		Artefatos.produtos.add(produto);
 
-		System.out.println(IMensagemGeral.PRODUTO_INSERIDO_SUCESSO);
+		//System.out.println(IMensagemGeral.PRODUTO_INSERIDO_SUCESSO);
 
 	}
 
