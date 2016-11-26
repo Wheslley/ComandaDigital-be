@@ -1,11 +1,16 @@
 package comandaDigital.controller.auditoria;
 
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
 import comandaDigital.model.produto.Produto;
 import comandaDigital.view.produto.MenuProduto;
-import interfaces.mensagens.IMensagemGeral;
 import interfaces.padroes.IMenuCrudPadrão;
-import localStorage.Artefatos;
-import util.GerarId;
 
 /**
  * 
@@ -109,14 +114,18 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 	 */
 	@Override
 	public void insereObjeto(Object object) {
-
+		
 		Produto produto = (Produto) object;
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("comanda-digital");
 
-		produto.setIdProduto(GerarId.getInstance().gerarIdProduto());
-
-		Artefatos.produtos.add(produto);
-
-		//System.out.println(IMensagemGeral.PRODUTO_INSERIDO_SUCESSO);
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		
+		em.persist(produto);
+		
+		em.getTransaction().commit();
+		em.close();
 
 	}
 
@@ -133,19 +142,16 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 
 		Produto produto = (Produto) object;
 		
-		for (int i = 0; i < Artefatos.produtos.size(); i++) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("comanda-digital");
 
-			if (produto.getIdProduto() == Artefatos.produtos.get(i).getIdProduto()) {
-
-				Artefatos.produtos.get(i).setNome(produto.getNome());
-				Artefatos.produtos.get(i).setDescricao(produto.getDescricao());
-				Artefatos.produtos.get(i).setValorBase(produto.getValorBase());
-				Artefatos.produtos.get(i).setValorVenda(produto.getValorVenda());
-				
-			}
-		}
-
-		System.out.println(IMensagemGeral.PRODUTO_ALTERADO_SUCESSO);
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		
+		em.merge(produto);
+		
+		em.getTransaction().commit();
+		em.close();
+		emf.close();
 
 	}
 
@@ -160,16 +166,16 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 	@Override
 	public void removeObjeto(int id) {
 
-		for (int i = 0; i < Artefatos.produtos.size(); i++) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("comanda-digital");
 
-			if (Artefatos.produtos.get(i).getIdProduto() == id) {
-
-				Artefatos.produtos.remove(i);
-
-			}
-		}
-
-		System.out.println(IMensagemGeral.PRODUTO_DELETADO_SUCESSO);
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		
+		em.remove(em.getReference(Produto.class, id));
+		
+		em.getTransaction().commit();
+		em.close();
+		emf.close();
 		
 	}
 
@@ -180,9 +186,22 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 	@Override
 	public void listarObjeto() {
 		
-		for(Produto produto : Artefatos.produtos){
-			System.out.println(produto.toString());
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("comanda-digital");
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		
+		tx.begin();
+		
+		Query query = em.createQuery("select u from Produto u");
+		
+		@SuppressWarnings("unchecked")
+		List<Produto> produtos = query.getResultList();
+		
+		for (Produto prod : produtos) {
+			System.out.println(prod.toString());
 		}
+		
+		tx.commit();
 		
 	}
 	
@@ -194,9 +213,22 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 	 */
 	public void listarProdutoItemComandaDigital(){
 		
-		for(Produto produto : Artefatos.produtos){
-			System.out.println("PRODUTO: ID: [" + produto.getIdProduto() + "] - NOME: [" + produto.getNome() + "]");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("comanda-digital");
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		
+		tx.begin();
+		
+		Query query = em.createQuery("select u from Produto u");
+		
+		@SuppressWarnings("unchecked")
+		List<Produto> produtos = query.getResultList();
+		
+		for (Produto prod : produtos) {
+			System.out.println("PRODUTO: ID: [" + prod.getIdProduto() + "] - NOME: [" + prod.getNome() + "]");
 		}
+		
+		tx.commit();
 		
 	}
 
@@ -211,17 +243,17 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 	@Override
 	public Object getObject(int id) {
 		
-		Produto produto = new Produto();
-
-		for (int i = 0; i < Artefatos.produtos.size(); i++) {
-
-			if (id == Artefatos.produtos.get(i).getIdProduto()) {
-
-				produto = Artefatos.produtos.get(i);
-
-			}
-
-		}
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("comanda-digital");
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		
+		tx.begin();
+		
+		Query query = em.createQuery("select u from Produto u where u.idProduto = " + id);
+		
+		Produto produto = (Produto) query.getSingleResult();
+		
+		tx.commit();
 
 		return produto;
 		

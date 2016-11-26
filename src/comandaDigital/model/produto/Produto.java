@@ -1,5 +1,11 @@
 package comandaDigital.model.produto;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+
 /**
  * 
  * Classe Produto será utilizada como base para as classes ProdutoAlimentar, ProdutoEletronico e ProdutoLiterario
@@ -7,9 +13,13 @@ package comandaDigital.model.produto;
  * @author whesl
  *
  */
+@Entity
+@SequenceGenerator(name = "SEQ_PRODUTOS", sequenceName = "SEQ_PRODUTOS", initialValue = 1)
 public class Produto {
-
-	private int idProduto;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_PRODUTOS")
+	private Integer idProduto;
 	private String nome;
 	private String descricao;
 	private Double valorBase;
@@ -25,7 +35,7 @@ public class Produto {
 	 * @param valorBase
 	 * @param valorVenda
 	 */
-	public Produto(int idProduto, String nome, String descricao, Double valorBase, Double valorVenda){
+	public Produto(Integer idProduto, String nome, String descricao, Double valorBase, Double valorVenda){
 		this.idProduto = idProduto;
 		this.nome = nome;
 		this.descricao = descricao;
@@ -46,7 +56,7 @@ public class Produto {
 	 * 
 	 * @return
 	 */
-	public int getIdProduto() {
+	public Integer getIdProduto() {
 		return idProduto;
 	}
 	
@@ -56,7 +66,7 @@ public class Produto {
 	 * 
 	 * @param idProduto
 	 */
-	public void setIdProduto(int idProduto) {
+	public void setIdProduto(Integer idProduto) {
 		this.idProduto = idProduto;
 	}
 	
