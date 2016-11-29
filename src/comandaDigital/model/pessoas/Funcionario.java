@@ -1,5 +1,11 @@
 package comandaDigital.model.pessoas;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+
 /**
  * 
  * 
@@ -7,12 +13,15 @@ package comandaDigital.model.pessoas;
  * @author whesl
  *
  */
+@Entity
+@SequenceGenerator(name = "SEQ_FUNCIONARIOS", sequenceName = "SEQ_FUNCIONARIOS", initialValue = 1)
 public class Funcionario {
-
-	private int numeroFuncionario;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_FUNCIONARIOS")
+	private int id;
 	private double salario;
 	private String funcao;
-	private Usuario usuario;
 
 	/**
 	 * 
@@ -23,11 +32,10 @@ public class Funcionario {
 	 * @param funcao
 	 * @param usuario
 	 */
-	public Funcionario(int numeroFuncionario, double salario, String funcao, Usuario usuario) {
-		this.numeroFuncionario = numeroFuncionario;
+	public Funcionario(int numeroFuncionario, double salario, String funcao) {
+		this.id = numeroFuncionario;
 		this.salario = salario;
 		this.funcao = funcao;
-		this.usuario = usuario;
 	}
 
 	/**
@@ -44,7 +52,7 @@ public class Funcionario {
 	 * @return
 	 */
 	public int getNumeroFuncionario() {
-		return numeroFuncionario;
+		return id;
 	}
 
 	/**
@@ -54,7 +62,7 @@ public class Funcionario {
 	 * @param numeroFuncionario
 	 */
 	public void setNumeroFuncionario(int numeroFuncionario) {
-		this.numeroFuncionario = numeroFuncionario;
+		this.id = numeroFuncionario;
 	}
 
 	/**
@@ -98,32 +106,11 @@ public class Funcionario {
 	}
 
 	/**
-	 * 
-	 * Método Getter referente ao atributo usuario
-	 * 
-	 * @return
-	 */
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	/**
-	 * 
-	 * Método Setter referente ao atributo usuario
-	 * 
-	 * @param usuario
-	 */
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-	/**
 	 * Método toString da classe Funcionario utilizado para exibir os atributos usuario, funcao e salario
 	 * no console da aplicação
 	 */
 	public String toString () {
-		return "Usuario: [" + this.usuario.toString() + "] - " + 
-			   "Funcao: [" + this.funcao + "] - " +
+		return "Funcao: [" + this.funcao + "] - " +
 			   "Remuneracao: [" + this.salario + "]";
 	}
 }

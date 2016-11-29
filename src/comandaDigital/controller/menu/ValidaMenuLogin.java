@@ -66,19 +66,19 @@ public class ValidaMenuLogin {
      * @param usuario
      * @return
      */
-	public String validaMenuLogin(Usuario usuario) {
-
-		if (usuario.getLogin().toUpperCase().equals(IMensagemMenu.USUARIO_MASTER_VALIDO) && usuario.getSenha().equals(IMensagemMenu.SENHA_MASTER_VALIDA)) {
-			return IMensagemParametro.USUARIO_MASTER;
-		} else if (usuario.getLogin().toUpperCase().equals(IMensagemMenu.USUARIO_GERENTE_VALIDO) && usuario.getSenha().equals(IMensagemMenu.SENHA_GERENTE_VALIDA)) {
-			return IMensagemParametro.GERENTE;
-		} else if ((usuario.getLogin().toUpperCase().equals(IMensagemMenu.USUARIO_FUNCIONARIO_03_VALIDO) && usuario.getSenha().equals(IMensagemMenu.SENHA_FUNCIONARIO_03_VALIDA)) ||
-				   (usuario.getLogin().toUpperCase().equals(IMensagemMenu.USUARIO_FUNCIONARIO_04_VALIDO) && usuario.getSenha().equals(IMensagemMenu.SENHA_FUNCIONARIO_04_VALIDA))) {
-			return IMensagemParametro.FUNCIONARIO;
-		} 
-		
-		return IMensagemParametro.USUARIO_NAO_IDENTIFICADO;
-	}
+//	public String validaMenuLogin(Usuario usuario) {
+//
+//		if (usuario.getLogin().toUpperCase().equals(IMensagemMenu.USUARIO_MASTER_VALIDO) && usuario.getSenha().equals(IMensagemMenu.SENHA_MASTER_VALIDA)) {
+//			return IMensagemParametro.USUARIO_MASTER;
+//		} else if (usuario.getLogin().toUpperCase().equals(IMensagemMenu.USUARIO_GERENTE_VALIDO) && usuario.getSenha().equals(IMensagemMenu.SENHA_GERENTE_VALIDA)) {
+//			return IMensagemParametro.GERENTE;
+//		} else if ((usuario.getLogin().toUpperCase().equals(IMensagemMenu.USUARIO_FUNCIONARIO_03_VALIDO) && usuario.getSenha().equals(IMensagemMenu.SENHA_FUNCIONARIO_03_VALIDA)) ||
+//				   (usuario.getLogin().toUpperCase().equals(IMensagemMenu.USUARIO_FUNCIONARIO_04_VALIDO) && usuario.getSenha().equals(IMensagemMenu.SENHA_FUNCIONARIO_04_VALIDA))) {
+//			return IMensagemParametro.FUNCIONARIO;
+//		} 
+//		
+//		return IMensagemParametro.USUARIO_NAO_IDENTIFICADO;
+//	}
 	
 	/**
 	 * 

@@ -92,7 +92,7 @@ public class MenuRelatorio {
 				
 				if (opcaoMenuRelatorio > 0 && opcaoMenuRelatorio < 5) {
 					
-					AuditoriaRelatorio.getInstance().auditaObjeto(opcaoMenuRelatorio);
+					AuditoriaRelatorio.getInstance().validaMenu(opcaoMenuRelatorio);
 					flagMenu = false;
 					
 				} else if (opcaoMenuRelatorio == 0) {

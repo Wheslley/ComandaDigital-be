@@ -1,5 +1,7 @@
 package comandaDigital.controller.auditoria;
 
+import java.util.List;
+
 import comandaDigital.model.pessoas.Cliente;
 import comandaDigital.view.cliente.MenuCliente;
 import interfaces.mensagens.IMensagemGeral;
@@ -67,7 +69,7 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 	 * 
 	 */
 	@Override
-	public void auditaObjeto(int opcaoMenu) {
+	public void validaMenu(int opcaoMenu) {
 
 		switch (opcaoMenu) {
 
@@ -94,7 +96,7 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 	
 			default: {
 	
-				listarObjeto();
+				getTodosObjetos();
 				break;
 	
 			}
@@ -184,12 +186,13 @@ public class AuditoriaCliente implements IMenuCrudPadrão {
 	 * na lista clientes.
 	 */
 	@Override
-	public void listarObjeto() {
+	public List<Object> getTodosObjetos() {
 		
 		for(Cliente cliente : Artefatos.clientes){
 			System.out.println(cliente.toString());
 		}
 		
+		return null;
 	}
 
 	/**

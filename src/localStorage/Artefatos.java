@@ -100,7 +100,8 @@ public class Artefatos {
 			produto.setDescricao("Refrigerante sabor Cola");
 			produto.setValorBase(2.60);
 			produto.setValorVenda(4.50);
-
+			
+			produtos.add(produto);
 			AuditoriaProduto.getInstance().insereObjeto(produto);
 
 			produto = new Produto();
@@ -108,7 +109,8 @@ public class Artefatos {
 			produto.setDescricao("Pão Frances recheado com Catupiry");
 			produto.setValorBase(1.90);
 			produto.setValorVenda(3.90);
-
+			
+			produtos.add(produto);
 			AuditoriaProduto.getInstance().insereObjeto(produto);
 			
 			produto = new Produto();
@@ -116,7 +118,8 @@ public class Artefatos {
 			produto.setDescricao("Leite");
 			produto.setValorBase(1.00);
 			produto.setValorVenda(2.90);
-
+			
+			produtos.add(produto);
 			AuditoriaProduto.getInstance().insereObjeto(produto);
 			
 			produto = new Produto();
@@ -124,7 +127,8 @@ public class Artefatos {
 			produto.setDescricao("Água sem gás");
 			produto.setValorBase(0.90);
 			produto.setValorVenda(2.90);
-
+			
+			produtos.add(produto);
 			AuditoriaProduto.getInstance().insereObjeto(produto);
 			
 			produto = new Produto();
@@ -132,7 +136,8 @@ public class Artefatos {
 			produto.setDescricao("Água com gás");
 			produto.setValorBase(1.40);
 			produto.setValorVenda(3.90);
-
+			
+			produtos.add(produto);
 			AuditoriaProduto.getInstance().insereObjeto(produto);
 			
 		} catch (Exception e) {
@@ -326,38 +331,17 @@ public class Artefatos {
 			funcionario.setFuncao("Gerente");
 			funcionario.setSalario(5136.00);
 
-			for (Usuario usuario : usuarios) {
-				if (usuario.getId() == 2) {
-					Usuario usuarioAux = usuario;
-					funcionario.setUsuario(usuarioAux);
-				}
-			}
-
 			AuditoriaFuncionario.getInstance().insereObjeto(funcionario);
 
 			funcionario = new Funcionario();
 			funcionario.setFuncao("Caixa");
 			funcionario.setSalario(3136.00);
 
-			for (Usuario usuario : usuarios) {
-				if (usuario.getId() == 3) {
-					Usuario usuarioAux = usuario;
-					funcionario.setUsuario(usuarioAux);
-				}
-			}
-
 			AuditoriaFuncionario.getInstance().insereObjeto(funcionario);
 
 			funcionario = new Funcionario();
 			funcionario.setFuncao("Atendente");
 			funcionario.setSalario(2136.00);
-
-			for (Usuario usuario : usuarios) {
-				if (usuario.getId() == 4) {
-					Usuario usuarioAux = usuario;
-					funcionario.setUsuario(usuarioAux);
-				}
-			}
 
 			AuditoriaFuncionario.getInstance().insereObjeto(funcionario);
 

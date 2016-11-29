@@ -1,5 +1,6 @@
 package comandaDigital.controller.auditoria;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,7 +11,11 @@ import javax.persistence.Query;
 
 import comandaDigital.model.produto.Produto;
 import comandaDigital.view.produto.MenuProduto;
+import interfaces.hibernate.IMensagemPadraoHibernate;
+import interfaces.mensagens.IMensagemErro;
 import interfaces.padroes.IMenuCrudPadrão;
+import localStorage.Artefatos;
+import util.GerarId;
 
 /**
  * 
@@ -18,7 +23,7 @@ import interfaces.padroes.IMenuCrudPadrão;
  *
  */
 
-public class AuditoriaProduto implements IMenuCrudPadrão {
+public class AuditoriaProduto extends FactoryConnections implements IMenuCrudPadrão {
 
 	private static AuditoriaProduto instance;
 
@@ -61,15 +66,15 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 
 	/**
 	 * 
-	 * Método auditaObjeto fica como responsável em instanciar o menu solicitado pelo
-	 * usuário, podendo este menu ser o MenuInsereProduto, MenuDeletaProduto ou 
-	 * MenuAlteracaoProduto.
+	 * Método auditaObjeto fica como responsável em instanciar o menu solicitado
+	 * pelo usuário, podendo este menu ser o MenuInsereProduto,
+	 * MenuDeletaProduto ou MenuAlteracaoProduto.
 	 * 
 	 * @param opcaoMenu
 	 * 
 	 */
 	@Override
-	public void auditaObjeto(int opcaoMenu) {
+	public void validaMenu(int opcaoMenu) {
 
 		switch (opcaoMenu) {
 
@@ -96,7 +101,7 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 	
 			default: {
 	
-				listarObjeto();
+				List<Object> object = getTodosObjetos();
 				break;
 	
 			}
@@ -107,7 +112,8 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 
 	/**
 	 * 
-	 * Método insereObjeto realizará a inclusão de um novo Produto na lista produtos.
+	 * Método insereObjeto realizará a inclusão de um novo Produto na lista
+	 * produtos.
 	 * 
 	 * @param object
 	 * 
@@ -115,50 +121,37 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 	@Override
 	public void insereObjeto(Object object) {
 		
-		Produto produto = (Produto) object;
+		try {
+			this.insert((Produto) object, IMensagemPadraoHibernate.HIBERNATE_PERSISTENCE_INIT_MYSQL);
+		} catch (Exception ex) {
+			System.err.println(IMensagemErro.ERRO_SALVAR_OBJETO + ex.getMessage());
+		}
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("comanda-digital");
-
-		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
-		
-		em.persist(produto);
-		
-		em.getTransaction().commit();
-		em.close();
-
 	}
 
 	/**
 	 * 
-	 * Método alteraObjeto será responsável em alterar um produto cujo ID já exista na 
-	 * base de produtos.
+	 * Método alteraObjeto será responsável em alterar um produto cujo ID já
+	 * exista na base de produtos.
 	 * 
 	 * @param object
 	 * 
 	 */
 	@Override
 	public void alteraObjeto(Object object) {
-
-		Produto produto = (Produto) object;
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("comanda-digital");
-
-		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
-		
-		em.merge(produto);
-		
-		em.getTransaction().commit();
-		em.close();
-		emf.close();
+		try {
+			this.update((Produto) object, IMensagemPadraoHibernate.HIBERNATE_PERSISTENCE_INIT_MYSQL);
+		} catch (Exception ex) {
+			System.err.println(IMensagemErro.ERRO_EDITAR_OBJETO + ex.getMessage());
+		}
 
 	}
 
 	/**
 	 * 
-	 * Método removeObjeto será responsável em remover um determinado produto cujo ID já
-	 * exista na base de Produto.
+	 * Método removeObjeto será responsável em remover um determinado produto
+	 * cujo ID já exista na base de Produto.
 	 * 
 	 * @param id
 	 * 
@@ -166,76 +159,42 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 	@Override
 	public void removeObjeto(int id) {
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("comanda-digital");
+		try {
+			this.delete(id, IMensagemPadraoHibernate.HIBERNATE_PERSISTENCE_INIT_MYSQL);
+		} catch (Exception ex) {
+			System.err.println(IMensagemErro.ERRO_EDITAR_OBJETO + ex.getMessage());
+		}
 
-		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
-		
-		em.remove(em.getReference(Produto.class, id));
-		
-		em.getTransaction().commit();
-		em.close();
-		emf.close();
-		
 	}
 
 	/**
-	 * Método listarObjeto será responsável em listar todos os Produto que estejam 
-	 * na lista produtos.
+	 * Método listarObjeto será responsável em listar todos os Produto que
+	 * estejam na lista produtos.
 	 */
 	@Override
-	public void listarObjeto() {
+	public List<Object> getTodosObjetos() {
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("comanda-digital");
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction tx = em.getTransaction();
+		List<Object> listaObjetos = new ArrayList<Object>();
+		String strQuery = "select u from Produto u";
 		
-		tx.begin();
-		
-		Query query = em.createQuery("select u from Produto u");
-		
-		@SuppressWarnings("unchecked")
-		List<Produto> produtos = query.getResultList();
-		
-		for (Produto prod : produtos) {
-			System.out.println(prod.toString());
+		try {
+			listaObjetos = this.selectObjects(strQuery, IMensagemPadraoHibernate.HIBERNATE_PERSISTENCE_INIT_MYSQL);
+
+			for(Object o : listaObjetos){
+				Produto p = (Produto) o;
+				System.out.println(p.toString());
+			}
+		} catch (Exception ex) {
+			System.err.println(IMensagemErro.ERRO_SELECIONAR_TODOS_OBJETO + ex.getMessage());
 		}
 		
-		tx.commit();
-		
-	}
-	
-	/**
-	 * 
-	 * Método listarProdutoItemComandaDigital será responsável 
-	 * em retornar todos os produtos que esteja inserido na lista produtos  
-	 * 
-	 */
-	public void listarProdutoItemComandaDigital(){
-		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("comanda-digital");
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		
-		tx.begin();
-		
-		Query query = em.createQuery("select u from Produto u");
-		
-		@SuppressWarnings("unchecked")
-		List<Produto> produtos = query.getResultList();
-		
-		for (Produto prod : produtos) {
-			System.out.println("PRODUTO: ID: [" + prod.getIdProduto() + "] - NOME: [" + prod.getNome() + "]");
-		}
-		
-		tx.commit();
-		
+		return listaObjetos;
 	}
 
 	/**
 	 * 
-	 * Método getObject será responsável em retornar um produto cujo ID exista na 
-	 * base produtos. 
+	 * Método getObject será responsável em retornar um produto cujo ID exista
+	 * na base produtos.
 	 * 
 	 * @param id
 	 * 
@@ -243,20 +202,17 @@ public class AuditoriaProduto implements IMenuCrudPadrão {
 	@Override
 	public Object getObject(int id) {
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("comanda-digital");
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction tx = em.getTransaction();
+		Object object = null;
+		String strQuery = "select u from Produto u where u.idProduto = " + id;
+		System.out.println(strQuery);
+		try {
+			object = this.selectObjects(strQuery, IMensagemPadraoHibernate.HIBERNATE_PERSISTENCE_INIT_MYSQL);
+		} catch (Exception ex) {
+			System.err.println(IMensagemErro.ERRO_SELECIONAR_OBJETO + ex.getMessage());
+		}
 		
-		tx.begin();
-		
-		Query query = em.createQuery("select u from Produto u where u.idProduto = " + id);
-		
-		Produto produto = (Produto) query.getSingleResult();
-		
-		tx.commit();
-
-		return produto;
-		
+		return object;
+	
 	}
 
 }

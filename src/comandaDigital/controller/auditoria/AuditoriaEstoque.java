@@ -1,5 +1,6 @@
 package comandaDigital.controller.auditoria;
 
+import java.util.List;
 import java.util.Map;
 
 import comandaDigital.model.estabelecimento.Estoque;
@@ -67,7 +68,7 @@ public class AuditoriaEstoque implements IMenuCrudPadrão {
 	 * 
 	 */
 	@Override
-	public void auditaObjeto(int opcaoMenu) {
+	public void validaMenu(int opcaoMenu) {
 
 		switch (opcaoMenu) {
 
@@ -94,7 +95,7 @@ public class AuditoriaEstoque implements IMenuCrudPadrão {
 	
 			default: {
 	
-				listarObjeto();
+				getTodosObjetos();
 				break;
 	
 			}
@@ -175,13 +176,15 @@ public class AuditoriaEstoque implements IMenuCrudPadrão {
 	 * 
 	 */
 	@Override
-	public void listarObjeto() {
+	public List<Object> getTodosObjetos() {
 
 		for (Map.Entry<Integer, Integer> entry : Artefatos.estoque.entrySet()) {
 			
 			System.out.println("IdProduto: " + entry.getKey() + " - Quantidade: " + entry.getValue());
 			
 		}
+		
+		return null;
 
 	}
 

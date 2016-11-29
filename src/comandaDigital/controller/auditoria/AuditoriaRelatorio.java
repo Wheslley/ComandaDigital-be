@@ -1,6 +1,7 @@
 package comandaDigital.controller.auditoria;
 
 import java.io.IOException;
+import java.util.List;
 
 import comandaDigital.view.relatorio.MenuRelatorio;
 import interfaces.padroes.IMenuCrudPadrão;
@@ -63,7 +64,7 @@ public class AuditoriaRelatorio implements IMenuCrudPadrão{
 	 * 
 	 */
 	@Override
-	public void auditaObjeto(int opcaoMenu) {
+	public void validaMenu(int opcaoMenu) {
 
 		switch (opcaoMenu) {
 
@@ -105,7 +106,7 @@ public class AuditoriaRelatorio implements IMenuCrudPadrão{
 	
 			default: {
 	
-				listarObjeto();
+				getTodosObjetos();
 				break;
 	
 			}
@@ -135,9 +136,9 @@ public class AuditoriaRelatorio implements IMenuCrudPadrão{
 	}
 
 	@Override
-	public void listarObjeto() {
+	public List<Object> getTodosObjetos() {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 	@Override

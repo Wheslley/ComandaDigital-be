@@ -1,5 +1,6 @@
 package comandaDigital.controller.auditoria;
 
+import java.util.List;
 import java.util.Scanner;
 
 import comandaDigital.model.comanda.ComandaDigital;
@@ -68,7 +69,7 @@ public class AuditoriaMesa implements IMenuCrudPadrão {
 	 * 
 	 */
 	@Override
-	public void auditaObjeto(int opcaoMenu) {
+	public void validaMenu(int opcaoMenu) {
 
 		switch (opcaoMenu) {
 
@@ -95,7 +96,7 @@ public class AuditoriaMesa implements IMenuCrudPadrão {
 
 		default: {
 
-			listarObjeto();
+			getTodosObjetos();
 			break;
 
 		}
@@ -208,7 +209,7 @@ public class AuditoriaMesa implements IMenuCrudPadrão {
 	 * na lista mesas.
 	 */
 	@Override
-	public void listarObjeto() {
+	public List<Object> getTodosObjetos() {
 
 		for (int x = 0; x < IMensagemGeral.LIMITE_MESAS_ESTABELECIMENTO; x++) {
 			for (int y = 0; y < IMensagemGeral.LIMITE_MESAS_ESTABELECIMENTO; y++) {
@@ -217,7 +218,8 @@ public class AuditoriaMesa implements IMenuCrudPadrão {
 				}
 			}
 		}
-
+		
+		return null;
 	}
 
 	/**

@@ -84,7 +84,7 @@ public class MenuUsuario {
 				
 				if (opcaoMenuUsuario > 0 && opcaoMenuUsuario < 5) {
 					
-					AuditoriaUsuario.getInstance().auditaObjeto(opcaoMenuUsuario);
+					AuditoriaUsuario.getInstance().validaMenu(opcaoMenuUsuario);
 					flagMenu = false;
 					
 				} else if (opcaoMenuUsuario == 0) {

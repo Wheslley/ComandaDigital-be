@@ -87,7 +87,7 @@ public class MenuFuncionario {
 				
 				if (opcaoMenuFuncionario > 0 && opcaoMenuFuncionario < 5) {
 					
-					AuditoriaFuncionario.getInstance().auditaObjeto(opcaoMenuFuncionario);
+					AuditoriaFuncionario.getInstance().validaMenu(opcaoMenuFuncionario);
 					flagMenu = false;
 					
 				} else if (opcaoMenuFuncionario == 0) {
@@ -121,16 +121,11 @@ public class MenuFuncionario {
 		
 		System.out.println("\nCadastro do Funcionario:\n");
 		
-		System.out.println("Id de Usuario: ");
-		Usuario usuario = (Usuario) AuditoriaUsuario.getInstance().getObject(scan.nextInt());
-		
 		System.out.println("Função: ");
-		funcionario.setFuncao(scan.next());
+		funcionario.setFuncao(scan.nextLine());
 		
 		System.out.println("Salario: ");
 		funcionario.setSalario(scan.nextDouble());
-		
-		funcionario.setUsuario(usuario);
 		
 		AuditoriaFuncionario.getInstance().insereObjeto(funcionario);
 		
@@ -144,28 +139,12 @@ public class MenuFuncionario {
     public void getMenuAlteracaoFuncionario() {
 
 		Funcionario funcionario = new Funcionario();
-		Scanner scan = new Scanner(System.in);
 		
-		System.out.println("************************************");
-		System.out.println("*	 Menu Atualização de Funcionario    *");
-		System.out.println("************************************\n");
-		
-		System.out.println("Id de Usuario: ");
-		Usuario usuario = (Usuario) AuditoriaUsuario.getInstance().getObject(scan.nextInt());
-				
-		System.out.println("\nAtualizações do funcionario:\n");
-		
-		System.out.println("Função: ");
-		funcionario.setFuncao(scan.next());
-		
-		System.out.println("Salario: ");
-		funcionario.setSalario(scan.nextDouble());
-		
-		funcionario.setUsuario(usuario);
+		funcionario.setFuncao("DIRETOR");
+		funcionario.setSalario(600000);
+		funcionario.setNumeroFuncionario(1);		
 		
 		AuditoriaFuncionario.getInstance().alteraObjeto(funcionario);
-		
-		System.out.println("************************************\n");
 		
 	}
     
@@ -174,20 +153,7 @@ public class MenuFuncionario {
      */
     public void getMenuDeletaFuncionario() {
     	
-    	Scanner scan = new Scanner(System.in);
-    	
-		System.out.println("************************************");
-		System.out.println("*	 Menu Deleta Funcionario    *");
-		System.out.println("************************************\n");
-		
-		System.out.println("\nDeleta o Funcionario:\n");
-		
-		System.out.println("Id de Usuario: ");
-		Usuario usuario = (Usuario) AuditoriaUsuario.getInstance().getObject(scan.nextInt());
-		
-		AuditoriaFuncionario.getInstance().removeObjeto(usuario.getId());
-		
-		System.out.println("************************************\n");
+		AuditoriaFuncionario.getInstance().removeObjeto(2);
 		
 	}
     

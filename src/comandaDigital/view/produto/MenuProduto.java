@@ -84,7 +84,7 @@ public class MenuProduto {
 				
 				if (opcaoMenuProduto > 0 && opcaoMenuProduto < 5) {
 					
-					AuditoriaProduto.getInstance().auditaObjeto(opcaoMenuProduto);
+					AuditoriaProduto.getInstance().validaMenu(opcaoMenuProduto);
 					flagMenu = false;
 					
 				} else if (opcaoMenuProduto == 0) {
@@ -120,10 +120,10 @@ public class MenuProduto {
 		System.out.println("\nCadastro do Produto:\n");
 		
 		System.out.println("Nome: ");
-		produto.setNome(scan.next());
+		produto.setNome(scan.nextLine());
 		
 		System.out.println("Descricao: ");
-		produto.setDescricao(scan.next());
+		produto.setDescricao(scan.nextLine());
 		
 		System.out.println("Valor Base: ");
 		produto.setValorBase(scan.nextDouble());

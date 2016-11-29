@@ -190,26 +190,26 @@ public class GerarId {
 	 * 
 	 * @return
 	 */
-//	public int gerarIdProduto(){
-//		
-//		int numeroProduto = 0;
-//		
-//		if (Artefatos.produtos.size() == 0) {
-//			return 1;
-//		} else {
-//			for (int i = 0; i < Artefatos.produtos.size(); i++) {
-//
-//				if (numeroProduto < Artefatos.produtos.get(i).getIdProduto()) {
-//
-//					numeroProduto = Artefatos.produtos.get(i).getIdProduto();
-//
-//				}
-//
-//			}
-//
-//			return ++numeroProduto;
-//		}
-//		
-//	}
+	public int gerarIdProduto(){
+		
+		int numeroProduto = 0;
+		
+		if (Artefatos.produtos.size() == 0) {
+			return 1;
+		} else {
+			for (int i = 0; i < Artefatos.produtos.size(); i++) {
+
+				if (numeroProduto < Artefatos.produtos.get(i).getIdProduto()) {
+
+					numeroProduto = Artefatos.produtos.get(i).getIdProduto();
+
+				}
+
+			}
+
+			return ++numeroProduto;
+		}
+		
+	}
 	
 }

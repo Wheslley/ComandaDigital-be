@@ -1,5 +1,7 @@
 package comandaDigital.view.estabelecimento;
 
+import java.awt.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import comandaDigital.controller.auditoria.AuditoriaMesa;
@@ -7,6 +9,7 @@ import comandaDigital.controller.auditoria.AuditoriaProduto;
 import comandaDigital.model.comanda.ItemComandaDigital;
 import comandaDigital.model.estabelecimento.Mesa;
 import comandaDigital.model.produto.Produto;
+import interfaces.hibernate.IMensagemPadraoHibernate;
 
 /**
  * 
@@ -88,7 +91,7 @@ public class MenuMesa {
 				
 				if (opcaoMenuMesa > 0 && opcaoMenuMesa < 5) {
 					
-					AuditoriaMesa.getInstance().auditaObjeto(opcaoMenuMesa);
+					AuditoriaMesa.getInstance().validaMenu(opcaoMenuMesa);
 					flagMenu = false;
 					
 				} else if (opcaoMenuMesa == 0) {
@@ -112,7 +115,7 @@ public class MenuMesa {
      * Menu referente ao cadastro de um novo item na ComandaDigital
      */
     public void getMenuInsereItemComanda() {
-
+    	
 		Scanner scan = new Scanner(System.in);
 		
 		System.out.println("************************************");
@@ -135,7 +138,7 @@ public class MenuMesa {
 			int opcaoPesquisarProduto = scan.nextInt();
 			
 			if(opcaoPesquisarProduto == 1){
-				AuditoriaProduto.getInstance().listarProdutoItemComandaDigital();
+				AuditoriaProduto.getInstance().getTodosObjetos();
 			}
 			
 			System.out.println("\nDigite o id do produto: ");

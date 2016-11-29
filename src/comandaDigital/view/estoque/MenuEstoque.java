@@ -89,7 +89,7 @@ public class MenuEstoque {
 				
 				if (opcaoMenuEstoque > 0 && opcaoMenuEstoque < 5) {
 					
-					AuditoriaEstoque.getInstance().auditaObjeto(opcaoMenuEstoque);
+					AuditoriaEstoque.getInstance().validaMenu(opcaoMenuEstoque);
 					flagMenu = false;
 					
 				} else if (opcaoMenuEstoque == 0) {

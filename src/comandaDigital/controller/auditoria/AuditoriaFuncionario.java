@@ -1,7 +1,13 @@
 package comandaDigital.controller.auditoria;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import comandaDigital.model.pessoas.Funcionario;
+import comandaDigital.model.produto.Produto;
 import comandaDigital.view.funcionario.MenuFuncionario;
+import interfaces.hibernate.IMensagemPadraoHibernate;
+import interfaces.mensagens.IMensagemErro;
 import interfaces.mensagens.IMensagemGeral;
 import interfaces.padroes.IMenuCrudPadrão;
 import localStorage.Artefatos;
@@ -13,7 +19,7 @@ import util.GerarId;
  *
  */
 
-public class AuditoriaFuncionario implements IMenuCrudPadrão{
+public class AuditoriaFuncionario extends FactoryConnections implements IMenuCrudPadrão{
 	
 	private static AuditoriaFuncionario instance;
 
@@ -65,7 +71,7 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 	 * 
 	 */
 	@Override
-	public void auditaObjeto(int opcaoMenu) {
+	public void validaMenu(int opcaoMenu) {
 		
 		switch (opcaoMenu) {
 
@@ -92,7 +98,7 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 	
 			default: {
 	
-				listarObjeto();
+				List<Object> object = getTodosObjetos();
 				break;
 	
 			}
@@ -110,13 +116,11 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 	@Override
 	public void insereObjeto(Object object) {
 
-		Funcionario funcionario = (Funcionario) object;
-		
-		funcionario.setNumeroFuncionario(GerarId.getInstance().geraIdFuncionario());
-
-		Artefatos.funcionarios.add(funcionario);
-
-		//System.out.println(IMensagemGeral.FUNCIONARIO_INSERIDO_SUCESSO);
+		try {
+			this.insert((Funcionario) object, IMensagemPadraoHibernate.HIBERNATE_PERSISTENCE_INIT_MYSQL);
+		} catch (Exception ex) {
+			System.err.println(IMensagemErro.ERRO_SALVAR_OBJETO + ex.getMessage());
+		}
 		
 	}
 
@@ -131,27 +135,11 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 	@Override
 	public void alteraObjeto(Object object) {
 		
-		Funcionario funcionario = (Funcionario) object;
-		
-		for (int i = 0; i < Artefatos.funcionarios.size(); i++) {
-
-			if (funcionario.getUsuario().getId() == Artefatos.funcionarios.get(i).getUsuario().getId()) {
-
-				Artefatos.funcionarios.get(i).getUsuario().setBairro(funcionario.getUsuario().getBairro());
-				Artefatos.funcionarios.get(i).getUsuario().setCep(funcionario.getUsuario().getCep());
-				Artefatos.funcionarios.get(i).getUsuario().setCidade(funcionario.getUsuario().getCidade());
-				Artefatos.funcionarios.get(i).getUsuario().setEmail(funcionario.getUsuario().getEmail());
-				Artefatos.funcionarios.get(i).getUsuario().setLogradouro(funcionario.getUsuario().getLogradouro());
-				Artefatos.funcionarios.get(i).getUsuario().setNome(funcionario.getUsuario().getNome());
-				Artefatos.funcionarios.get(i).getUsuario().setTelefone(funcionario.getUsuario().getTelefone());
-				Artefatos.funcionarios.get(i).getUsuario().setUf(funcionario.getUsuario().getUf());
-				Artefatos.funcionarios.get(i).setFuncao(funcionario.getFuncao());
-				Artefatos.funcionarios.get(i).setSalario(funcionario.getSalario());
-				
-			}
+		try {
+			this.update((Funcionario) object, IMensagemPadraoHibernate.HIBERNATE_PERSISTENCE_INIT_MYSQL);
+		} catch (Exception ex) {
+			System.err.println(IMensagemErro.ERRO_EDITAR_OBJETO + ex.getMessage());
 		}
-
-		System.out.println(IMensagemGeral.FUNCIONARIO_ALTERADO_SUCESSO);
 		
 	}
 
@@ -166,16 +154,12 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 	@Override
 	public void removeObjeto(int id) {
 		
-		for (int i = 0; i < Artefatos.funcionarios.size(); i++) {
-
-			if (Artefatos.funcionarios.get(i).getUsuario().getId() == id) {
-
-				Artefatos.funcionarios.remove(i);
-
-			}
+		try {
+			this.delete(id, IMensagemPadraoHibernate.HIBERNATE_PERSISTENCE_INIT_MYSQL);
+		} catch (Exception ex) {
+			System.err.println(IMensagemErro.ERRO_EDITAR_OBJETO + ex.getMessage());
 		}
-
-		System.out.println(IMensagemGeral.FUNCIONARIO_DELETADO_SUCESSO);
+		
 	}
 
 	/**
@@ -185,11 +169,22 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 	 * 
 	 */
 	@Override
-	public void listarObjeto() {
+	public List<Object> getTodosObjetos() {
 		
-		for(Funcionario funcionario : Artefatos.funcionarios){
-			System.out.println(funcionario.toString());
+		List<Object> listaObjetos = new ArrayList<>();
+		String strQuery = "select u from Funcionario u";
+		
+		try {
+			listaObjetos = this.selectObjects(strQuery, IMensagemPadraoHibernate.HIBERNATE_PERSISTENCE_INIT_MYSQL);
+			for(Object o : listaObjetos){
+				Funcionario f = (Funcionario) o;
+				System.out.println(f.toString());
+			}
+		} catch (Exception ex) {
+			System.err.println(IMensagemErro.ERRO_SELECIONAR_TODOS_OBJETO + ex.getMessage());
 		}
+		
+		return listaObjetos;
 		
 	}
 
@@ -204,19 +199,18 @@ public class AuditoriaFuncionario implements IMenuCrudPadrão{
 	@Override
 	public Object getObject(int id) {
 
-		Funcionario funcionario = new Funcionario();
-
-		for (int i = 0; i < Artefatos.funcionarios.size(); i++) {
-
-			if (id == Artefatos.funcionarios.get(i).getUsuario().getId()) {
-
-				funcionario = Artefatos.funcionarios.get(i);
-
-			}
-
+		Object object = null;
+		String strQuery = "select u from Funcionario u where u.id = " + id;
+		
+		try {
+			object = this.selectObjects(strQuery, IMensagemPadraoHibernate.HIBERNATE_PERSISTENCE_INIT_MYSQL);
+			Funcionario f = (Funcionario) object;
+			System.out.println(f.toString());
+		} catch (Exception ex) {
+			System.err.println(IMensagemErro.ERRO_SELECIONAR_OBJETO + ex.getMessage());
 		}
-
-		return funcionario;
+		
+		return object;
 		
 	}
 

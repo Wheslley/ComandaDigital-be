@@ -2,9 +2,11 @@ package comandaDigital.view.login;
 
 import java.util.Scanner;
 
+import comandaDigital.controller.auditoria.AuditoriaUsuario;
 import comandaDigital.controller.menu.ValidaMenuLogin;
 import comandaDigital.model.pessoas.Usuario;
 import interfaces.mensagens.IMensagemGeral;
+import interfaces.mensagens.IMensagemParametro;
 
 /**
  * 
@@ -60,11 +62,11 @@ public class MenuLogin {
 	 * @author whesl
 	 *
 	 */
+	@SuppressWarnings("unused")
 	public void getMenuLogin() {
 		
 		Scanner scan = new Scanner(System.in);
 		Usuario usuario = new Usuario();
-		String tipoFuncionario = "";
 		int flagOpcaoSairPrograma = 0;
 		boolean flagSairPrograma = true;
 		boolean flagLogin = true;
@@ -81,7 +83,7 @@ public class MenuLogin {
 			System.out.println("************************************");
 
 			System.out.print("Usuário: ");
-			usuario.setLogin(scan.next());
+			usuario.setLogin(scan.nextInt());
 
 			System.out.print("Senha: ");
 			usuario.setSenha(scan.next());
@@ -89,13 +91,12 @@ public class MenuLogin {
 			System.out.println("*    		                   *");
 			System.out.println("************************************\n\n");
 			
-			tipoFuncionario = ValidaMenuLogin.getInstance().validaMenuLogin(usuario);
+			String tipoUsuario = (String) AuditoriaUsuario.getInstance().getObject(usuario);
 
-			if (ValidaMenuLogin.getInstance().validaTipoDeFuncionario(tipoFuncionario)){
-				
+			if (tipoUsuario != null){	
 				flagLogin = false;
 				System.out.println(IMensagemGeral.ACESSO_LIBERADO + "\n\n");
-				ValidaMenuLogin.getInstance().forwardMenuLogin(tipoFuncionario);
+				ValidaMenuLogin.getInstance().forwardMenuLogin(tipoUsuario);
 				break;
 				
 			} else {
